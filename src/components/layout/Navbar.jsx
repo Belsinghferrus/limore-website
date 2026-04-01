@@ -478,14 +478,6 @@ function LimoreLogo() {
   return (
 
 
-//     <Image
-//     src="/images/limore-logo.png"
-//     alt="Limore"
-//     width={120}
-//     height={32}
-//     priority
-//     style={{ objectFit: 'contain' }}
-//   />
 
 
     <svg

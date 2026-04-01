@@ -7,294 +7,562 @@ import { gsap } from 'gsap'
 const t = {
   en: {
     label: 'Global Luxury Chauffeur',
-    heading: 'Where Every Journey\nDefines Excellence',
-    sub: 'Premium chauffeur service across the world\'s most important cities. Trusted by corporations, private clients and luxury brands.',
-    cta: 'Book Now',
-    ctaSecondary: 'Our Services',
+    line1: 'Where Every',
+    line2: 'Journey Defines',
+    line3: 'Excellence.',
+    sub: 'Premium chauffeur service across the world\'s most important cities.',
+    cta: 'Reserve Now',
+    badge: 'Est. in Excellence',
+    cities: ['Dubai', 'London', 'New York', 'Paris', 'Singapore'],
   },
   ar: {
     label: 'سائق فاخر عالمي',
-    heading: 'حيث كل رحلة\nتعكس التميز',
-    sub: 'خدمة سائق فاخرة في اهم مدن العالم. موثوقة من قبل الشركات والعملاء الخاصين والعلامات التجارية الفاخرة.',
+    line1: 'حيث كل',
+    line2: 'رحلة تعكس',
+    line3: 'التميز.',
+    sub: 'خدمة سائق فاخرة في أهم مدن العالم.',
     cta: 'احجز الآن',
-    ctaSecondary: 'خدماتنا',
+    badge: 'التميز دائما',
+    cities: ['دبي', 'لندن', 'نيويورك', 'باريس', 'سنغافورة'],
   },
   fr: {
     label: 'Chauffeur Luxe Mondial',
-    heading: 'Chaque Trajet\nDéfinit l\'Excellence',
-    sub: 'Service chauffeur premium dans les villes les plus importantes du monde. Approuve par les entreprises, clients prives et marques de luxe.',
-    cta: 'Reserver',
-    ctaSecondary: 'Nos Services',
+    line1: 'Chaque Trajet',
+    line2: 'Définit',
+    line3: "l'Excellence.",
+    sub: 'Service chauffeur premium dans les villes les plus importantes du monde.',
+    cta: 'Réserver',
+    badge: "L'Excellence toujours",
+    cities: ['Dubai', 'Londres', 'New York', 'Paris', 'Singapour'],
   },
 }
 
 export default function HeroSection({ locale = 'en' }) {
   const content = t[locale] || t.en
-  const isRTL = locale === 'ar'
+  const isRTL   = locale === 'ar'
 
-  const labelRef = useRef(null)
-  const lineRef = useRef(null)
-  const headingRef = useRef(null)
-  const subRef = useRef(null)
-  const ctaRef = useRef(null)
-  const scrollRef = useRef(null)
+  const containerRef  = useRef(null)
+  const videoRef      = useRef(null)
+  const overlayRef    = useRef(null)
+  const labelRef      = useRef(null)
+  const line1Ref      = useRef(null)
+  const line2Ref      = useRef(null)
+  const line3Ref      = useRef(null)
+  const subRef        = useRef(null)
+  const ctaRef        = useRef(null)
+  const scrollRef     = useRef(null)
+  const topBarRef     = useRef(null)
+  const bottomBarRef  = useRef(null)
+  const cityTickerRef = useRef(null)
+
+  const localePath = (href) => '/' + locale + href
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ delay: 0.3 })
+      const tl = gsap.timeline({ delay: 0.2 })
 
-      tl.fromTo(lineRef.current,
-        { scaleX: 0 },
-        { scaleX: 1, duration: 0.8, ease: 'power3.out', transformOrigin: 'left center' }
+      /* Video fades in slowly — video IS the atmosphere */
+      gsap.fromTo(videoRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 2.5, ease: 'power2.out' }
       )
+
+      /* Overlay fades from solid → semi-transparent revealing video */
+      gsap.fromTo(overlayRef.current,
+        { opacity: 1 },
+        { opacity: 1, duration: 0 }
+      )
+
+      /* Top architectural bar */
+      tl.fromTo(topBarRef.current,
+        { scaleX: 0, transformOrigin: isRTL ? 'right center' : 'left center' },
+        { scaleX: 1, duration: 1.4, ease: 'power4.out' }
+      )
+
+      /* Label */
       .fromTo(labelRef.current,
-        { opacity: 0, y: 12 },
-        { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' },
-        '-=0.3'
+        { opacity: 0 },
+        { opacity: 1, duration: 0.8, ease: 'power2.out' },
+        '-=0.8'
       )
-      .fromTo(headingRef.current,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 1, ease: 'power3.out' },
-        '-=0.2'
+
+      /* Heading lines — each clips up from below */
+      .fromTo(line1Ref.current,
+        { yPercent: 110, opacity: 0 },
+        { yPercent: 0, opacity: 1, duration: 1, ease: 'power4.out' },
+        '-=0.4'
       )
+      .fromTo(line2Ref.current,
+        { yPercent: 110, opacity: 0 },
+        { yPercent: 0, opacity: 1, duration: 1, ease: 'power4.out' },
+        '-=0.75'
+      )
+      .fromTo(line3Ref.current,
+        { yPercent: 110, opacity: 0 },
+        { yPercent: 0, opacity: 1, duration: 1, ease: 'power4.out' },
+        '-=0.75'
+      )
+
+      /* Subline + CTA */
       .fromTo(subRef.current,
-        { opacity: 0, y: 20 },
+        { opacity: 0, y: 18 },
         { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' },
         '-=0.5'
       )
       .fromTo(ctaRef.current,
-        { opacity: 0, y: 16 },
-        { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' },
+        { opacity: 0, y: 14 },
+        { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' },
+        '-=0.5'
+      )
+
+      /* Bottom bar + scroll */
+      .fromTo(bottomBarRef.current,
+        { opacity: 0, y: 10 },
+        { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' },
         '-=0.4'
       )
       .fromTo(scrollRef.current,
         { opacity: 0 },
         { opacity: 1, duration: 0.6 },
-        '-=0.2'
+        '-=0.5'
       )
-    })
+
+      /* City ticker — infinite loop */
+      const ticker = cityTickerRef.current
+      if (ticker) {
+        gsap.to(ticker, {
+          x: '-50%',
+          duration: 20,
+          ease: 'none',
+          repeat: -1,
+        })
+      }
+
+    }, containerRef)
+
     return () => ctx.revert()
   }, [])
 
-  const localePath = (href) => '/' + locale + href
-
   return (
     <section
+      ref={containerRef}
       style={{
         position: 'relative',
         width: '100%',
         minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
         overflow: 'hidden',
-        backgroundColor: '#0A0A0A',
+        backgroundColor: '#050505',
         direction: isRTL ? 'rtl' : 'ltr',
       }}
     >
-      {/* Background video */}
+
+      {/* ── BACKGROUND VIDEO ── */}
       <video
+        ref={videoRef}
         autoPlay
         muted
         loop
         playsInline
+        aria-hidden="true"
         style={{
           position: 'absolute',
           inset: 0,
           width: '100%',
           height: '100%',
           objectFit: 'cover',
-          opacity: 0.4,
+          opacity: 0,
           zIndex: 0,
         }}
       >
-        <source src="https://cdn.coverr.co/videos/coverr-driving-a-luxury-car-at-night-3949/1080p.mp4" type="video/mp4" />
+        <source src="https://thelimore.com/wp-content/uploads/2024/02/main_vd-min.mp4" type="video/mp4" />
       </video>
 
-      {/* Dark overlay gradient */}
-      <div style={{
-        position: 'absolute',
-        inset: 0,
-        background: 'linear-gradient(to right, rgba(10,10,10,0.95) 50%, rgba(10,10,10,0.5) 100%)',
-        zIndex: 1,
-      }} />
-
-      {/* Bottom fade */}
-      <div style={{
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        height: '200px',
-        background: 'linear-gradient(to top, #0A0A0A, transparent)',
-        zIndex: 2,
-      }} />
-
-      {/* Content */}
+      {/* ── LAYERED OVERLAYS ── */}
+      {/* Base darkening — very restrained so video shows through clearly */}
       <div
-        className="container-default"
-        style={{ position: 'relative', zIndex: 3, paddingTop: '120px', paddingBottom: '120px' }}
-      >
-        <div style={{ maxWidth: '680px' }}>
+        ref={overlayRef}
+        style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 1,
+          /* Strong left-side gradient so text is legible but video lives on right */
+          background: `
+            linear-gradient(
+              105deg,
+              rgba(5,5,5,0.92) 0%,
+              rgba(5,5,5,0.75) 35%,
+              rgba(5,5,5,0.35) 60%,
+              rgba(5,5,5,0.1) 100%
+            )
+          `,
+        }}
+      />
 
-          {/* Label */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '28px' }}>
-            <div
-              ref={lineRef}
-              style={{
-                width: '40px',
-                height: '1px',
-                backgroundColor: '#C41E1E',
-                display: 'block',
-              }}
-            />
-            <span
-              ref={labelRef}
-              style={{
-                fontSize: '11px',
-                fontFamily: 'Inter, sans-serif',
-                fontWeight: 500,
-                letterSpacing: '0.2em',
-                textTransform: 'uppercase',
-                color: '#C41E1E',
-              }}
-            >
+      {/* Bottom vignette — makes section-to-section transition seamless */}
+      <div style={{
+        position: 'absolute',
+        bottom: 0, left: 0, right: 0,
+        height: '260px',
+        background: 'linear-gradient(to top, #050505 0%, rgba(5,5,5,0.6) 50%, transparent 100%)',
+        zIndex: 2,
+        pointerEvents: 'none',
+      }} />
+
+      {/* Top vignette */}
+      <div style={{
+        position: 'absolute',
+        top: 0, left: 0, right: 0,
+        height: '160px',
+        background: 'linear-gradient(to bottom, rgba(5,5,5,0.6) 0%, transparent 100%)',
+        zIndex: 2,
+        pointerEvents: 'none',
+      }} />
+
+      {/* ── TOP ARCHITECTURAL RULE ── */}
+      <div
+        ref={topBarRef}
+        style={{
+          position: 'absolute',
+          top: '88px', /* Below navbar */
+          left: 0, right: 0,
+          height: '1px',
+          backgroundColor: 'rgba(196,30,30,0.5)',
+          zIndex: 4,
+        }}
+      />
+
+      {/* ── MAIN CONTENT ── */}
+      <div
+        style={{
+          position: 'relative',
+          zIndex: 5,
+          width: '100%',
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'flex-end',
+          paddingBottom: 'clamp(80px, 10vh, 120px)',
+          paddingLeft: 'clamp(24px, 6vw, 96px)',
+          paddingRight: 'clamp(24px, 6vw, 96px)',
+          paddingTop: '120px',
+        }}
+      >
+        <div style={{ maxWidth: '900px' }}>
+
+          {/* Label row */}
+          <div
+            ref={labelRef}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '14px',
+              marginBottom: 'clamp(20px, 3vh, 36px)',
+              opacity: 0,
+            }}
+          >
+            <div style={{
+              width: '40px', height: '1px',
+              backgroundColor: '#C41E1E', flexShrink: 0,
+            }} />
+            <span style={{
+              fontSize: '10px',
+              fontFamily: 'Inter, sans-serif',
+              fontWeight: 500,
+              letterSpacing: '0.28em',
+              textTransform: 'uppercase',
+              color: '#C41E1E',
+            }}>
               {content.label}
             </span>
           </div>
 
-          {/* Heading */}
-          <h1
-            ref={headingRef}
-            style={{
-              fontSize: 'clamp(2.8rem, 6vw, 6rem)',
-              fontFamily: 'Cormorant Garamond, Georgia, serif',
-              fontWeight: 400,
-              color: '#F8F7F4',
-              lineHeight: 1.05,
-              letterSpacing: '0.02em',
-              marginBottom: '28px',
-              whiteSpace: 'pre-line',
-            }}
-          >
-            {content.heading}
-          </h1>
+          {/* Heading — 3 lines, each in own clip container */}
+          <div style={{ marginBottom: 'clamp(24px, 4vh, 48px)' }}>
 
-          {/* Subtext */}
-          <p
-            ref={subRef}
-            style={{
-              fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)',
-              fontFamily: 'Inter, sans-serif',
-              fontWeight: 300,
-              color: 'rgba(248,247,244,0.6)',
-              lineHeight: 1.75,
-              marginBottom: '44px',
-              maxWidth: '520px',
-            }}
-          >
-            {content.sub}
-          </p>
+            {/* Line 1 */}
+            <div style={{ overflow: 'hidden' }}>
+              <div
+                ref={line1Ref}
+                style={{ opacity: 0 }}
+              >
+                <span style={{
+                  display: 'block',
+                  fontSize: 'clamp(3rem, 7.5vw, 8rem)',
+                  fontFamily: 'Cormorant Garamond, Georgia, serif',
+                  fontWeight: 300,
+                  color: '#F8F7F4',
+                  lineHeight: 0.95,
+                  letterSpacing: '-0.01em',
+                }}>
+                  {content.line1}
+                </span>
+              </div>
+            </div>
 
-          {/* CTAs */}
-          <div
-            ref={ctaRef}
-            style={{ display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}
-          >
-            <Link
-              href={localePath('/contact')}
-              className="hero-cta-primary"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '10px',
-                padding: '16px 36px',
-                backgroundColor: '#C41E1E',
-                color: '#fff',
-                fontSize: '12px',
-                fontFamily: 'Inter, sans-serif',
-                fontWeight: 500,
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                textDecoration: 'none',
-                transition: 'background 0.3s ease, transform 0.2s ease',
-              }}
-            >
-              {content.cta}
-              <span style={{ fontSize: '14px' }}>→</span>
-            </Link>
+            {/* Line 2 */}
+            <div style={{ overflow: 'hidden' }}>
+              <div
+                ref={line2Ref}
+                style={{ opacity: 0 }}
+              >
+                <span style={{
+                  display: 'block',
+                  fontSize: 'clamp(3rem, 7.5vw, 8rem)',
+                  fontFamily: 'Cormorant Garamond, Georgia, serif',
+                  fontWeight: 300,
+                  color: '#F8F7F4',
+                  lineHeight: 0.95,
+                  letterSpacing: '-0.01em',
+                }}>
+                  {content.line2}
+                </span>
+              </div>
+            </div>
 
-            <Link
-              href={localePath('/services')}
-              className="hero-cta-secondary"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '10px',
-                padding: '16px 36px',
-                backgroundColor: 'transparent',
-                color: '#F8F7F4',
-                fontSize: '12px',
-                fontFamily: 'Inter, sans-serif',
-                fontWeight: 500,
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                textDecoration: 'none',
-                border: '1px solid rgba(248,247,244,0.25)',
-                transition: 'border-color 0.3s ease, color 0.3s ease',
-              }}
-            >
-              {content.ctaSecondary}
-            </Link>
+            {/* Line 3 — italic final word for editorial luxury touch */}
+            <div style={{ overflow: 'hidden' }}>
+              <div
+                ref={line3Ref}
+                style={{ opacity: 0 }}
+              >
+                <span style={{
+                  display: 'block',
+                  fontSize: 'clamp(3rem, 7.5vw, 8rem)',
+                  fontFamily: 'Cormorant Garamond, Georgia, serif',
+                  fontWeight: 300,
+                  fontStyle: 'italic',
+                  color: '#F8F7F4',
+                  lineHeight: 0.95,
+                  letterSpacing: '-0.01em',
+                }}>
+                  {content.line3}
+                </span>
+              </div>
+            </div>
+
           </div>
 
+          {/* Sub + CTA row */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'flex-end',
+              gap: 'clamp(24px, 4vw, 64px)',
+              flexWrap: 'wrap',
+            }}
+          >
+
+            {/* Sub */}
+            <p
+              ref={subRef}
+              style={{
+                fontSize: 'clamp(0.85rem, 1.3vw, 1rem)',
+                fontFamily: 'Inter, sans-serif',
+                fontWeight: 300,
+                color: 'rgba(248,247,244,0.5)',
+                lineHeight: 1.75,
+                maxWidth: '340px',
+                opacity: 0,
+              }}
+            >
+              {content.sub}
+            </p>
+
+            {/* CTAs */}
+            <div
+              ref={ctaRef}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '16px',
+                flexShrink: 0,
+                opacity: 0,
+              }}
+            >
+              {/* Primary CTA */}
+              <Link
+                href={localePath('/contact')}
+                className="h-cta-primary"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  padding: '15px 36px',
+                  backgroundColor: '#C41E1E',
+                  color: '#F8F7F4',
+                  fontSize: '11px',
+                  fontFamily: 'Inter, sans-serif',
+                  fontWeight: 500,
+                  letterSpacing: '0.2em',
+                  textTransform: 'uppercase',
+                  textDecoration: 'none',
+                  transition: 'background-color 0.3s ease, transform 0.2s ease',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {content.cta}
+                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
+                  <path d="M1 5h12M8 1l5 4-5 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+                </svg>
+              </Link>
+
+            
+            </div>
+
+          </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* ── BOTTOM ARCHITECTURAL BAR ── */}
       <div
-        ref={scrollRef}
+        ref={bottomBarRef}
         style={{
           position: 'absolute',
-          bottom: '40px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          zIndex: 3,
+          bottom: 0, left: 0, right: 0,
+          zIndex: 5,
+          borderTop: '1px solid rgba(248,247,244,0.08)',
           display: 'flex',
-          flexDirection: 'column',
           alignItems: 'center',
-          gap: '8px',
+          justifyContent: 'space-between',
+          padding: '0 clamp(24px, 6vw, 96px)',
+          height: '52px',
+          opacity: 0,
         }}
       >
-        <span style={{
-          fontSize: '10px',
-          fontFamily: 'Inter, sans-serif',
-          letterSpacing: '0.2em',
-          textTransform: 'uppercase',
-          color: 'rgba(255,255,255,0.3)',
-        }}>
-          Scroll
-        </span>
+        {/* Left — city ticker */}
         <div style={{
-          width: '1px',
-          height: '40px',
-          background: 'linear-gradient(to bottom, rgba(196,30,30,0.8), transparent)',
-          animation: 'scrollLine 1.8s ease-in-out infinite',
-        }} />
+          overflow: 'hidden',
+          maxWidth: '60%',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '12px',
+        }}>
+          <span style={{
+            fontSize: '9px',
+            fontFamily: 'Inter, sans-serif',
+            fontWeight: 500,
+            letterSpacing: '0.2em',
+            textTransform: 'uppercase',
+            color: 'rgba(248,247,244,0.25)',
+            flexShrink: 0,
+          }}>
+            Operating in
+          </span>
+          <div style={{ overflow: 'hidden', flex: 1 }}>
+            {/* Ticker — doubled for seamless loop */}
+            <div
+              ref={cityTickerRef}
+              style={{
+                display: 'flex',
+                gap: '0',
+                width: 'max-content',
+                willChange: 'transform',
+              }}
+            >
+              {[...content.cities, ...content.cities].map((city, i) => (
+                <span
+                  key={i}
+                  style={{
+                    fontSize: '10px',
+                    fontFamily: 'Inter, sans-serif',
+                    fontWeight: 400,
+                    letterSpacing: '0.14em',
+                    textTransform: 'uppercase',
+                    color: 'rgba(248,247,244,0.45)',
+                    paddingInline: '22px',
+                    borderRight: '1px solid rgba(248,247,244,0.1)',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  {city}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Right — scroll indicator */}
+        <div
+          ref={scrollRef}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '12px',
+            opacity: 0,
+          }}
+        >
+          <span style={{
+            fontSize: '9px',
+            fontFamily: 'Inter, sans-serif',
+            fontWeight: 500,
+            letterSpacing: '0.22em',
+            textTransform: 'uppercase',
+            color: 'rgba(248,247,244,0.25)',
+          }}>
+            Scroll
+          </span>
+          {/* Animated line */}
+          <div style={{
+            width: '32px',
+            height: '1px',
+            overflow: 'hidden',
+            position: 'relative',
+            backgroundColor: 'rgba(248,247,244,0.1)',
+          }}>
+            <div style={{
+              position: 'absolute',
+              top: 0, left: 0,
+              width: '100%',
+              height: '100%',
+              backgroundColor: '#C41E1E',
+              animation: 'scrollPulse 2s ease-in-out infinite',
+            }} />
+          </div>
+        </div>
+
+      </div>
+
+      {/* ── RIGHT SIDE VERTICAL TEXT (signature luxury detail) ── */}
+      <div style={{
+        position: 'absolute',
+        right: 'clamp(16px, 3vw, 40px)',
+        top: '50%',
+        transform: 'translateY(-50%) rotate(90deg)',
+        transformOrigin: 'center center',
+        zIndex: 5,
+        display: 'flex',
+        alignItems: 'center',
+        gap: '14px',
+      }}>
+        <div style={{ width: '24px', height: '1px', backgroundColor: 'rgba(196,30,30,0.5)' }} />
+        <span style={{
+          fontSize: '9px',
+          fontFamily: 'Inter, sans-serif',
+          fontWeight: 500,
+          letterSpacing: '0.28em',
+          textTransform: 'uppercase',
+          color: 'rgba(248,247,244,0.2)',
+          whiteSpace: 'nowrap',
+        }}>
+          {content.badge}
+        </span>
+        <div style={{ width: '24px', height: '1px', backgroundColor: 'rgba(196,30,30,0.5)' }} />
       </div>
 
       <style>{`
-        .hero-cta-primary:hover {
-          background-color: #A01818 !important;
+        .h-cta-primary:hover {
+          background-color: #A01515 !important;
           transform: translateY(-1px);
         }
-        .hero-cta-secondary:hover {
-          border-color: rgba(248,247,244,0.7) !important;
-          color: #fff !important;
+        .h-cta-ghost:hover {
+          border-color: rgba(248,247,244,0.5) !important;
+          color: #F8F7F4 !important;
+          background-color: rgba(248,247,244,0.04) !important;
         }
-        @keyframes scrollLine {
-          0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
-          50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
-          100% { transform: scaleY(1); transform-origin: top; opacity: 0; }
+        @keyframes scrollPulse {
+          0%   { transform: translateX(-100%); }
+          50%  { transform: translateX(0%); }
+          100% { transform: translateX(100%); }
         }
       `}</style>
     </section>

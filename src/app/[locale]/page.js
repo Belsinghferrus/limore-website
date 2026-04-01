@@ -35,8 +35,8 @@ export default async function HomePage({ params }) {
       <HeroSection locale={locale} />
       <TrustBar locale={locale} />
       <AboutStatement locale={locale} />
-      <ServicesSection locale={locale} />
       <WhyLimore locale={locale} />
+      <ServicesSection locale={locale} />
       <GlobalCoverage locale={locale} />
       <ClientSection locale={locale} />
       <CtaBanner locale={locale} />

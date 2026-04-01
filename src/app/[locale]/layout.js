@@ -10,9 +10,8 @@ export const metadata = {
   description: 'Premium chauffeur-driven limousine service across global cities.',
 }
 
-export default function LocaleLayout({ children, params }) {
-  const locale = params?.locale || 'en'
-
+export default async function LocaleLayout({ children, params }) {
+    const { locale } = await params 
   return (
     <html lang={locale}>
       <head>

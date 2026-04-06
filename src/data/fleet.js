@@ -69,7 +69,7 @@ export const fleetCategories = [
       seats:    3,
       luggage:  3,
       img:      'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=900&q=85',
-      imgAlt:   'Mercedes-Benz S-Class — Limore Premium Class',
+      imgAlt:   'Mercedes-Benz S-Class - Limore Premium Class',
       features: {
         en: ['Massage Seats', 'Burmester Sound', 'Privacy Partition', 'Ambient Lighting', 'Wi-Fi', 'Champagne Cooler'],
         ar: ['مقاعد مساج', 'صوت بورميستر', 'حاجز خصوصية', 'إضاءة محيطية', 'واي فاي', 'مبرد شمبانيا'],

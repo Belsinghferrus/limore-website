@@ -4,12 +4,14 @@ import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { gsap } from 'gsap'
 
+//Seamless Global Chauffeur Services Across 100+ Cities
+//Where EveryJourney Defines Excellence.
 const t = {
   en: {
     label: 'Global Luxury Chauffeur',
-    line1: 'Where Every',
-    line2: 'Journey Defines',
-    line3: 'Excellence.',
+    line1: 'Seamless Global',
+    line2: 'Chauffeur Services',
+    line3: 'Across 100+ Cities.',
     sub: 'Premium chauffeur service across the world\'s most important cities.',
     cta: 'Reserve Now',
     badge: 'Est. in Excellence',

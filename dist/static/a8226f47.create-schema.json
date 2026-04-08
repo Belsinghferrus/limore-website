@@ -1,0 +1,633 @@
+[
+  {
+    "fields": [
+      {
+        "fields": [
+          {
+            "validation": [
+              {
+                "level": "error",
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ]
+              }
+            ],
+            "name": "en",
+            "type": "string",
+            "title": "English"
+          },
+          {
+            "name": "ar",
+            "type": "string",
+            "title": "Arabic"
+          },
+          {
+            "name": "fr",
+            "type": "string",
+            "title": "French"
+          }
+        ],
+        "name": "title",
+        "type": "object"
+      },
+      {
+        "options": {
+          "source": "title.en",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "fields": [
+          {
+            "rows": 3,
+            "name": "en",
+            "type": "text",
+            "title": "English"
+          },
+          {
+            "rows": 3,
+            "name": "ar",
+            "type": "text",
+            "title": "Arabic"
+          },
+          {
+            "rows": 3,
+            "name": "fr",
+            "type": "text",
+            "title": "French"
+          }
+        ],
+        "name": "excerpt",
+        "type": "object"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "fields": [
+              {
+                "name": "en",
+                "type": "string",
+                "title": "English"
+              },
+              {
+                "name": "ar",
+                "type": "string",
+                "title": "Arabic"
+              },
+              {
+                "name": "fr",
+                "type": "string",
+                "title": "French"
+              }
+            ],
+            "name": "alt",
+            "type": "object",
+            "title": "Alt Text"
+          }
+        ],
+        "name": "coverImage",
+        "type": "image"
+      },
+      {
+        "description": "Short label shown on cards",
+        "fields": [
+          {
+            "name": "en",
+            "type": "string",
+            "title": "English"
+          },
+          {
+            "name": "ar",
+            "type": "string",
+            "title": "Arabic"
+          },
+          {
+            "name": "fr",
+            "type": "string",
+            "title": "French"
+          }
+        ],
+        "name": "category",
+        "type": "object"
+      },
+      {
+        "initialValue": "The Limore Team",
+        "name": "author",
+        "type": "string"
+      },
+      {
+        "options": {
+          "dateFormat": "YYYY-MM-DD",
+          "timeStep": 60
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "publishedAt",
+        "type": "datetime"
+      },
+      {
+        "initialValue": 5,
+        "name": "readTime",
+        "type": "number",
+        "title": "Read Time (minutes)"
+      },
+      {
+        "initialValue": false,
+        "description": "Pins to the hero slot on the listing page",
+        "name": "featured",
+        "type": "boolean",
+        "title": "Featured Post"
+      },
+      {
+        "fields": [
+          {
+            "of": [
+              {
+                "lists": [
+                  {
+                    "value": "bullet",
+                    "title": "Bulleted list"
+                  },
+                  {
+                    "value": "number",
+                    "title": "Numbered list"
+                  }
+                ],
+                "marks": {
+                  "annotations": [
+                    {
+                      "i18nTitleKey": "inputs.portable-text.annotation.link",
+                      "options": {
+                        "modal": {
+                          "type": "popover"
+                        }
+                      },
+                      "fields": [
+                        {
+                          "validation": [
+                            {
+                              "level": "error",
+                              "rules": [
+                                {
+                                  "flag": "uri",
+                                  "constraint": {
+                                    "options": {
+                                      "scheme": [
+                                        "/^http$/",
+                                        "/^https$/",
+                                        "/^tel$/",
+                                        "/^mailto$/"
+                                      ],
+                                      "allowRelative": true,
+                                      "relativeOnly": false,
+                                      "allowCredentials": false
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ],
+                          "description": "A valid web, email, phone, or relative link.",
+                          "name": "href",
+                          "type": "url",
+                          "title": "Link"
+                        }
+                      ],
+                      "name": "link",
+                      "type": "object"
+                    }
+                  ],
+                  "decorators": [
+                    {
+                      "value": "strong",
+                      "title": "Strong"
+                    },
+                    {
+                      "value": "em",
+                      "title": "Italic"
+                    },
+                    {
+                      "value": "code",
+                      "title": "Code"
+                    },
+                    {
+                      "value": "underline",
+                      "title": "Underline"
+                    },
+                    {
+                      "value": "strike-through",
+                      "title": "Strike"
+                    }
+                  ]
+                },
+                "of": [],
+                "styles": [
+                  {
+                    "value": "normal",
+                    "title": "Normal"
+                  },
+                  {
+                    "value": "h1",
+                    "title": "Heading 1"
+                  },
+                  {
+                    "value": "h2",
+                    "title": "Heading 2"
+                  },
+                  {
+                    "value": "h3",
+                    "title": "Heading 3"
+                  },
+                  {
+                    "value": "h4",
+                    "title": "Heading 4"
+                  },
+                  {
+                    "value": "h5",
+                    "title": "Heading 5"
+                  },
+                  {
+                    "value": "h6",
+                    "title": "Heading 6"
+                  },
+                  {
+                    "value": "blockquote",
+                    "title": "Quote"
+                  }
+                ],
+                "type": "block"
+              },
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "fields": [
+                  {
+                    "name": "alt",
+                    "type": "string",
+                    "title": "Alt Text"
+                  },
+                  {
+                    "name": "caption",
+                    "type": "string"
+                  }
+                ],
+                "type": "image"
+              }
+            ],
+            "name": "en",
+            "type": "array",
+            "title": "English"
+          },
+          {
+            "of": [
+              {
+                "lists": [
+                  {
+                    "value": "bullet",
+                    "title": "Bulleted list"
+                  },
+                  {
+                    "value": "number",
+                    "title": "Numbered list"
+                  }
+                ],
+                "marks": {
+                  "annotations": [
+                    {
+                      "i18nTitleKey": "inputs.portable-text.annotation.link",
+                      "options": {
+                        "modal": {
+                          "type": "popover"
+                        }
+                      },
+                      "fields": [
+                        {
+                          "validation": [
+                            {
+                              "level": "error",
+                              "rules": [
+                                {
+                                  "flag": "uri",
+                                  "constraint": {
+                                    "options": {
+                                      "scheme": [
+                                        "/^http$/",
+                                        "/^https$/",
+                                        "/^tel$/",
+                                        "/^mailto$/"
+                                      ],
+                                      "allowRelative": true,
+                                      "relativeOnly": false,
+                                      "allowCredentials": false
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ],
+                          "description": "A valid web, email, phone, or relative link.",
+                          "name": "href",
+                          "type": "url",
+                          "title": "Link"
+                        }
+                      ],
+                      "name": "link",
+                      "type": "object"
+                    }
+                  ],
+                  "decorators": [
+                    {
+                      "value": "strong",
+                      "title": "Strong"
+                    },
+                    {
+                      "value": "em",
+                      "title": "Italic"
+                    },
+                    {
+                      "value": "code",
+                      "title": "Code"
+                    },
+                    {
+                      "value": "underline",
+                      "title": "Underline"
+                    },
+                    {
+                      "value": "strike-through",
+                      "title": "Strike"
+                    }
+                  ]
+                },
+                "of": [],
+                "styles": [
+                  {
+                    "value": "normal",
+                    "title": "Normal"
+                  },
+                  {
+                    "value": "h1",
+                    "title": "Heading 1"
+                  },
+                  {
+                    "value": "h2",
+                    "title": "Heading 2"
+                  },
+                  {
+                    "value": "h3",
+                    "title": "Heading 3"
+                  },
+                  {
+                    "value": "h4",
+                    "title": "Heading 4"
+                  },
+                  {
+                    "value": "h5",
+                    "title": "Heading 5"
+                  },
+                  {
+                    "value": "h6",
+                    "title": "Heading 6"
+                  },
+                  {
+                    "value": "blockquote",
+                    "title": "Quote"
+                  }
+                ],
+                "type": "block"
+              },
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "type": "image"
+              }
+            ],
+            "name": "ar",
+            "type": "array",
+            "title": "Arabic"
+          },
+          {
+            "of": [
+              {
+                "lists": [
+                  {
+                    "value": "bullet",
+                    "title": "Bulleted list"
+                  },
+                  {
+                    "value": "number",
+                    "title": "Numbered list"
+                  }
+                ],
+                "marks": {
+                  "annotations": [
+                    {
+                      "i18nTitleKey": "inputs.portable-text.annotation.link",
+                      "options": {
+                        "modal": {
+                          "type": "popover"
+                        }
+                      },
+                      "fields": [
+                        {
+                          "validation": [
+                            {
+                              "level": "error",
+                              "rules": [
+                                {
+                                  "flag": "uri",
+                                  "constraint": {
+                                    "options": {
+                                      "scheme": [
+                                        "/^http$/",
+                                        "/^https$/",
+                                        "/^tel$/",
+                                        "/^mailto$/"
+                                      ],
+                                      "allowRelative": true,
+                                      "relativeOnly": false,
+                                      "allowCredentials": false
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ],
+                          "description": "A valid web, email, phone, or relative link.",
+                          "name": "href",
+                          "type": "url",
+                          "title": "Link"
+                        }
+                      ],
+                      "name": "link",
+                      "type": "object"
+                    }
+                  ],
+                  "decorators": [
+                    {
+                      "value": "strong",
+                      "title": "Strong"
+                    },
+                    {
+                      "value": "em",
+                      "title": "Italic"
+                    },
+                    {
+                      "value": "code",
+                      "title": "Code"
+                    },
+                    {
+                      "value": "underline",
+                      "title": "Underline"
+                    },
+                    {
+                      "value": "strike-through",
+                      "title": "Strike"
+                    }
+                  ]
+                },
+                "of": [],
+                "styles": [
+                  {
+                    "value": "normal",
+                    "title": "Normal"
+                  },
+                  {
+                    "value": "h1",
+                    "title": "Heading 1"
+                  },
+                  {
+                    "value": "h2",
+                    "title": "Heading 2"
+                  },
+                  {
+                    "value": "h3",
+                    "title": "Heading 3"
+                  },
+                  {
+                    "value": "h4",
+                    "title": "Heading 4"
+                  },
+                  {
+                    "value": "h5",
+                    "title": "Heading 5"
+                  },
+                  {
+                    "value": "h6",
+                    "title": "Heading 6"
+                  },
+                  {
+                    "value": "blockquote",
+                    "title": "Quote"
+                  }
+                ],
+                "type": "block"
+              },
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "type": "image"
+              }
+            ],
+            "name": "fr",
+            "type": "array",
+            "title": "French"
+          }
+        ],
+        "name": "body",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "fields": [
+              {
+                "name": "metaTitle",
+                "type": "string"
+              },
+              {
+                "rows": 2,
+                "name": "metaDescription",
+                "type": "text"
+              }
+            ],
+            "name": "en",
+            "type": "object",
+            "title": "EN SEO"
+          },
+          {
+            "fields": [
+              {
+                "name": "metaTitle",
+                "type": "string"
+              },
+              {
+                "rows": 2,
+                "name": "metaDescription",
+                "type": "text"
+              }
+            ],
+            "name": "ar",
+            "type": "object",
+            "title": "AR SEO"
+          },
+          {
+            "fields": [
+              {
+                "name": "metaTitle",
+                "type": "string"
+              },
+              {
+                "rows": 2,
+                "name": "metaDescription",
+                "type": "text"
+              }
+            ],
+            "name": "fr",
+            "type": "object",
+            "title": "FR SEO"
+          }
+        ],
+        "name": "seo",
+        "type": "object",
+        "title": "SEO"
+      }
+    ],
+    "name": "post",
+    "type": "document",
+    "title": "Blog Post"
+  }
+]

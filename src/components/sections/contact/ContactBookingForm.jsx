@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 // ─── Brand tokens — WHITE surface, matches global.css ─────────────────────────
 const RED        = '#C41E1E'   // matches --color-limore-red in global.css
-const RED_HOVER  = '#A51818'
+const RED_HOVER  = '#A51818'    
 const BG         = '#FFFFFF'   // --color-surface
 const SURFACE    = '#F8F7F4'   // --color-surface-2
 const SURFACE_3  = '#F0EFEC'   // --color-surface-3

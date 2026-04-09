@@ -176,9 +176,9 @@ export default function HeroSection({ locale = 'en' }) {
           zIndex: 0,
         }}
       >
-        <source src="https://thelimore.com/wp-content/uploads/2024/02/main_vd-min.mp4" type="video/mp4" />
+        <source src="/video/limore-hero-1.mp4" type="video/mp4" />
       </video>
-
+      {/* https://thelimore.com/wp-content/uploads/2024/02/main_vd-min.mp4 */}
       {/* ── LAYERED OVERLAYS ── */}
       {/* Base darkening — very restrained so video shows through clearly */}
       <div

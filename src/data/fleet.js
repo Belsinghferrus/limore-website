@@ -43,7 +43,7 @@ export const fleetCategories = [
       class:    { en: 'Executive Class', ar: 'الفئة التنفيذية', fr: 'Classe Exécutive' },
       seats:    3,
       luggage:  2,
-      img:      'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=900&q=85',
+      img:      '/images/Audi-A6.jpg',
       imgAlt:   'Audi A6 — Limore Executive Class',
       features: {
         en: ['Ambient Lighting', 'Leather Seating', 'Wi-Fi', 'Charging Ports', 'Privacy Glass'],
@@ -68,7 +68,7 @@ export const fleetCategories = [
       class:    { en: 'Premium Class', ar: 'الفئة المميزة', fr: 'Classe Premium' },
       seats:    3,
       luggage:  3,
-      img:      'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=900&q=85',
+      img:      '/images/fleet/Mercedes-s6.jpeg',
       imgAlt:   'Mercedes-Benz S-Class - Limore Premium Class',
       features: {
         en: ['Massage Seats', 'Burmester Sound', 'Privacy Partition', 'Ambient Lighting', 'Wi-Fi', 'Champagne Cooler'],
@@ -91,7 +91,7 @@ export const fleetCategories = [
       class:    { en: 'Premium Class', ar: 'الفئة المميزة', fr: 'Classe Premium' },
       seats:    3,
       luggage:  3,
-      img:      'https://images.unsplash.com/photo-1556189250-72ba954cfc2b?w=900&q=85',
+      img:      '/images/fleet/bmw7.jpeg',
       imgAlt:   'BMW 7 Series — Limore Premium Class',
       features: {
         en: ['Executive Lounge Seating', 'Sky Lounge Roof', 'Wi-Fi', 'Ambient Lighting', 'Massage Seats'],
@@ -114,7 +114,7 @@ export const fleetCategories = [
       class:    { en: 'Premium Class', ar: 'الفئة المميزة', fr: 'Classe Premium' },
       seats:    3,
       luggage:  3,
-      img:      'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=900&q=85',
+      img:      '/images/fleet/Audi-A8.jpg',
       imgAlt:   'Audi A8 L — Limore Premium Class',
       features: {
         en: ['Rear Executive Package', 'Massage Seats', 'Wi-Fi', 'Ambient Lighting', 'Privacy Glass'],
@@ -139,7 +139,7 @@ export const fleetCategories = [
       class:    { en: 'Elite SUV Class', ar: 'فئة SUV النخبة', fr: 'Classe SUV Élite' },
       seats:    4,
       luggage:  4,
-      img:      'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=900&q=85',
+      img:      '/images/fleet/rangerover.jpeg',
       imgAlt:   'Range Rover Vogue — Limore Elite SUV',
       features: {
         en: ['Air Suspension', 'Leather Seating', 'Panoramic Roof', 'Wi-Fi', 'Privacy Glass', 'Terrain Response'],
@@ -162,7 +162,7 @@ export const fleetCategories = [
       class:    { en: 'Elite SUV Class', ar: 'فئة SUV النخبة', fr: 'Classe SUV Élite' },
       seats:    4,
       luggage:  3,
-      img:      'https://media.autoexpress.co.uk/image/private/s--X-WVjvBW--/f_auto,t_content-image-full-desktop@1/v1736773643/autoexpress/2025/01/Mercedes%20G-Class%20G%20500.jpg',
+      img:      '/images/fleet/mercedes-G.jpeg',
       imgAlt:   'Mercedes-Benz G-Class — Limore Elite SUV',
       features: {
         en: ['AMG Package', 'Leather Seating', 'Wi-Fi', 'Charging Ports', 'Privacy Glass'],
@@ -187,7 +187,7 @@ export const fleetCategories = [
       class:    { en: 'Ultra Luxury Collection', ar: 'مجموعة فائقة الفخامة', fr: 'Collection Ultra Luxe' },
       seats:    3,
       luggage:  2,
-      img:      'https://images.unsplash.com/photo-1631295868223-63265b40d9e4?w=900&q=85',
+      img:      '/images/fleet/rollsroyce.jpeg',
       imgAlt:   'Rolls-Royce Phantom — Limore Ultra Luxury',
       features: {
         en: ['Starlight Headliner', 'Bespoke Interior', 'Privacy Partition', 'Champagne Cooler', 'Rear Theatre', 'Lambswool Carpets'],
@@ -210,7 +210,7 @@ export const fleetCategories = [
       class:    { en: 'Ultra Luxury Collection', ar: 'مجموعة فائقة الفخامة', fr: 'Collection Ultra Luxe' },
       seats:    3,
       luggage:  2,
-      img:      'https://images.unsplash.com/photo-1616422285623-13ff0162193c?w=900&q=85',
+      img:      '/images/fleet/maybach.jpeg',
       imgAlt:   'Mercedes-Maybach S 680 — Limore Ultra Luxury',
       features: {
         en: ['First Class Rear Suite', 'Massage Seats', 'Champagne Flutes', 'Privacy Partition', 'Burmester 4D Sound', 'Heated Armrests'],
@@ -235,7 +235,7 @@ export const fleetCategories = [
       class:    { en: 'Family & Executive Van', ar: 'فان عائلي وتنفيذي', fr: 'Van Famille & Exécutif' },
       seats:    6,
       luggage:  6,
-      img:      'https://images.unsplash.com/photo-1570733577524-3a047079e80d?w=900&q=85',
+      img:      '/images/fleet/mercedes-v.jpeg',
       imgAlt:   'Mercedes-Benz V-Class — Limore Executive Van',
       features: {
         en: ['Conference Layout', 'Facing Seats', 'Wi-Fi', 'Privacy Glass', 'Ambient Lighting', 'Charging Ports'],
@@ -258,7 +258,7 @@ export const fleetCategories = [
       class:    { en: 'Family & Executive Van', ar: 'فان عائلي وتنفيذي', fr: 'Van Famille & Exécutif' },
       seats:    6,
       luggage:  5,
-      img:      'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=900&q=85',
+      img:      '/images/fleet/gmc.jpeg',
       imgAlt:   'GMC Yukon — Limore Executive Van',
       features: {
         en: ['Three-Row Seating', 'Leather Interior', 'Wi-Fi', 'Rear Entertainment', 'Charging Ports'],
@@ -281,7 +281,7 @@ export const fleetCategories = [
       class:    { en: 'Family & Executive Van', ar: 'فان عائلي وتنفيذي', fr: 'Van Famille & Exécutif' },
       seats:    6,
       luggage:  5,
-      img:      'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=900&q=85',
+      img:      '/images/fleet/escalade.jpeg',
       imgAlt:   'Cadillac Escalade — Limore Executive Van',
       features: {
         en: ['38-inch Curved OLED', 'AKG Sound', 'Rear Captain Chairs', 'Wi-Fi', 'Privacy Glass', 'Magnetic Ride'],
@@ -306,7 +306,7 @@ export const fleetCategories = [
       class:    { en: 'Group & Corporate', ar: 'مجموعات ومؤسسات', fr: 'Groupe & Corporate' },
       seats:    12,
       luggage:  10,
-      img:      'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=900&q=85',
+      img:      '/images/fleet/sprinter.jpeg',
       imgAlt:   'Mercedes Sprinter VIP — Limore Group Transport',
       features: {
         en: ['Executive Seating', 'Wi-Fi', 'Ambient Lighting', 'Privacy Glass', 'Entertainment System', 'Charging Ports'],
@@ -329,7 +329,7 @@ export const fleetCategories = [
       class:    { en: 'Group & Corporate', ar: 'مجموعات ومؤسسات', fr: 'Groupe & Corporate' },
       seats:    40,
       luggage:  30,
-      img:      'https://images.unsplash.com/photo-1557223562-6c77ef16210f?w=900&q=85',
+      img:      '/images/fleet/coaches.jpeg',
       imgAlt:   'Luxury Coach — Limore Group Transport',
       features: {
         en: ['Reclining Seats', 'Wi-Fi', 'Onboard Refreshments', 'USB Charging', 'Panoramic Windows', 'Climate Control'],
@@ -354,7 +354,7 @@ export const fleetCategories = [
       class:    { en: 'Sustainable Luxury', ar: 'الفخامة المستدامة', fr: 'Luxe Durable' },
       seats:    3,
       luggage:  2,
-      img:      'https://autohangar.com/wp-content/uploads/2021/10/2022-EQS-580-min.jpg',
+      img:      '/images/fleet/eqs.jpeg',
       imgAlt:   'Mercedes EQS — Limore Electric Fleet',
       features: {
         en: ['Hyperscreen Display', 'Zero Emission', 'Massage Seats', 'Wi-Fi', 'Ambient Lighting', '770km Range'],
@@ -377,7 +377,7 @@ export const fleetCategories = [
       class:    { en: 'Sustainable Luxury', ar: 'الفخامة المستدامة', fr: 'Luxe Durable' },
       seats:    3,
       luggage:  2,
-      img:      'https://gigacharger.net/wp-content/uploads/2024/02/BMW-i7-xDrive60-Frozen-Deep-Grey_004.jpg',
+      img:      '/images/fleet/bmw-i7.jpeg',
       imgAlt:   'BMW i7 — Limore Electric Fleet',
       features: {
         en: ['Theatre Screen', 'Zero Emission', 'Executive Lounge', 'Wi-Fi', 'Ambient Lighting', '625km Range'],
@@ -400,7 +400,7 @@ export const fleetCategories = [
       class:    { en: 'Sustainable Luxury', ar: 'الفخامة المستدامة', fr: 'Luxe Durable' },
       seats:    4,
       luggage:  3,
-      img:      'https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=900&q=85',
+      img:      '/images/fleet/tesla.jpeg',
       imgAlt:   'Tesla Model S — Limore Electric Fleet',
       features: {
         en: ['Autopilot', 'Zero Emission', '17" Touchscreen', 'Wi-Fi', 'Premium Audio', '650km Range'],

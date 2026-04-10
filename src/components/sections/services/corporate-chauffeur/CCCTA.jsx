@@ -14,7 +14,7 @@ const t = {
     sub: 'Tell us your organisation, your cities, and your requirements. We respond within two business hours with a proposed account structure.',
     cta: 'Submit Enquiry',
     ctaSecondary: 'WhatsApp Us',
-    whatsapp: 'https://wa.me/971500000000',
+    whatsapp: 'https://wa.me/971563454698',
     note: 'All enquiries are handled in strict confidence. Your details are never shared.',
     links: [
       { label: 'Airport Transfers',     href: '/services/airport-transfers' },
@@ -29,7 +29,7 @@ const t = {
     sub: 'أخبرنا بمؤسستك ومدنك ومتطلباتك. نرد في غضون ساعتي عمل بهيكل حساب مقترح.',
     cta: 'أرسل استفساراً',
     ctaSecondary: 'واتساب',
-    whatsapp: 'https://wa.me/971500000000',
+    whatsapp: 'https://wa.me/971563454698',
     note: 'جميع الاستفسارات تُعالَج بسرية تامة. لا تُشارك تفاصيلك أبداً.',
     links: [
       { label: 'نقل المطار',          href: '/services/airport-transfers' },
@@ -44,7 +44,7 @@ const t = {
     sub: 'Dites-nous votre organisation, vos villes et vos besoins. Nous répondons dans les deux heures ouvrables avec une structure de compte proposée.',
     cta: 'Soumettre une Demande',
     ctaSecondary: 'WhatsApp',
-    whatsapp: 'https://wa.me/971500000000',
+    whatsapp: 'https://wa.me/971563454698',
     note: 'Toutes les demandes sont traitées en toute confidentialité. Vos coordonnées ne sont jamais partagées.',
     links: [
       { label: 'Transferts Aéroport',   href: '/services/airport-transfers' },
@@ -128,7 +128,7 @@ export default function CCCTA({ locale = 'en' }) {
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '20px' }}>
             <Link
-              href={localePath('/contact')}
+              href={localePath('/corporate-solutions')}
               className="cccta-primary"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '10px',

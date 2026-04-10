@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger)
 const t = {
   en: {
     label: 'How It Works',
-    heading: 'From Booking to\nArrival — Seamless',
+    heading: 'From Booking to\nArrival - Seamless',
     steps: [
       {
         number: '01',

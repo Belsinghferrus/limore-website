@@ -35,7 +35,7 @@ const t = {
     success:     'Application received. Your Limore 360 Advisor will be in touch within two business hours.',
     successSub:  'You will receive a confirmation to your email shortly.',
     note:        'Treated with complete discretion.',
-    whatsapp:    'https://wa.me/971500000000',
+    whatsapp:    'https://wa.me/971563454698',
     whatsappCta: 'Prefer WhatsApp?',
     assurance: [
       { icon: 'lock',  text: 'Strictly confidential' },
@@ -70,7 +70,7 @@ const t = {
     success:     'تم استلام طلبك. سيتواصل معك مستشار ليمور ٣٦٠ المخصص في غضون ساعتين.',
     successSub:  'ستتلقى تأكيداً على بريدك الإلكتروني قريباً.',
     note:        'يُعالَج بسرية تامة.',
-    whatsapp:    'https://wa.me/971500000000',
+    whatsapp:    'https://wa.me/971563454698',
     whatsappCta: 'تفضل واتساب؟',
     assurance: [
       { icon: 'lock',  text: 'سرية تامة' },
@@ -105,7 +105,7 @@ const t = {
     success:     'Demande reçue. Votre Conseiller Limore 360 vous contactera dans les deux heures ouvrables.',
     successSub:  'Vous recevrez une confirmation par email sous peu.',
     note:        'Traité avec stricte confidentialité.',
-    whatsapp:    'https://wa.me/971500000000',
+    whatsapp:    'https://wa.me/971563454698',
     whatsappCta: 'Préférez WhatsApp?',
     assurance: [
       { icon: 'lock',  text: 'Strictement confidentiel' },

@@ -11,7 +11,7 @@ const t = {
     line1: 'Your Business',
     line2: 'Moves at the',
     line3: 'Highest Standard.',
-    sub: 'Dedicated ground mobility for the world\'s most demanding organisations. Precision, discretion, and reliability — on every journey.',
+    sub: 'Dedicated ground mobility for the world\'s most demanding organisations. Precision, discretion, and reliability on every journey.',
     cta: 'Enquire Now',
     ctaSecondary: 'All Services',
     stat1val: '24/7',  stat1label: 'Operations Desk',
@@ -141,7 +141,7 @@ export default function CCHero({ locale = 'en' }) {
       <div style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden' }}>
         <img
           ref={imgRef}
-          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=90"
+          src="/images/limore2.jpg"
           alt="Corporate chauffeur service — Limore"
           width={1920}
           height={1080}

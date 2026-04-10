@@ -15,7 +15,7 @@ const t = {
     body: 'We maintain vehicles beyond this public list — armoured variants, specific configurations, and last-minute requirements. Contact our operations team directly.',
     cta: 'Speak to Operations',
     ctaSecondary: 'WhatsApp',
-    whatsapp: 'https://wa.me/971500000000',
+    whatsapp: 'https://wa.me/971563454698',
     note: 'Available 24 hours, 7 days.',
   },
   ar: {
@@ -25,7 +25,7 @@ const t = {
     body: 'نحافظ على مركبات تتجاوز هذه القائمة العامة — متغيرات مدرعة وتكوينات محددة ومتطلبات اللحظة الأخيرة. تواصل مع فريق العمليات مباشرة.',
     cta: 'تحدث إلى العمليات',
     ctaSecondary: 'واتساب',
-    whatsapp: 'https://wa.me/971500000000',
+    whatsapp: 'https://wa.me/971563454698',
     note: 'متاح 24 ساعة، 7 أيام.',
   },
   fr: {
@@ -35,7 +35,7 @@ const t = {
     body: 'Nous disposons de véhicules au-delà de cette liste publique — variantes blindées, configurations spécifiques et besoins de dernière minute. Contactez directement notre équipe opérationnelle.',
     cta: 'Parler aux Opérations',
     ctaSecondary: 'WhatsApp',
-    whatsapp: 'https://wa.me/971500000000',
+    whatsapp: 'https://wa.me/971563454698',
     note: 'Disponible 24h/24, 7j/7.',
   },
 }

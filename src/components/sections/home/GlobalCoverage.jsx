@@ -488,8 +488,12 @@ export default function GlobalCoverage({ locale = 'en' }) {
           overflow: 'hidden',
           minHeight: '340px',
         }}>
-          <img
-            src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80"
+          <video
+            src="/video/london.mp4"
+            autoPlay
+            muted
+            loop
+            
             alt="Dubai city aerial view — Limore Middle East hub"
             width={1200}
             height={900}
@@ -524,7 +528,7 @@ export default function GlobalCoverage({ locale = 'en' }) {
               marginBottom: '6px',
               letterSpacing: '0.02em',
             }}>
-              Dubai
+              London
             </p>
             <p style={{
               fontSize: '10px',
@@ -534,7 +538,7 @@ export default function GlobalCoverage({ locale = 'en' }) {
               textTransform: 'uppercase',
               color: '#C41E1E',
             }}>
-              Middle East Hub
+              United Kingdom
             </p>
           </div>
           {/* Top right badge */}

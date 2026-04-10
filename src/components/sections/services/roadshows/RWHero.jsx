@@ -146,7 +146,7 @@ export default function RWHero({ locale = 'en' }) {
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
         <img
           ref={imgRef}
-          src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&q=88"
+          src="/images/event2.jpg"
           alt="Luxury event and roadshow ground transport — Limore"
           width={1920}
           height={1080}

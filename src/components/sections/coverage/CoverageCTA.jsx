@@ -15,7 +15,7 @@ const t = {
     body: 'If your destination is not shown, contact our operations team. We source and confirm ground transport globally through our verified partner network.',
     cta: 'Request A City',
     ctaWhatsApp: 'WhatsApp',
-    whatsapp: 'https://wa.me/971500000000',
+    whatsapp: 'https://wa.me/971563454698',
     note: 'Enquiries responded to within the hour.',
   },
   ar: {
@@ -25,7 +25,7 @@ const t = {
     body: 'إذا لم تظهر وجهتك، تواصل مع فريق العمليات. نوفر ونؤكد النقل البري عالمياً عبر شبكة شركاء موثوقين.',
     cta: 'طلب مدينة',
     ctaWhatsApp: 'واتساب',
-    whatsapp: 'https://wa.me/971500000000',
+    whatsapp: 'https://wa.me/971563454698',
     note: 'يُرد على الاستفسارات في غضون ساعة.',
   },
   fr: {
@@ -35,7 +35,7 @@ const t = {
     body: 'Si votre destination n\'apparaît pas, contactez notre équipe opérationnelle. Nous sourceons et confirmons le transport terrestre mondial via notre réseau de partenaires vérifiés.',
     cta: 'Demander une Ville',
     ctaWhatsApp: 'WhatsApp',
-    whatsapp: 'https://wa.me/971500000000',
+    whatsapp: 'https://wa.me/971563454698',
     note: 'Réponse aux demandes dans l\'heure.',
   },
 }

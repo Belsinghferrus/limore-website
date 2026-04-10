@@ -16,7 +16,7 @@ const t = {
     body: 'Send us your event outline. Dates, cities, guest numbers, and any known VIP requirements. We respond within four business hours with a proposed transport framework.',
     cta: 'Submit Event Brief',
     ctaSecondary: 'WhatsApp Directly',
-    whatsapp: 'https://wa.me/971500000000',
+    whatsapp: 'https://wa.me/971563454698',
     note: 'All event details are handled under strict confidentiality.',
     guarantees: [
       'Response within 4 business hours',
@@ -38,7 +38,7 @@ const t = {
     body: 'أرسل لنا ملخص فعاليتك. التواريخ والمدن وأعداد الضيوف وأي متطلبات معروفة لكبار الشخصيات. نرد في غضون أربع ساعات عمل باقتراح إطار نقل كامل.',
     cta: 'أرسل موجز الفعالية',
     ctaSecondary: 'واتساب مباشر',
-    whatsapp: 'https://wa.me/971500000000',
+    whatsapp: 'https://wa.me/971563454698',
     note: 'جميع تفاصيل الفعالية تُعالَج بسرية تامة.',
     guarantees: [
       'رد في غضون 4 ساعات عمل',
@@ -60,7 +60,7 @@ const t = {
     body: 'Envoyez-nous votre résumé d\'événement. Dates, villes, nombre de guests et exigences VIP connues. Nous répondons dans les quatre heures ouvrables avec un cadre transport proposé.',
     cta: 'Soumettre le Brief',
     ctaSecondary: 'WhatsApp Direct',
-    whatsapp: 'https://wa.me/971500000000',
+    whatsapp: 'https://wa.me/971563454698',
     note: 'Tous les détails événementiels sont traités en toute confidentialité.',
     guarantees: [
       'Réponse dans les 4 heures ouvrables',

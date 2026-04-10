@@ -17,7 +17,7 @@ const t = {
         sub: 'Multi-city investor meetings and capital market events',
         body: 'CFOs, IROs, and investment banking teams require transport that matches the pace and discretion of deal-level conversations. Limore provides dedicated vehicles and drivers across every city on the roadshow calendar, with real-time coordination between legs.',
         items: ['Pre-trip route planning', 'Dedicated vehicle per executive', 'City-to-city handoff coordination', 'Flight monitoring for international legs', 'Confidential NDA-covered operations'],
-        img: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&q=82',
+        img: '/images/limore11.jpg',
         imgAlt: 'Financial roadshow chauffeur service',
       },
       {
@@ -26,7 +26,7 @@ const t = {
         sub: 'Guest arrivals, VIP transfers, and media movement',
         body: 'First impressions begin before the venue doors open. We manage branded arrival experiences, VIP holding areas, and sequential guest transfers so no two arrivals clash and every guest feels attended to from the moment they are collected.',
         items: ['Timed arrival sequencing', 'Branded vehicle wraps available', 'VIP and press lane management', 'Post-event departure coordination', 'Overflow vehicle contingency'],
-        img: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=900&q=82',
+        img: '/images/limore5.jpg',
         imgAlt: 'Luxury product launch event transfer',
       },
       {
@@ -35,7 +35,7 @@ const t = {
         sub: 'High-security, high-discretion executive movement',
         body: 'Board meetings and investor days involve individuals who expect their movement to be invisible. Limore drivers are briefed on NDA requirements. Routes are planned to avoid public exposure. Vehicles are swept and confirmed before collection.',
         items: ['Driver NDA briefing standard', 'Route privacy planning', 'Vehicle security confirmation', 'Zero social media protocol', 'Direct accountability to event PA'],
-        img: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?w=900&q=82',
+        img: '/images/limore5.jpg',
         imgAlt: 'Investor day executive chauffeur transfer',
       },
       {

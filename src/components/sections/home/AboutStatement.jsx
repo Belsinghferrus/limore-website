@@ -364,7 +364,7 @@ export default function AboutStatement({ locale = 'en' }) {
           className="as-image-panel"
         >
           <img
-            src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=1200&q=85"
+            src="/images/limore17.jpg"
             alt="Limore premium chauffeur vehicle — global luxury mobility"
             width={1200}
             height={1600}

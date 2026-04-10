@@ -354,7 +354,7 @@ export default function ContactHero({ locale = 'en' }) {
               </a>
 
               <a
-                href="https://wa.me/971500000000"
+                href="https://wa.me/971563454698"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="lch-btn-secondary"

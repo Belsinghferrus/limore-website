@@ -76,7 +76,7 @@ const copy = {
       {
         tag:         'Limore 360',
         headline:    'L\'Adhésion\nPour Ceux Qui Bougent.',
-        sub:         'Un programme d\'abonnement corporate dédié — niveaux Essential, Prestige et Bespoke conçus pour les dirigeants et les entreprises qui exigent cohérence, confidentialité et service irréprochable.',
+        sub:         'Un programme d\'abonnement corporate dédié - niveaux Essential, Prestige et Bespoke conçus pour les dirigeants et les entreprises qui exigent cohérence, confidentialité et service irréprochable.',
         cta:         'Découvrir Limore 360',
         href:        '/fr/limore-360',
         accent:      true,

@@ -196,7 +196,7 @@ export default function CCProcess({ locale = 'en' }) {
           className="ccp2-img-panel"
         >
           <img
-            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1000&q=85"
+            src="/images/limore17.jpg"
             alt="Corporate operations process — Limore"
             width={1000} height={1400} loading="lazy"
             style={{

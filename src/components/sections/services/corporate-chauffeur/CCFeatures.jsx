@@ -36,11 +36,7 @@ const t = {
         title: 'NDA and Confidentiality',
         body: 'We operate under strict non-disclosure. Passenger identities, travel patterns, and destination information are never shared with any third party.',
       },
-      {
-        number: '06',
-        title: 'Travel Policy Compliance',
-        body: 'We adapt to your internal travel policy. Preferred vehicles, approval flows, cost centre coding, and spend caps are configured before the first booking.',
-      },
+    
     ],
   },
   ar: {

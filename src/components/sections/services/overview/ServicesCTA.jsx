@@ -15,7 +15,7 @@ const t = {
     sub: 'Send us your requirement — route, date, number of passengers — and we respond with a confirmed vehicle, chauffeur name, and pricing within the hour.',
     cta: 'Make an Enquiry',
     ctaSecondary: 'WhatsApp Us',
-    whatsapp: 'https://wa.me/971500000000',
+    whatsapp: 'https://wa.me/971563454698',
     note: 'No obligation. No automated responses.',
     links: [
       { label: 'View Our Fleet',        href: '/fleet' },
@@ -30,7 +30,7 @@ const t = {
     sub: 'أرسل لنا متطلبك — المسار والتاريخ وعدد الركاب — ونرد بمركبة مؤكدة واسم السائق والتسعير في غضون ساعة.',
     cta: 'إجراء استفسار',
     ctaSecondary: 'واتساب',
-    whatsapp: 'https://wa.me/971500000000',
+    whatsapp: 'https://wa.me/971563454698',
     note: 'بدون التزام. بدون ردود آلية.',
     links: [
       { label: 'عرض أسطولنا',          href: '/fleet' },
@@ -45,7 +45,7 @@ const t = {
     sub: 'Envoyez-nous votre demande — itinéraire, date, nombre de passagers — et nous répondons avec un véhicule confirmé, le nom du chauffeur et la tarification dans l\'heure.',
     cta: 'Faire une Demande',
     ctaSecondary: 'WhatsApp',
-    whatsapp: 'https://wa.me/971500000000',
+    whatsapp: 'https://wa.me/971563454698',
     note: 'Sans engagement. Sans réponses automatisées.',
     links: [
       { label: 'Voir Notre Flotte',     href: '/fleet' },

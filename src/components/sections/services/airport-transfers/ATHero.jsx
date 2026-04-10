@@ -11,7 +11,7 @@ const t = {
     line1: 'Every Flight.',
     line2: 'Every Arrival.',
     line3: 'Zero Delays.',
-    sub: 'Flight-tracked pickups, professional meet and greet, and seamless connections — in every city we operate.',
+    sub: 'Flight-tracked pickups, professional meet and greet, and seamless connections in every city we operate.',
     cta: 'Request a Transfer',
     ctaSecondary: 'View All Services',
     stat1val: '24/7', stat1label: 'Availability',
@@ -141,7 +141,7 @@ export default function ATHero({ locale = 'en' }) {
       <div style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden' }}>
         <img
           ref={imgRef}
-          src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920&q=90"
+          src="/images/limore1.jpg"
           alt="Luxury airport transfer — Limore"
           width={1920} height={1080}
           style={{

@@ -14,7 +14,7 @@ const t = {
     sub: 'No delays. No uncertainty. No compromise. Submit your transfer request and a Limore account manager will confirm within 30 minutes.',
     cta: 'Request a Transfer',
     ctaSecondary: 'Contact Us via WhatsApp',
-    whatsapp: 'https://wa.me/971500000000',
+    whatsapp: 'https://wa.me/971563454698',
     note: 'For same-day bookings, please contact us directly via WhatsApp.',
     services: [
       { label: 'Corporate Chauffeur', href: '/services/corporate-chauffeur' },
@@ -29,7 +29,7 @@ const t = {
     sub: 'لا تأخير. لا غموض. لا تنازل. أرسل طلب النقل وسيقوم مدير حساب ليمور بالتأكيد خلال 30 دقيقة.',
     cta: 'طلب نقل',
     ctaSecondary: 'تواصل عبر واتساب',
-    whatsapp: 'https://wa.me/971500000000',
+    whatsapp: 'https://wa.me/971563454698',
     note: 'للحجوزات في نفس اليوم، يرجى التواصل مباشرة عبر واتساب.',
     services: [
       { label: 'السائق المؤسسي', href: '/services/corporate-chauffeur' },
@@ -44,7 +44,7 @@ const t = {
     sub: 'Aucun délai. Aucune incertitude. Aucun compromis. Soumettez votre demande et un gestionnaire Limore confirmera dans les 30 minutes.',
     cta: 'Demander un Transfert',
     ctaSecondary: 'Contacter via WhatsApp',
-    whatsapp: 'https://wa.me/971500000000',
+    whatsapp: 'https://wa.me/971563454698',
     note: 'Pour les réservations du jour même, contactez-nous directement via WhatsApp.',
     services: [
       { label: 'Chauffeur Corporate', href: '/services/corporate-chauffeur' },

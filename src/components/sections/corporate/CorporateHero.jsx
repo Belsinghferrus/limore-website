@@ -14,7 +14,7 @@ const t = {
     sub:         'Global corporations, investment banks, and luxury brands rely on Limore for executive ground transport that operates to their standard — across every city, every time zone.',
     cta:         'Request Corporate Account',
     ctaSub:      'Speak to a Corporate Advisor',
-    whatsapp:    'https://wa.me/971500000000',
+    whatsapp:    'https://wa.me/971563454698',
     badge:       'Trusted by Finance, Luxury & Enterprise',
   },
   ar: {
@@ -26,7 +26,7 @@ const t = {
     sub:         'تعتمد الشركات العالمية وبنوك الاستثمار والعلامات التجارية الفاخرة على ليمور للنقل البري التنفيذي الذي يعمل وفق معاييرها — في كل مدينة وكل منطقة زمنية.',
     cta:         'طلب حساب مؤسسي',
     ctaSub:      'تحدث مع مستشار مؤسسي',
-    whatsapp:    'https://wa.me/971500000000',
+    whatsapp:    'https://wa.me/971563454698',
     badge:       'موثوق به من قِبل المالية والفاخر والمؤسسات',
   },
   fr: {
@@ -38,7 +38,7 @@ const t = {
     sub:         'Les grandes entreprises, banques d\'investissement et marques de luxe font confiance à Limore pour leur transport terrestre exécutif — dans chaque ville, chaque fuseau horaire.',
     cta:         'Demander un Compte Entreprise',
     ctaSub:      'Parler à un Conseiller Corporate',
-    whatsapp:    'https://wa.me/971500000000',
+    whatsapp:    'https://wa.me/971563454698',
     badge:       'Approuvé par la Finance, le Luxe & les Entreprises',
   },
 }

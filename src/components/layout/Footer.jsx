@@ -200,7 +200,7 @@ export default function Footer({ locale = 'en' }) {
                   href="mailto:info@thelimore.com"
                   style={{ fontSize: '14px', fontFamily: 'Inter, sans-serif', fontWeight: 300, color: 'rgba(255,255,255,0.55)', textDecoration: 'none' }}
                 >
-                  info@thelimore.com
+                  office@thelimore.com
                 </a>
               </div>
 
@@ -209,12 +209,12 @@ export default function Footer({ locale = 'en' }) {
                   WhatsApp
                 </p>
                 <a
-                  href="https://wa.me/"
+                  href="https://wa.me/971563454698"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ fontSize: '14px', fontFamily: 'Inter, sans-serif', fontWeight: 300, color: 'rgba(255,255,255,0.55)', textDecoration: 'none' }}
                 >
-                  +44 000 000 0000
+                  +971 56 345 4698
                 </a>
               </div>
 

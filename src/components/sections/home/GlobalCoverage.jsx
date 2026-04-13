@@ -18,9 +18,9 @@ const t = {
     quote: '"Wherever business takes you, Limore is already there."',
     regions: [
       { name: 'Middle East', cities: ['Dubai', 'Doha'] },
-      { name: 'Europe',      cities: ['London', 'Paris', 'Frankfurt', 'Zurich'] },
-      { name: 'Asia',        cities: ['Singapore'] },
-      { name: 'Americas',    cities: ['New York'] },
+      { name: 'Europe', cities: ['London', 'Paris', 'Frankfurt', 'Zurich'] },
+      { name: 'Asia', cities: ['Singapore'] },
+      { name: 'Americas', cities: ['New York'] },
     ],
     cta: 'View All Cities',
     hoverLabel: 'Limore city',
@@ -34,8 +34,8 @@ const t = {
     quote: '"أينما أخذك العمل، ليمور موجودة بالفعل."',
     regions: [
       { name: 'الشرق الاوسط', cities: ['دبي', 'الدوحة'] },
-      { name: 'أوروبا',       cities: ['لندن', 'باريس', 'فرانكفورت', 'زيورخ'] },
-      { name: 'آسيا',         cities: ['سنغافورة'] },
+      { name: 'أوروبا', cities: ['لندن', 'باريس', 'فرانكفورت', 'زيورخ'] },
+      { name: 'آسيا', cities: ['سنغافورة'] },
       { name: 'الأمريكيتان', cities: ['نيويورك'] },
     ],
     cta: 'جميع المدن',
@@ -50,9 +50,9 @@ const t = {
     quote: '"Ou que les affaires vous menent, Limore est deja la."',
     regions: [
       { name: 'Moyen-Orient', cities: ['Dubai', 'Doha'] },
-      { name: 'Europe',       cities: ['Londres', 'Paris', 'Francfort', 'Zurich'] },
-      { name: 'Asie',         cities: ['Singapour'] },
-      { name: 'Ameriques',    cities: ['New York'] },
+      { name: 'Europe', cities: ['Londres', 'Paris', 'Francfort', 'Zurich'] },
+      { name: 'Asie', cities: ['Singapour'] },
+      { name: 'Ameriques', cities: ['New York'] },
     ],
     cta: 'Voir Toutes les Villes',
     hoverLabel: 'Ville Limore',
@@ -138,12 +138,12 @@ const CITIES = [
 ]
 
 const CONNECTIONS = [
-  { from: 'london',    to: 'dubai'      },
-  { from: 'dubai',     to: 'newyork'    },
-  { from: 'dubai',     to: 'singapore'  },
-  { from: 'paris',     to: 'london'     },
-  { from: 'frankfurt', to: 'dubai'      },
-  { from: 'london',    to: 'newyork'    },
+  { from: 'london', to: 'dubai' },
+  { from: 'dubai', to: 'newyork' },
+  { from: 'dubai', to: 'singapore' },
+  { from: 'paris', to: 'london' },
+  { from: 'frankfurt', to: 'dubai' },
+  { from: 'london', to: 'newyork' },
 ]
 
 function getCityPos(id) {
@@ -156,14 +156,14 @@ function getCityPos(id) {
 ───────────────────────────────────────────── */
 export default function GlobalCoverage({ locale = 'en' }) {
   const content = t[locale] || t.en
-  const isRTL   = locale === 'ar'
+  const isRTL = locale === 'ar'
 
-  const sectionRef  = useRef(null)
-  const mapSvgRef   = useRef(null)
-  const lineRefs    = useRef([])
-  const cityRefs    = useRef([])
-  const leftRef     = useRef(null)
-  const mapWrapRef  = useRef(null)
+  const sectionRef = useRef(null)
+  const mapSvgRef = useRef(null)
+  const lineRefs = useRef([])
+  const cityRefs = useRef([])
+  const leftRef = useRef(null)
+  const mapWrapRef = useRef(null)
 
   const [tooltip, setTooltip] = useState({ visible: false, x: 0, y: 0, city: null })
   const [activeCity, setActiveCity] = useState(null)
@@ -476,7 +476,7 @@ export default function GlobalCoverage({ locale = 'en' }) {
             >
               <span>{content.cta}</span>
               <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
-                <path d="M1 5h12M8 1l5 4-5 4" stroke="currentColor" strokeWidth="1" strokeLinecap="round"/>
+                <path d="M1 5h12M8 1l5 4-5 4" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
               </svg>
             </Link>
           </div>
@@ -493,11 +493,10 @@ export default function GlobalCoverage({ locale = 'en' }) {
             autoPlay
             muted
             loop
-            
-            alt="Dubai city aerial view — Limore Middle East hub"
-            width={1200}
-            height={900}
-            loading="lazy"
+            playsInline                        
+            preload="auto"                     
+            disablePictureInPicture            
+            disableRemotePlayback              
             style={{
               width: '100%',
               height: '100%',
@@ -505,6 +504,7 @@ export default function GlobalCoverage({ locale = 'en' }) {
               display: 'block',
               filter: 'grayscale(60%) contrast(1.05)',
               opacity: 0.75,
+              pointerEvents: 'none',
             }}
           />
           {/* Dark gradient overlay for text legibility */}
@@ -618,15 +618,15 @@ export default function GlobalCoverage({ locale = 'en' }) {
           {/* Very subtle grid */}
           <defs>
             <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.025)" strokeWidth="0.5"/>
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.025)" strokeWidth="0.5" />
             </pattern>
             <radialGradient id="redGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#C41E1E" stopOpacity="0.3"/>
-              <stop offset="100%" stopColor="#C41E1E" stopOpacity="0"/>
+              <stop offset="0%" stopColor="#C41E1E" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#C41E1E" stopOpacity="0" />
             </radialGradient>
             <filter id="cityGlow">
-              <feGaussianBlur stdDeviation="2" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              <feGaussianBlur stdDeviation="2" result="blur" />
+              <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
             </filter>
           </defs>
 
@@ -646,15 +646,15 @@ export default function GlobalCoverage({ locale = 'en' }) {
           />
           {/* Florida tip */}
           <path d="M 175 185 L 178 200 L 170 205 L 165 195 Z"
-            fill="rgba(248,247,244,0.05)" stroke="rgba(248,247,244,0.18)" strokeWidth="0.8"/>
+            fill="rgba(248,247,244,0.05)" stroke="rgba(248,247,244,0.18)" strokeWidth="0.8" />
 
           {/* Greenland */}
           <path d="M 210 30 L 240 25 L 260 35 L 255 55 L 235 60 L 210 55 Z"
-            fill="rgba(248,247,244,0.04)" stroke="rgba(248,247,244,0.15)" strokeWidth="0.8"/>
+            fill="rgba(248,247,244,0.04)" stroke="rgba(248,247,244,0.15)" strokeWidth="0.8" />
 
           {/* Central America + Caribbean */}
           <path d="M 165 210 L 170 225 L 158 235 L 150 230 L 148 220 L 155 215 Z"
-            fill="rgba(248,247,244,0.04)" stroke="rgba(248,247,244,0.15)" strokeWidth="0.7"/>
+            fill="rgba(248,247,244,0.04)" stroke="rgba(248,247,244,0.15)" strokeWidth="0.7" />
 
           {/* South America */}
           <path
@@ -677,16 +677,16 @@ export default function GlobalCoverage({ locale = 'en' }) {
           />
           {/* Iberian peninsula */}
           <path d="M 428 115 L 443 112 L 448 130 L 440 145 L 428 140 L 422 128 Z"
-            fill="rgba(248,247,244,0.04)" stroke="rgba(248,247,244,0.18)" strokeWidth="0.8"/>
+            fill="rgba(248,247,244,0.04)" stroke="rgba(248,247,244,0.18)" strokeWidth="0.8" />
           {/* Scandinavian */}
           <path d="M 462 50 L 478 40 L 492 42 L 495 58 L 480 62 L 466 62 Z"
-            fill="rgba(248,247,244,0.04)" stroke="rgba(248,247,244,0.18)" strokeWidth="0.8"/>
+            fill="rgba(248,247,244,0.04)" stroke="rgba(248,247,244,0.18)" strokeWidth="0.8" />
           {/* Italy */}
           <path d="M 472 128 L 480 135 L 482 150 L 475 158 L 468 150 L 466 138 Z"
-            fill="rgba(248,247,244,0.04)" stroke="rgba(248,247,244,0.15)" strokeWidth="0.7"/>
+            fill="rgba(248,247,244,0.04)" stroke="rgba(248,247,244,0.15)" strokeWidth="0.7" />
           {/* UK */}
           <path d="M 438 72 L 448 68 L 452 80 L 445 88 L 436 84 Z"
-            fill="rgba(248,247,244,0.04)" stroke="rgba(248,247,244,0.18)" strokeWidth="0.8"/>
+            fill="rgba(248,247,244,0.04)" stroke="rgba(248,247,244,0.18)" strokeWidth="0.8" />
 
           {/* Africa */}
           <path
@@ -699,7 +699,7 @@ export default function GlobalCoverage({ locale = 'en' }) {
           />
           {/* Madagascar */}
           <path d="M 542 295 L 550 285 L 558 300 L 554 315 L 546 310 Z"
-            fill="rgba(248,247,244,0.04)" stroke="rgba(248,247,244,0.15)" strokeWidth="0.7"/>
+            fill="rgba(248,247,244,0.04)" stroke="rgba(248,247,244,0.15)" strokeWidth="0.7" />
 
           {/* Middle East */}
           <path
@@ -743,13 +743,13 @@ export default function GlobalCoverage({ locale = 'en' }) {
           />
           {/* Japan */}
           <path d="M 810 88 L 822 80 L 832 90 L 828 108 L 815 110 L 808 100 Z"
-            fill="rgba(248,247,244,0.04)" stroke="rgba(248,247,244,0.15)" strokeWidth="0.7"/>
+            fill="rgba(248,247,244,0.04)" stroke="rgba(248,247,244,0.15)" strokeWidth="0.7" />
           {/* Southeast Asia */}
           <path d="M 730 175 L 758 168 L 775 178 L 770 198 L 752 205 L 735 200 L 726 188 Z"
-            fill="rgba(248,247,244,0.04)" stroke="rgba(248,247,244,0.18)" strokeWidth="0.8"/>
+            fill="rgba(248,247,244,0.04)" stroke="rgba(248,247,244,0.18)" strokeWidth="0.8" />
           {/* Malay peninsula */}
           <path d="M 748 198 L 755 208 L 758 222 L 750 228 L 744 218 L 744 205 Z"
-            fill="rgba(248,247,244,0.04)" stroke="rgba(248,247,244,0.18)" strokeWidth="0.8"/>
+            fill="rgba(248,247,244,0.04)" stroke="rgba(248,247,244,0.18)" strokeWidth="0.8" />
 
           {/* Australia */}
           <path
@@ -762,12 +762,12 @@ export default function GlobalCoverage({ locale = 'en' }) {
           />
           {/* New Zealand */}
           <path d="M 878 365 L 886 355 L 892 368 L 885 380 L 878 375 Z"
-            fill="rgba(248,247,244,0.04)" stroke="rgba(248,247,244,0.15)" strokeWidth="0.7"/>
+            fill="rgba(248,247,244,0.04)" stroke="rgba(248,247,244,0.15)" strokeWidth="0.7" />
 
           {/* ── Connection lines ── */}
           {CONNECTIONS.map((conn, i) => {
             const from = getCityPos(conn.from)
-            const to   = getCityPos(conn.to)
+            const to = getCityPos(conn.to)
             if (!from || !to) return null
             // Map city % coords to SVG 1000x500
             const fx = (from.x / 100) * 1000
@@ -958,9 +958,9 @@ export default function GlobalCoverage({ locale = 'en' }) {
         <div className="container-default">
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
             {[
-              { value: '8',   label: 'Active Cities' },
-              { value: '4',   label: 'Regions' },
-              { value: '3+',  label: 'Expanding Soon' },
+              { value: '8', label: 'Active Cities' },
+              { value: '4', label: 'Regions' },
+              { value: '3+', label: 'Expanding Soon' },
               { value: '24/7', label: 'In Every City' },
             ].map((s, i) => (
               <div

@@ -18,10 +18,10 @@ const FAINT     = 'rgba(248,247,244,0.18)'
 const FONT_D    = 'Cormorant Garamond, Georgia, serif'
 const FONT_B    = 'Inter, sans-serif'
 
-const WA_NUMBER  = '971500000000'
+const WA_NUMBER  = '971563454698'
 const WA_HREF    = `https://wa.me/${WA_NUMBER}`
-const PHONE_HREF = 'tel:+971500000000'
-const EMAIL_HREF = 'mailto:info@limore.ae'
+const PHONE_HREF = 'tel:+971563454698'
+const EMAIL_HREF = 'mailto:office@thelimore.com'
 
 // ─── Translations ──────────────────────────────────────────────────────────────
 const copy = {
@@ -36,7 +36,7 @@ const copy = {
       {
         id:      'whatsapp',
         label:   'WhatsApp',
-        value:   '+971 50 000 0000',
+        value:   '+971 56 345 4698',
         detail:  'Fastest response · Available 24/7',
         href:    WA_HREF,
         external: true,
@@ -45,7 +45,7 @@ const copy = {
       {
         id:      'phone',
         label:   'Reservations Line',
-        value:   '+971 50 000 0000',
+        value:   '+971 56 345 4698',
         detail:  'Speak directly with an advisor',
         href:    PHONE_HREF,
         external: false,
@@ -54,7 +54,7 @@ const copy = {
       {
         id:      'email',
         label:   'General Enquiries',
-        value:   'info@limore.ae',
+        value:   'office@thelimore.com',
         detail:  'For detailed or written requests',
         href:    EMAIL_HREF,
         external: false,
@@ -63,9 +63,9 @@ const copy = {
       {
         id:      'limore360',
         label:   'Limore 360 Members',
-        value:   '360@limore.ae',
+        value:   'office@thelimore.com',
         detail:  'Dedicated membership inbox',
-        href:    'mailto:360@limore.ae',
+        href:    'mailto:office@thelimore.com',
         external: false,
         primary: false,
       },
@@ -85,7 +85,7 @@ const copy = {
       {
         id:      'whatsapp',
         label:   'واتساب',
-        value:   '+971 50 000 0000',
+        value:   '+971 56 345 4698',
         detail:  'أسرع رد · متاح ٢٤/٧',
         href:    WA_HREF,
         external: true,
@@ -94,7 +94,7 @@ const copy = {
       {
         id:      'phone',
         label:   'خط الحجوزات',
-        value:   '+971 50 000 0000',
+        value:   '+971 56 345 4698',
         detail:  'تحدث مباشرة مع مستشار',
         href:    PHONE_HREF,
         external: false,
@@ -103,7 +103,7 @@ const copy = {
       {
         id:      'email',
         label:   'الاستفسارات العامة',
-        value:   'info@limore.ae',
+        value:   'office@thelimore.com',
         detail:  'للطلبات التفصيلية أو المكتوبة',
         href:    EMAIL_HREF,
         external: false,
@@ -112,9 +112,9 @@ const copy = {
       {
         id:      'limore360',
         label:   'أعضاء ليمور ٣٦٠',
-        value:   '360@limore.ae',
+        value:   'office@thelimore.com',
         detail:  'صندوق بريد العضوية المخصص',
-        href:    'mailto:360@limore.ae',
+        href:    'mailto:office@thelimore.com',
         external: false,
         primary: false,
       },
@@ -134,7 +134,7 @@ const copy = {
       {
         id:      'whatsapp',
         label:   'WhatsApp',
-        value:   '+971 50 000 0000',
+        value:   '+971 56 345 4698',
         detail:  'Réponse la plus rapide · Disponible 24h/24',
         href:    WA_HREF,
         external: true,
@@ -143,7 +143,7 @@ const copy = {
       {
         id:      'phone',
         label:   'Ligne Réservations',
-        value:   '+971 50 000 0000',
+        value:   '+971 56 345 4698',
         detail:  'Parlez directement avec un conseiller',
         href:    PHONE_HREF,
         external: false,
@@ -152,7 +152,7 @@ const copy = {
       {
         id:      'email',
         label:   'Renseignements Généraux',
-        value:   'info@limore.ae',
+        value:   'office@thelimore.com',
         detail:  'Pour les demandes détaillées ou écrites',
         href:    EMAIL_HREF,
         external: false,
@@ -161,9 +161,9 @@ const copy = {
       {
         id:      'limore360',
         label:   'Membres Limore 360',
-        value:   '360@limore.ae',
+        value:   'office@thelimore.com',
         detail:  'Boîte dédiée aux membres',
-        href:    'mailto:360@limore.ae',
+        href:    'mailto:office@thelimore.com',
         external: false,
         primary: false,
       },

@@ -3,24 +3,27 @@
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useSearchParams } from 'next/navigation'
 
 gsap.registerPlugin(ScrollTrigger)
 
 // ─── Brand tokens — WHITE surface, matches global.css ─────────────────────────
-const RED        = '#C41E1E'   // matches --color-limore-red in global.css
-const RED_HOVER  = '#A51818'    
-const BG         = '#FFFFFF'   // --color-surface
-const SURFACE    = '#F8F7F4'   // --color-surface-2
-const SURFACE_3  = '#F0EFEC'   // --color-surface-3
-const BORDER     = '#E5E4E0'   // --color-border-light
-const TEXT       = '#0A0A0A'   // --color-text-primary
-const MUTED      = '#0A0A0A'   // --color-text-muted
-const FAINT      = '#0A0A0A'   // --color-text-faint
+const RED        = '#C41E1E'
+const RED_HOVER  = '#A51818'
+const BG         = '#FFFFFF'
+const SURFACE    = '#F8F7F4'
+const SURFACE_3  = '#F0EFEC'
+const BORDER     = '#E5E4E0'
+const TEXT       = '#0A0A0A'
+const MUTED      = '#0A0A0A'
+const FAINT      = '#0A0A0A'
 const FONT_D     = "'Cormorant Garamond', Georgia, serif"
 const FONT_B     = "'Inter', 'Helvetica Neue', sans-serif"
 
 // ─── Replace with your deployed Apps Script Web App URL ───────────────────────
 const APPS_SCRIPT_URL = process.env.NEXT_PUBLIC_APPS_SCRIPT_URL
+
+// ← REMOVED: const searchParams = useSearchParams() was here — hooks cannot be called at module level
 
 // ─── Vehicle fleet ─────────────────────────────────────────────────────────────
 const VEHICLES = {
@@ -41,7 +44,7 @@ const VEHICLES = {
     { value: 'mercedes-sprinter',     label: 'Mercedes Sprinter',     group: 'Van & Coach' },
     { value: 'luxury-coaches',        label: 'Luxury Coaches',        group: 'Van & Coach' },
     { value: 'mercedes-eqs',          label: 'Mercedes EQS',          group: 'Electric Fleet' },
-    { value: 'bmw-i7',               label: 'BMW i7',                group: 'Electric Fleet' },
+    { value: 'bmw-i7',                label: 'BMW i7',                group: 'Electric Fleet' },
     { value: 'tesla-model-s',         label: 'Tesla Model S',         group: 'Electric Fleet' },
   ],
   ar: [
@@ -61,7 +64,7 @@ const VEHICLES = {
     { value: 'mercedes-sprinter',     label: 'مرسيدس سبرينتر',        group: 'الحافلات' },
     { value: 'luxury-coaches',        label: 'حافلات فاخرة',          group: 'الحافلات' },
     { value: 'mercedes-eqs',          label: 'مرسيدس EQS',            group: 'أسطول كهربائي' },
-    { value: 'bmw-i7',               label: 'BMW i7',                group: 'أسطول كهربائي' },
+    { value: 'bmw-i7',                label: 'BMW i7',                group: 'أسطول كهربائي' },
     { value: 'tesla-model-s',         label: 'Tesla Model S',         group: 'أسطول كهربائي' },
   ],
   fr: [
@@ -81,7 +84,7 @@ const VEHICLES = {
     { value: 'mercedes-sprinter',     label: 'Mercedes Sprinter',     group: 'Van & Coach' },
     { value: 'luxury-coaches',        label: 'Autocars de Luxe',      group: 'Van & Coach' },
     { value: 'mercedes-eqs',          label: 'Mercedes EQS',          group: 'Flotte Électrique' },
-    { value: 'bmw-i7',               label: 'BMW i7',                group: 'Flotte Électrique' },
+    { value: 'bmw-i7',                label: 'BMW i7',                group: 'Flotte Électrique' },
     { value: 'tesla-model-s',         label: 'Tesla Model S',         group: 'Flotte Électrique' },
   ],
 }
@@ -180,7 +183,7 @@ const copy = {
     submitting:     'Envoi en cours…',
     success:        'Votre demande de réservation a été reçue.',
     successSub:     'Une confirmation a été envoyée à votre email. Un conseiller Limore vous contactera dans les 2 heures.',
-    errorMsg:       'Une erreur s\'est produite. Veuillez réessayer ou nous contacter directement.',
+    errorMsg:       "Une erreur s'est produite. Veuillez réessayer ou nous contacter directement.",
     sections: {
       journey: 'Détails du Trajet',
       client:  'Vos Informations',
@@ -386,12 +389,12 @@ function FormSection({ title, children }) {
 }
 
 function toFormData(obj) {
-    return Object.entries(obj)
-      .map(([k, v]) =>
-        encodeURIComponent(k) + '=' + encodeURIComponent(v ?? '')
-      )
-      .join('&')
-  }
+  return Object.entries(obj)
+    .map(([k, v]) =>
+      encodeURIComponent(k) + '=' + encodeURIComponent(v ?? '')
+    )
+    .join('&')
+}
 
 function SuccessState({ message, sub }) {
   const ref = useRef(null)
@@ -461,8 +464,9 @@ function SuccessState({ message, sub }) {
 
 // ─── Main component ────────────────────────────────────────────────────────────
 export default function ContactBookingForm({ locale = 'en' }) {
-  const c   = copy[locale] || copy.en
-  const dir = c.dir
+  const c            = copy[locale] || copy.en
+  const dir          = c.dir
+  const searchParams = useSearchParams()   // ← MOVED HERE: inside the component, not module level
 
   const sectionRef = useRef(null)
   const headRef    = useRef(null)
@@ -477,12 +481,12 @@ export default function ContactBookingForm({ locale = 'en' }) {
     vehicleName:    '',
     guestName:      '',
     companyName:    '',
-    contact:        '',   // email
+    contact:        '',
     phone:          '',
     specialRequest: '',
   })
 
-  const [submitStatus, setSubmitStatus] = useState('idle') // idle | submitting | success | error
+  const [submitStatus, setSubmitStatus] = useState('idle')
 
   const set = field => val => setForm(prev => ({ ...prev, [field]: val }))
 
@@ -508,10 +512,26 @@ export default function ContactBookingForm({ locale = 'en' }) {
     return () => ctx.revert()
   }, [])
 
+  useEffect(() => {
+    const vehicleFromUrl = searchParams.get('vehicle')
+    if (!vehicleFromUrl) return
+
+    const vehicles = VEHICLES[locale] || VEHICLES.en
+    const match    = vehicles.find(v => v.value === vehicleFromUrl)
+    if (match) {
+      setForm(prev => ({ ...prev, vehicleName: match.value }))
+
+      setTimeout(() => {
+        const el = document.getElementById('booking-form')
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }, 300)
+    }
+  }, [searchParams, locale])
+
   const handleSubmit = async e => {
     e.preventDefault()
     setSubmitStatus('submitting')
-  
+
     const payload = {
       guestName:        form.guestName,
       companyName:      form.companyName,
@@ -526,7 +546,6 @@ export default function ContactBookingForm({ locale = 'en' }) {
       vehicleName:      form.vehicleName,
       specialRequest:   form.specialRequest,
       locale:           locale,
-      // internal fields — blank, team fills in sheet
       clientPrice:      '',
       extraCharges:     '',
       amenitiesCharges: '',
@@ -538,24 +557,21 @@ export default function ContactBookingForm({ locale = 'en' }) {
       salesPerson:      '',
       paymentStatus:    '',
     }
-  
+
     try {
-      // no-cors: browser skips preflight, Apps Script receives the POST
       await fetch(APPS_SCRIPT_URL, {
         method:  'POST',
-        mode:    'no-cors',                         // ← key fix
+        mode:    'no-cors',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body:    toFormData(payload),
       })
-      // no-cors returns an opaque response — we can't read it,
-      // so we optimistically set success after the request fires.
       setSubmitStatus('success')
-  
     } catch (err) {
       console.error('Booking submit error:', err)
       setSubmitStatus('error')
     }
   }
+
   return (
     <section
       ref={sectionRef}
@@ -652,14 +668,14 @@ export default function ContactBookingForm({ locale = 'en' }) {
       >
         {/* Card header */}
         <div style={{
-          padding:        'clamp(14px,2vw,20px) clamp(20px,3vw,32px)',
-          borderBottom:   `1px solid ${BORDER}`,
+          padding:         'clamp(14px,2vw,20px) clamp(20px,3vw,32px)',
+          borderBottom:    `1px solid ${BORDER}`,
           backgroundColor: '#FFFFFF',
-          display:        'flex',
-          justifyContent: 'space-between',
-          alignItems:     'center',
-          flexWrap:       'wrap',
-          gap:            '8px',
+          display:         'flex',
+          justifyContent:  'space-between',
+          alignItems:      'center',
+          flexWrap:        'wrap',
+          gap:             '8px',
         }}>
           <span style={{
             fontSize:      '10px',
@@ -692,10 +708,10 @@ export default function ContactBookingForm({ locale = 'en' }) {
             onSubmit={handleSubmit}
             noValidate
             style={{
-              padding:       'clamp(24px,3.5vw,40px) clamp(20px,3vw,36px)',
-              display:       'flex',
-              flexDirection: 'column',
-              gap:           '32px',
+              padding:         'clamp(24px,3.5vw,40px) clamp(20px,3vw,36px)',
+              display:         'flex',
+              flexDirection:   'column',
+              gap:             '32px',
               backgroundColor: '#FFFFFF',
             }}
           >
@@ -791,7 +807,7 @@ export default function ContactBookingForm({ locale = 'en' }) {
                 onChange={set('phone')}
                 dir={dir}
                 autoComplete="tel"
-                placeholder="+971 50 000 0000"
+                placeholder="+971 56 345 4698"
               />
 
               <div style={{ gridColumn: '1 / -1' }}>

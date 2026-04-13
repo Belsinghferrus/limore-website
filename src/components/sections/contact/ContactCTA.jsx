@@ -146,14 +146,8 @@ function CTACard({ card, dir, index }) {
         backgroundColor: card.accent
           ? hovered ? 'rgba(200,16,46,0.08)' : 'rgba(200,16,46,0.04)'
           : hovered ? 'rgba(255,255,255,0.04)' : SURFACE,
-        border:          `1px solid ${
-          card.accent
-            ? hovered ? 'rgba(200,16,46,0.45)' : 'rgba(200,16,46,0.22)'
-            : hovered ? 'rgba(255,255,255,0.14)' : BORDER
-        }`,
-        borderTop:       card.accent
-          ? `2px solid ${RED}`
-          : `1px solid ${BORDER}`,
+     
+        
         position:        'relative',
         overflow:        'hidden',
         opacity:         0,

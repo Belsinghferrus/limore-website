@@ -10,7 +10,7 @@ const uiText = {
     vehicleLabel: 'Vehicle',
     fields: {
       name:    { label: 'Full Name',              placeholder: 'Your full name' },
-      phone:   { label: 'Phone / WhatsApp',       placeholder: '+971 50 000 0000' },
+      phone:   { label: 'Phone / WhatsApp',       placeholder: '+971 56 345 4698' },
       date:    { label: 'Travel Date',            placeholder: '' },
       from:    { label: 'From',                   placeholder: 'Departure location' },
       to:      { label: 'To',                     placeholder: 'Destination' },
@@ -30,7 +30,7 @@ const uiText = {
     vehicleLabel: 'المركبة',
     fields: {
       name:    { label: 'الاسم الكامل',           placeholder: 'اسمك الكامل' },
-      phone:   { label: 'الهاتف / واتساب',        placeholder: '+971 50 000 0000' },
+      phone:   { label: 'الهاتف / واتساب',        placeholder: '+971 56 345 4698' },
       date:    { label: 'تاريخ السفر',             placeholder: '' },
       from:    { label: 'من',                      placeholder: 'موقع المغادرة' },
       to:      { label: 'إلى',                     placeholder: 'الوجهة' },

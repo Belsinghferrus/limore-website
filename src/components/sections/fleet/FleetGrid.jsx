@@ -1,10 +1,10 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import { useRouter } from 'next/navigation'
 import { gsap } from 'gsap'
 import { fleet } from '@/data/fleet'
 import FleetFilter from './FleetFilter'
-import FleetModal  from './FleetModal'
 
 const icons = {
   seats: (
@@ -210,17 +210,16 @@ function VehicleCard({ vehicle, locale, onRequest, index }) {
 
 export default function FleetGrid({ locale = 'en' }) {
   const [activeFilter, setActiveFilter] = useState('all')
-  const [modalVehicle, setModalVehicle] = useState(null)
-  const isRTL    = locale === 'ar'
-  const ui       = uiText[locale] || uiText.en
-  const gridRef  = useRef(null)
+  const isRTL   = locale === 'ar'
+  const ui      = uiText[locale] || uiText.en
+  const gridRef = useRef(null)
+  const router  = useRouter()
 
   const filtered = activeFilter === 'all'
     ? fleet
     : fleet.filter(v => v.category === activeFilter)
 
   const handleFilterChange = (id) => {
-    // Fade grid out, change filter, fade in
     gsap.to(gridRef.current, {
       opacity: 0, y: 10, duration: 0.2, ease: 'power2.in',
       onComplete: () => {
@@ -231,6 +230,10 @@ export default function FleetGrid({ locale = 'en' }) {
         )
       },
     })
+  }
+
+  const handleRequest = (vehicle) => {
+    router.push(`/${locale}/contact?vehicle=${vehicle.id}`)
   }
 
   return (
@@ -258,7 +261,7 @@ export default function FleetGrid({ locale = 'en' }) {
                   key={v.id}
                   vehicle={v}
                   locale={locale}
-                  onRequest={setModalVehicle}
+                  onRequest={handleRequest}
                   index={i}
                 />
               ))
@@ -272,15 +275,6 @@ export default function FleetGrid({ locale = 'en' }) {
           }
         </div>
       </section>
-
-      {/* Modal */}
-      {modalVehicle && (
-        <FleetModal
-          vehicle={modalVehicle}
-          locale={locale}
-          onClose={() => setModalVehicle(null)}
-        />
-      )}
     </>
   )
 }

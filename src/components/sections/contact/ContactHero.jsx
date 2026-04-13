@@ -17,7 +17,7 @@ const FONT_D    = 'Cormorant Garamond, Georgia, serif'
 const FONT_B    = 'Inter, sans-serif'
 
 const HERO_IMAGE =
-  'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80'
+  '/images/limore1.jpg'
 
 const copy = {
   en: {
@@ -30,9 +30,9 @@ const copy = {
     secondaryCta:   'WhatsApp Us',
     availability:   'Available 24 / 7',
     strip: [
-      { label: 'Reservations', value: '+971 50 000 0000', href: 'tel:+971500000000'        },
-      { label: 'Email',        value: 'info@limore.ae',   href: 'mailto:info@limore.ae'    },
-      { label: 'Limore 360',  value: '360@limore.ae',    href: 'mailto:360@limore.ae'     },
+      { label: 'Reservations', value: '+971 56 345 4698', href: 'tel:+971563454698'        },
+      { label: 'Email',        value: 'office@thelimore.com',   href: 'mailto:office@thelimore.com'    },
+      { label: 'Limore 360',  value: 'office@thelimore.com',    href: 'mailto:office@thelimore.com'     },
     ],
   },
   ar: {
@@ -45,9 +45,9 @@ const copy = {
     secondaryCta:   'واتساب',
     availability:   'متاح ٢٤/٧',
     strip: [
-      { label: 'الحجوزات',  value: '+971 50 000 0000', href: 'tel:+971500000000'     },
-      { label: 'البريد',    value: 'info@limore.ae',   href: 'mailto:info@limore.ae' },
-      { label: 'ليمور ٣٦٠', value: '360@limore.ae',    href: 'mailto:360@limore.ae'  },
+      { label: 'الحجوزات',  value: '+971 56 345 4698', href: 'tel:+971563454698'     },
+      { label: 'البريد',    value: 'office@thelimore.com',   href: 'mailto:office@thelimore.com' },
+      { label: 'ليمور ٣٦٠', value: 'office@thelimore.com',    href: 'mailto:360@limore.ae'  },
     ],
   },
   fr: {
@@ -60,9 +60,9 @@ const copy = {
     secondaryCta:   'WhatsApp',
     availability:   'Disponible 24h/24',
     strip: [
-      { label: 'Réservations', value: '+971 50 000 0000', href: 'tel:+971500000000'     },
-      { label: 'Email',        value: 'info@limore.ae',   href: 'mailto:info@limore.ae' },
-      { label: 'Limore 360',  value: '360@limore.ae',    href: 'mailto:360@limore.ae'  },
+      { label: 'Réservations', value: '+971 56 345 4698', href: 'tel:+971563454698'     },
+      { label: 'Email',        value: 'office@thelimore.com',   href: 'mailto:office@thelimore.com' },
+      { label: 'Limore 360',  value: 'office@thelimore.com',    href: 'mailto:office@thelimore.com'  },
     ],
   },
 }

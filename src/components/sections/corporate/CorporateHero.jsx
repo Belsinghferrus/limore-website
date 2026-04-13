@@ -102,7 +102,7 @@ export default function CorporateHero({ locale = 'en' }) {
     <section
       ref={sectionRef}
       style={{
-        position: 'relative', width: '100%', minHeight: '90vh',
+        position: 'relative', width: '100%', minHeight: '100vh',
         overflow: 'hidden', backgroundColor: '#050505',
         display: 'flex', flexDirection: 'column',
         direction: isRTL ? 'rtl' : 'ltr',

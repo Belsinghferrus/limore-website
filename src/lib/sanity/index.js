@@ -1,6 +1,6 @@
 // src/lib/sanity/index.js
 import { createClient } from '@sanity/client'
-import imageUrlBuilder from '@sanity/image-url'
+import {createImageUrlBuilder} from '@sanity/image-url'
 
 export const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
@@ -9,7 +9,10 @@ export const client = createClient({
   useCdn: true,
 })
 
-const builder = imageUrlBuilder(client)
+if (!projectId) {
+  throw new Error('Missing NEXT_PUBLIC_SANITY_PROJECT_ID in .env.local')
+}
+const builder = createImageUrlBuilder(client)
 
 export function urlFor(source) {
   return builder.image(source)

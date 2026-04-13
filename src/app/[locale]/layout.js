@@ -1,6 +1,9 @@
 import '@/styles/globals.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import FloatingWhatsApp from '@/components/ui/FloatingWhatsApp'
+import CookieBanner from '@/components/ui/CookieBanner'
+import BookingNudge from '@/components/ui/BookingNudge'
 
 export const metadata = {
   title: {
@@ -22,6 +25,9 @@ export default async function LocaleLayout({ children, params }) {
         <Navbar locale={locale} />
         <main>{children}</main>
         <Footer locale={locale} />
+        <FloatingWhatsApp locale={locale} /> 
+        <CookieBanner locale={locale} /> 
+        <BookingNudge locale={locale} /> 
       </body>
     </html>
   )

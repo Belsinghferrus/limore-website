@@ -1,14 +1,14 @@
 // src/lib/translations.js
-
+//imore Traveler Magazine
 const blogTranslations = {
     en: {
       eyebrow:           'Perspectives & Insights',
-      pageTitle:         'The Limore',
-      pageTitleItalic:   'Journal',
+      pageTitle:         'Limore Travel',
+      pageTitleItalic:   'Magazine',
       noArticles:        'No articles yet.',
       readArticle:       'Read Article',
       read:              'Read',
-      breadcrumbJournal: 'Journal',
+      breadcrumbJournal: 'Magazine',
       breadcrumbArticle: 'Article',
       by:                'By',
       minRead:           'min read',
@@ -33,7 +33,7 @@ const blogTranslations = {
     },
     fr: {
       eyebrow:           'Perspectives & Actualités',
-      pageTitle:         'Le Journal',
+      pageTitle:         'Le Magazine',
       pageTitleItalic:   'Limore',
       noArticles:        "Aucun article pour l'instant.",
       readArticle:       "Lire l'article",

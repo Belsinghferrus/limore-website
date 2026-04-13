@@ -3,15 +3,13 @@ import { createClient } from '@sanity/client'
 import {createImageUrlBuilder} from '@sanity/image-url'
 
 export const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '06v8a1hb',
   dataset:   process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
   apiVersion: '2024-01-01',
   useCdn: true,
 })
 
-if (!projectId) {
-  throw new Error('Missing NEXT_PUBLIC_SANITY_PROJECT_ID in .env.local')
-}
+
 const builder = createImageUrlBuilder(client)
 
 export function urlFor(source) {

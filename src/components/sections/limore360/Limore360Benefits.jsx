@@ -2,10 +2,10 @@
 
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+// import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
 
-gsap.registerPlugin(ScrollTrigger)
+// gsap.registerPlugin(ScrollTrigger)
 
 const t = {
   en: {
@@ -153,57 +153,7 @@ export default function Limore360Benefits({ locale = 'en' }) {
         overflow: 'hidden',
       }}
     >
-      {/* ── Full-width image strip ── */}
-      <div
-        ref={imgRef}
-        style={{
-          width: '100%',
-          height: 'clamp(180px, 28vw, 400px)',
-          position: 'relative',
-          overflow: 'hidden',
-          opacity: 0,
-        }}
-      >
-        <img
-          src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=1800&q=85"
-          alt="Limore 360 — member benefits, luxury fleet on the road"
-          fill
-          style={{ objectFit: 'cover', objectPosition: 'center 55%' }}
-          loading="lazy"
-          sizes="100vw"
-        />
-        {/* Dark vignette fading into section bg */}
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'linear-gradient(to bottom, rgba(5,5,5,0.25) 0%, rgba(5,5,5,0.6) 65%, #050505 100%)',
-        }} />
-        {/* ✅ Red hairline at bottom */}
-        <div style={{
-          position: 'absolute', bottom: 0, left: 0, right: 0, height: '2px',
-          background: 'linear-gradient(to right, transparent 5%, #C8102E 50%, transparent 95%)',
-        }} />
-        {/* Floating label */}
-        <div style={{
-          position: 'absolute',
-          bottom: 'clamp(14px, 3vw, 26px)',
-          left: isRTL ? 'auto' : 'clamp(20px, 6vw, 96px)',
-          right: isRTL ? 'clamp(20px, 6vw, 96px)' : 'auto',
-          display: 'flex', alignItems: 'center', gap: '10px',
-          padding: '7px 16px',
-          backgroundColor: 'rgba(5,5,5,0.80)',
-          backdropFilter: 'blur(8px)',
-          border: '1px solid rgba(200,16,46,0.25)',
-        }}>
-          <div style={{ width: '5px', height: '5px', borderRadius: '50%', backgroundColor: '#C8102E', flexShrink: 0 }} />
-          <span style={{
-            fontSize: '9px', letterSpacing: '0.2em',
-            fontFamily: 'Inter, sans-serif',
-            fontWeight: 500, textTransform: 'uppercase',
-            color: 'rgba(248,247,244,0.55)',
-          }}>8 Member Benefits — Active from Day One</span>
-        </div>
-      </div>
-
+     
       {/* ── Header + grid ── */}
       <div style={{ padding: 'clamp(48px, 8vw, 88px) clamp(20px, 6vw, 96px)' }}>
 

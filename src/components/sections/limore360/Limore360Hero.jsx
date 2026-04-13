@@ -105,7 +105,7 @@ export default function Limore360Hero({ locale = 'en' }) {
       ref={secRef}
       style={{
         position: 'relative', width: '100%',
-        minHeight: 'clamp(620px, 92vh, 960px)',
+        minHeight: 'clamp(620px, 100vh, 960px)',
         overflow: 'hidden',
         backgroundColor: '#040404',
         display: 'flex', flexDirection: 'column',
@@ -116,8 +116,8 @@ export default function Limore360Hero({ locale = 'en' }) {
       <div style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden' }}>
         <img
           ref={imgRef}
-          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80"
-          alt="Limore 360 — luxury chauffeur membership night drive"
+          src="/images/limore10.jpg"
+          alt="Limore 360 - luxury chauffeur membership night drive"
           width={1920} height={1080}
           fetchPriority="high"
           style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%' }}

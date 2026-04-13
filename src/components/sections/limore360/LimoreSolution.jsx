@@ -10,94 +10,94 @@ gsap.registerPlugin(ScrollTrigger)
 // ─── Translations ──────────────────────────────────────────────────────────────
 const t = {
   en: {
-    eyebrow:  'Our Solutions',
+    eyebrow: 'Our Solutions',
     headline: 'Everything Your\nOrganisation Needs.',
-    sub:      'From a single journey to a fully managed corporate programme — Limore delivers across every dimension of executive mobility and lifestyle.',
-    cta:      'Learn More',
+    sub: 'From a single journey to a fully managed corporate programme - Limore delivers across every dimension of executive mobility and lifestyle.',
+    cta: 'Learn More',
     solutions: [
       {
-        id:    'relocation',
+        id: 'relocation',
         title: 'Relocation',
-        desc:  'Seamless door-to-door relocation logistics for executives, families, and corporate teams. We manage every detail — from vehicle coordination to interim accommodation transfers.',
-        tags:  ['Executive Moves', 'Family Relocation', 'International'],
-        img:   'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/ef3c1ab7e3795816ad207381582b37a17d7509be.jpg',
-        size:  'large',
+        desc: 'Seamless door-to-door relocation logistics for executives, families, and corporate teams. We manage every detail — from vehicle coordination to interim accommodation transfers.',
+        tags: ['Executive Moves', 'Family Relocation', 'International'],
+        img: '/images/limore1.jpg',
+        size: 'large',
       },
       {
-        id:    'events',
+        id: 'events',
         title: 'Corporate Event Management',
-        desc:  'End-to-end planning and execution of corporate events, gala dinners, board retreats, and brand activations. Precision logistics, curated venues, flawless delivery.',
-        tags:  ['Galas', 'Conferences', 'Retreats'],
-        img:   'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/1da9b992e3f734b51f59c74e004414cab3ff4b42.jpg',
-        size:  'medium',
+        desc: 'End-to-end planning and execution of corporate events, gala dinners, board retreats, and brand activations. Precision logistics, curated venues, flawless delivery.',
+        tags: ['Galas', 'Conferences', 'Retreats'],
+        img: '/images/corporate1.jpg',
+        size: 'medium',
       },
       {
-        id:    'recreation',
+        id: 'recreation',
         title: 'Staff Recreation',
-        desc:  'Curated experiences that reward and energise your team — yacht days, city escapes, team retreats, and bespoke group activities designed for high-performing organisations.',
-        tags:  ['Team Retreats', 'Yacht Days', 'Group Experiences'],
-        img:   'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/9506451b4b9b0cff69d352018686e4a527759ec1.jpg',
-        size:  'medium',
+        desc: 'Curated experiences that reward and energise your team — yacht days, city escapes, team retreats, and bespoke group activities designed for high-performing organisations.',
+        tags: ['Team Retreats', 'Yacht Days', 'Group Experiences'],
+        img: '/images/corporate2.jpg',
+        size: 'medium',
       },
       {
-        id:    'rental',
+        id: 'rental',
         title: 'Car Rental & Mobility Solutions',
-        desc:  'A curated fleet of premium and ultra-luxury vehicles available on demand. Daily, weekly, or monthly engagements with full-service delivery and collection.',
-        tags:  ['Premium Fleet', 'On-Demand', 'Long-Term'],
-        img:   'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/b5a574a899c15c326904e49f627bd3782a19abfc.jpg',
-        size:  'wide',
+        desc: 'A curated fleet of premium and ultra-luxury vehicles available on demand. Daily, weekly, or monthly engagements with full-service delivery and collection.',
+        tags: ['Premium Fleet', 'On-Demand', 'Long-Term'],
+        img: '/images/limmore16.jpg',
+        size: 'wide',
       },
       {
-        id:    'travel',
+        id: 'travel',
         title: 'Tailor Made Travel Planning',
-        desc:  'Private jet coordination, villa bookings, bespoke itineraries, and on-the-ground concierge for individuals and families who expect more than a standard travel package.',
-        tags:  ['Private Jet', 'Bespoke Itineraries', 'Concierge'],
-        img:   'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/e2d1e147a41fe4e662931064017c1c41778c27b0.jpg',
-        size:  'large',
+        desc: 'Private jet coordination, villa bookings, bespoke itineraries, and on-the-ground concierge for individuals and families who expect more than a standard travel package.',
+        tags: ['Private Jet', 'Bespoke Itineraries', 'Concierge'],
+        img: 'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/e2d1e147a41fe4e662931064017c1c41778c27b0.jpg',
+        size: 'large',
       },
       {
-        id:    'investments',
+        id: 'investments',
         title: 'Investments',
-        desc:  'Access to curated real estate, hospitality, and mobility investment opportunities. Structured for UHNW individuals and family offices seeking strategic asset diversification.',
-        tags:  ['Real Estate', 'Family Office', 'UHNW'],
-        img:   'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/f28a964a59460e7985aed60fb5a8a19ce378699d.jpg',
-        size:  'medium',
+        desc: 'Access to curated real estate, hospitality, and mobility investment opportunities. Structured for UHNW individuals and family offices seeking strategic asset diversification.',
+        tags: ['Real Estate', 'Family Office', 'UHNW'],
+        img: 'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/f28a964a59460e7985aed60fb5a8a19ce378699d.jpg',
+        size: 'medium',
       },
       {
-        id:    'fleet',
+        id: 'fleet',
         title: 'Luxury Fleet Management',
-        desc:  'Full-spectrum fleet management for corporates and private clients — maintenance scheduling, driver management, insurance oversight, and asset optimisation.',
-        tags:  ['Fleet Operations', 'Asset Management', 'Driver Services'],
-        img:   'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/8718aab1f0a4d510f974708fdcbfcdd431080d27.jpg',
-        size:  'medium',
+        desc: 'Full-spectrum fleet management for corporates and private clients — maintenance scheduling, driver management, insurance oversight, and asset optimisation.',
+        tags: ['Fleet Operations', 'Asset Management', 'Driver Services'],
+        img: 'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/8718aab1f0a4d510f974708fdcbfcdd431080d27.jpg',
+        size: 'medium',
       },
     ],
   },
   ar: {
-    eyebrow:  'حلولنا',
+    eyebrow: 'حلولنا',
     headline: 'كل ما تحتاجه\nمؤسستك.',
-    sub:      'من رحلة واحدة إلى برنامج مؤسسي متكامل — ليمور تُقدّم خدماتها عبر كل أبعاد التنقل التنفيذي.',
-    cta:      'اعرف المزيد',
+    sub: 'من رحلة واحدة إلى برنامج مؤسسي متكامل — ليمور تُقدّم خدماتها عبر كل أبعاد التنقل التنفيذي.',
+    cta: 'اعرف المزيد',
     solutions: [
-      { id: 'relocation', title: 'الانتقال', desc: 'لوجستيات انتقال سلسة من الباب إلى الباب للمديرين والعائلات والفرق المؤسسية.', tags: ['انتقالات تنفيذية', 'عائلية', 'دولية'], img: 'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/ef3c1ab7e3795816ad207381582b37a17d7509be.jpg', size: 'large' },
-      { id: 'events', title: 'إدارة الفعاليات المؤسسية', desc: 'تخطيط وتنفيذ شامل للفعاليات المؤسسية وحفلات العشاء وملتقيات مجالس الإدارة.', tags: ['حفلات', 'مؤتمرات', 'ملتقيات'], img: 'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/1da9b992e3f734b51f59c74e004414cab3ff4b42.jpg', size: 'medium' },
-      { id: 'recreation', title: 'ترفيه الموظفين', desc: 'تجارب مُختارة تُكافئ فريقك — أيام يخوت، رحلات جماعية، وفعاليات مصممة للفرق عالية الأداء.', tags: ['رحلات', 'يخوت', 'مجموعات'], img: 'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/9506451b4b9b0cff69d352018686e4a527759ec1.jpg', size: 'medium' },
-      { id: 'rental', title: 'تأجير السيارات وحلول التنقل', desc: 'أسطول مُختار من المركبات الفاخرة المتاحة عند الطلب — يومي أو أسبوعي أو شهري.', tags: ['أسطول متميز', 'عند الطلب', 'طويل الأمد'], img: 'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/b5a574a899c15c326904e49f627bd3782a19abfc.jpg', size: 'wide' },
+      { id: 'relocation', title: 'الانتقال', desc: 'لوجستيات انتقال سلسة من الباب إلى الباب للمديرين والعائلات والفرق المؤسسية.', tags: ['انتقالات تنفيذية', 'عائلية', 'دولية'], img: '/images/limore1.jpg', size: 'large' },
+      { id: 'events', title: 'إدارة الفعاليات المؤسسية', desc: 'تخطيط وتنفيذ شامل للفعاليات المؤسسية وحفلات العشاء وملتقيات مجالس الإدارة.', tags: ['حفلات', 'مؤتمرات', 'ملتقيات'], img: '/images/corporate1.jpg', size: 'medium' },
+      { id: 'recreation', title: 'ترفيه الموظفين', desc: 'تجارب مُختارة تُكافئ فريقك — أيام يخوت، رحلات جماعية، وفعاليات مصممة للفرق عالية الأداء.', tags: ['رحلات', 'يخوت', 'مجموعات'], img: '/images/corporate2.jpg', size: 'medium' },
+      { id: 'rental', title: 'تأجير السيارات وحلول التنقل', desc: 'أسطول مُختار من المركبات الفاخرة المتاحة عند الطلب — يومي أو أسبوعي أو شهري.', tags: ['أسطول متميز', 'عند الطلب', 'طويل الأمد'], img: '/images/limmore16.jpg', size: 'wide' },
       { id: 'travel', title: 'تخطيط سفر مخصص', desc: 'تنسيق الطيران الخاص وحجوزات الفيلات وبرامج السفر المصممة خصيصاً مع خدمة الكونسيرج.', tags: ['طيران خاص', 'برامج مخصصة', 'كونسيرج'], img: 'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/e2d1e147a41fe4e662931064017c1c41778c27b0.jpg', size: 'large' },
       { id: 'investments', title: 'الاستثمارات', desc: 'فرص استثمارية مُختارة في العقارات والضيافة والتنقل لأصحاب الثروات والمكاتب العائلية.', tags: ['عقارات', 'مكاتب عائلية', 'ثروات عالية'], img: 'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/f28a964a59460e7985aed60fb5a8a19ce378699d.jpg', size: 'medium' },
       { id: 'fleet', title: 'إدارة أسطول فاخر', desc: 'إدارة أسطول شاملة للشركات والعملاء الخاصين — صيانة، إدارة سائقين، إشراف على التأمين.', tags: ['عمليات الأسطول', 'إدارة الأصول', 'خدمات السائقين'], img: 'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/8718aab1f0a4d510f974708fdcbfcdd431080d27.jpg', size: 'medium' },
     ],
   },
   fr: {
-    eyebrow:  'Nos Solutions',
+    eyebrow: 'Nos Solutions',
     headline: 'Tout ce dont votre\nOrganisation a Besoin.',
-    sub:      'D\'un seul trajet à un programme corporate entièrement géré — Limore intervient sur chaque dimension de la mobilité executive.',
-    cta:      'En savoir plus',
+    sub: 'D\'un seul trajet à un programme corporate entièrement géré — Limore intervient sur chaque dimension de la mobilité executive.',
+    cta: 'En savoir plus',
     solutions: [
-      { id: 'relocation', title: 'Relocation', desc: 'Logistique de relocation de bout en bout pour dirigeants, familles et équipes corporate. Chaque détail est géré.', tags: ['Déménagements Exécutifs', 'Famille', 'International'], img: 'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/ef3c1ab7e3795816ad207381582b37a17d7509be.jpg', size: 'large' },
-      { id: 'events', title: 'Gestion d\'Événements Corporate', desc: 'Planification et exécution complètes d\'événements corporate, galas, retraites de direction et activations de marque.', tags: ['Galas', 'Conférences', 'Retraites'], img: 'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/1da9b992e3f734b51f59c74e004414cab3ff4b42.jpg', size: 'medium' },
-      { id: 'recreation', title: 'Loisirs du Personnel', desc: 'Expériences sur-mesure pour récompenser vos équipes — journées yachts, escapades urbaines, retraites de groupe.', tags: ['Retraites', 'Journées Yacht', 'Groupes'], img: 'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/9506451b4b9b0cff69d352018686e4a527759ec1.jpg', size: 'medium' },
-      { id: 'rental', title: 'Location & Solutions de Mobilité', desc: 'Une flotte de véhicules premium et ultra-luxe disponible à la demande. Engagements journaliers, hebdomadaires ou mensuels.', tags: ['Flotte Premium', 'À la Demande', 'Long Terme'], img: 'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/b5a574a899c15c326904e49f627bd3782a19abfc.jpg', size: 'wide' },
+      { id: 'relocation', title: 'Relocation', desc: 'Logistique de relocation de bout en bout pour dirigeants, familles et équipes corporate. Chaque détail est géré.', tags: ['Déménagements Exécutifs', 'Famille', 'International'], img: '/images/limore1.jpg', size: 'large' },
+      { id: 'events', title: 'Gestion d\'Événements Corporate', desc: 'Planification et exécution complètes d\'événements corporate, galas, retraites de direction et activations de marque.', tags: ['Galas', 'Conférences', 'Retraites'], img: '/images/corporate1.jpg', size: 'medium' },
+      { id: 'recreation', title: 'Loisirs du Personnel', desc: 'Expériences sur-mesure pour récompenser vos équipes — journées yachts, escapades urbaines, retraites de groupe.', tags: ['Retraites', 'Journées Yacht', 'Groupes'], img: '/images/corporate2.jpg', size: 'medium' },
+      { id: 'rental', title: 'Location & Solutions de Mobilité', desc: 'Une flotte de véhicules premium et ultra-luxe disponible à la demande. Engagements journaliers, hebdomadaires ou mensuels.', tags: ['Flotte Premium', 'À la Demande', 'Long Terme'], img: '/images/limmore16.jpg', size: 'wide' },
       { id: 'travel', title: 'Voyage Sur Mesure', desc: 'Coordination de jets privés, réservations de villas, itinéraires sur mesure et conciergerie sur place.', tags: ['Jet Privé', 'Itinéraires', 'Conciergerie'], img: 'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/e2d1e147a41fe4e662931064017c1c41778c27b0.jpg', size: 'large' },
       { id: 'investments', title: 'Investissements', desc: 'Accès à des opportunités d\'investissement dans l\'immobilier, l\'hôtellerie et la mobilité pour UHNW et family offices.', tags: ['Immobilier', 'Family Office', 'UHNW'], img: 'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/f28a964a59460e7985aed60fb5a8a19ce378699d.jpg', size: 'medium' },
       { id: 'fleet', title: 'Gestion de Flotte Luxe', desc: 'Gestion complète de flotte pour entreprises et clients privés — maintenance, chauffeurs, assurance, optimisation d\'actifs.', tags: ['Opérations', 'Gestion d\'Actifs', 'Chauffeurs'], img: 'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/8718aab1f0a4d510f974708fdcbfcdd431080d27.jpg', size: 'medium' },
@@ -108,7 +108,7 @@ const t = {
 // ─── Arrow icon ────────────────────────────────────────────────────────────────
 const ArrowIcon = () => (
   <svg width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
-    <path d="M1 4h10M7 1l4 3-4 3" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M1 4h10M7 1l4 3-4 3" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 )
 
@@ -140,15 +140,15 @@ function SolutionCard({ solution, locale, isRTL, cardRef }) {
         position: 'relative',
         width: '100%',
         height: solution.size === 'large' ? 'clamp(220px, 28vw, 340px)'
-              : solution.size === 'wide'  ? 'clamp(180px, 22vw, 260px)'
-              : 'clamp(160px, 20vw, 220px)',
+          : solution.size === 'wide' ? 'clamp(180px, 22vw, 260px)'
+            : 'clamp(160px, 20vw, 220px)',
         overflow: 'hidden',
         flexShrink: 0,
       }}>
         <img
           src={solution.img}
           alt={solution.title}
-          
+
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           loading="lazy"
           style={{
@@ -290,9 +290,9 @@ function SolutionCard({ solution, locale, isRTL, cardRef }) {
 
 // ─── Main Component ────────────────────────────────────────────────────────────
 export default function LimoreSolutions({ locale = 'en' }) {
-  const c       = t[locale] || t.en
-  const isRTL   = locale === 'ar'
-  const secRef  = useRef(null)
+  const c = t[locale] || t.en
+  const isRTL = locale === 'ar'
+  const secRef = useRef(null)
   const headRef = useRef(null)
   const cardRefs = useRef([])
 
@@ -300,16 +300,20 @@ export default function LimoreSolutions({ locale = 'en' }) {
     const ctx = gsap.context(() => {
       gsap.fromTo(headRef.current,
         { opacity: 0, y: 28 },
-        { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out',
-          scrollTrigger: { trigger: headRef.current, start: 'top 82%' } }
+        {
+          opacity: 1, y: 0, duration: 0.9, ease: 'power3.out',
+          scrollTrigger: { trigger: headRef.current, start: 'top 82%' }
+        }
       )
       cardRefs.current.forEach((el, i) => {
         if (!el) return
         gsap.fromTo(el,
           { opacity: 0, y: 40 },
-          { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out',
+          {
+            opacity: 1, y: 0, duration: 0.75, ease: 'power3.out',
             delay: (i % 3) * 0.1,
-            scrollTrigger: { trigger: el, start: 'top 90%' } }
+            scrollTrigger: { trigger: el, start: 'top 90%' }
+          }
         )
       })
     }, secRef)

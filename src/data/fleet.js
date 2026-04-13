@@ -20,7 +20,7 @@ export const fleetCategories = [
       class:    { en: 'Executive Class', ar: 'الفئة التنفيذية', fr: 'Classe Exécutive' },
       seats:    3,
       luggage:  2,
-      img:      'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=900&q=85',
+      img:      '/images/fleet/bmw5.jpeg',
       imgAlt:   'BMW 5 Series — Limore Executive Class',
       features: {
         en: ['Climate Control', 'Leather Seating', 'Wi-Fi', 'Charging Ports', 'Privacy Glass'],
@@ -43,7 +43,7 @@ export const fleetCategories = [
       class:    { en: 'Executive Class', ar: 'الفئة التنفيذية', fr: 'Classe Exécutive' },
       seats:    3,
       luggage:  2,
-      img:      '/images/Audi-A6.jpg',
+      img:      '/images/fleet/Audi-A6.jpg',
       imgAlt:   'Audi A6 — Limore Executive Class',
       features: {
         en: ['Ambient Lighting', 'Leather Seating', 'Wi-Fi', 'Charging Ports', 'Privacy Glass'],

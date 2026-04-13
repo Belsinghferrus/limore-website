@@ -94,7 +94,7 @@ export default function FleetHero({ locale = 'en' }) {
     <section
       ref={sectionRef}
       style={{
-        position: 'relative', width: '100%', minHeight: '80vh',
+        position: 'relative', width: '100%', minHeight: '100vh',
         overflow: 'hidden', backgroundColor: '#050505',
         display: 'flex', flexDirection: 'column',
         direction: isRTL ? 'rtl' : 'ltr',
@@ -103,7 +103,7 @@ export default function FleetHero({ locale = 'en' }) {
       <div style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden' }}>
         <img
           ref={imgRef}
-          src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1920&q=85"
+          src="/images/limore6.jpg"
           alt="Limore luxury fleet collection"
           width={1920} height={1080}
           fetchPriority="high"

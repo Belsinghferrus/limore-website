@@ -3,61 +3,60 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import Image from 'next/image'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const t = {
   en: {
-    eyebrow:  'What is Limore 360',
+    eyebrow: 'What is Limore 360',
     headline: 'Not a Booking. A Relationship.',
-    body1:    'Limore 360 is not a subscription in the conventional sense. It is a retainer - a private arrangement between you and a team of dedicated professionals who understand that your time is the most finite resource you have.',
-    body2:    'When you hold a Limore 360 membership, you are not competing for availability. You are not subject to surge pricing. You are not explaining your preferences each time. Your account is pre-loaded, your chauffeur is briefed, and your vehicle is staged before you ask.',
+    body1: 'Limore 360 is not a subscription in the conventional sense. It is a retainer - a private arrangement between you and a team of dedicated professionals who understand that your time is the most finite resource you have.',
+    body2: 'When you hold a Limore 360 membership, you are not competing for availability. You are not subject to surge pricing. You are not explaining your preferences each time. Your account is pre-loaded, your chauffeur is briefed, and your vehicle is staged before you ask.',
     items: [
       {
         icon: 'clock',
         title: 'Pre-purchased hours',
-        text:  'Buy a block of hours at a fixed rate. Use them across any city in our network, for any service category, whenever you need.',
+        text: 'Buy a block of hours at a fixed rate. Use them across any city in our network, for any service category, whenever you need.',
       },
       {
         icon: 'shield',
         title: 'Locked pricing',
-        text:  'Your rate per hour is agreed at the point of purchase and does not change — regardless of market conditions, season, or demand.',
+        text: 'Your rate per hour is agreed at the point of purchase and does not change — regardless of market conditions, season, or demand.',
       },
       {
         icon: 'user',
         title: 'Named chauffeurs',
-        text:  'We assign preferred chauffeurs to your account. They know your seat position, temperature preference, and privacy requirements by default.',
+        text: 'We assign preferred chauffeurs to your account. They know your seat position, temperature preference, and privacy requirements by default.',
       },
       {
         icon: 'globe',
         title: 'Global redemption',
-        text:  'Your hours are valid across every city Limore operates in. One membership, one rate, every market.',
+        text: 'Your hours are valid across every city Limore operates in. One membership, one rate, every market.',
       },
     ],
   },
   ar: {
-    eyebrow:  'ما هو ليمور ٣٦٠',
+    eyebrow: 'ما هو ليمور ٣٦٠',
     headline: 'ليس حجزاً. إنها علاقة.',
-    body1:    'ليمور ٣٦٠ ليس اشتراكاً بالمعنى التقليدي. إنه ترتيب خاص بينك وبين فريق متخصص يفهم أن وقتك هو أكثر مواردك ندرة.',
-    body2:    'عندما تمتلك عضوية ليمور ٣٦٠، لا تتنافس على التوفر ولا تخضع لأسعار متذبذبة ولا تشرح تفضيلاتك في كل مرة.',
+    body1: 'ليمور ٣٦٠ ليس اشتراكاً بالمعنى التقليدي. إنه ترتيب خاص بينك وبين فريق متخصص يفهم أن وقتك هو أكثر مواردك ندرة.',
+    body2: 'عندما تمتلك عضوية ليمور ٣٦٠، لا تتنافس على التوفر ولا تخضع لأسعار متذبذبة ولا تشرح تفضيلاتك في كل مرة.',
     items: [
-      { icon: 'clock',  title: 'ساعات مسبقة الشراء', text: 'اشترِ كتلة من الساعات بسعر ثابت. استخدمها في أي مدينة في شبكتنا.' },
-      { icon: 'shield', title: 'أسعار مضمونة',        text: 'سعرك للساعة متفق عليه عند الشراء ولا يتغير بغض النظر عن ظروف السوق.' },
-      { icon: 'user',   title: 'سائقون بالاسم',       text: 'نخصص سائقين مفضلين لحسابك يعرفون تفضيلاتك بشكل افتراضي.' },
-      { icon: 'globe',  title: 'استرداد عالمي',       text: 'ساعاتك صالحة في كل مدينة تعمل فيها ليمور. عضوية واحدة، سعر واحد.' },
+      { icon: 'clock', title: 'ساعات مسبقة الشراء', text: 'اشترِ كتلة من الساعات بسعر ثابت. استخدمها في أي مدينة في شبكتنا.' },
+      { icon: 'shield', title: 'أسعار مضمونة', text: 'سعرك للساعة متفق عليه عند الشراء ولا يتغير بغض النظر عن ظروف السوق.' },
+      { icon: 'user', title: 'سائقون بالاسم', text: 'نخصص سائقين مفضلين لحسابك يعرفون تفضيلاتك بشكل افتراضي.' },
+      { icon: 'globe', title: 'استرداد عالمي', text: 'ساعاتك صالحة في كل مدينة تعمل فيها ليمور. عضوية واحدة، سعر واحد.' },
     ],
   },
   fr: {
-    eyebrow:  'Qu\'est-ce que Limore 360',
+    eyebrow: 'Qu\'est-ce que Limore 360',
     headline: 'Pas une Réservation. Une Relation.',
-    body1:    'Limore 360 n\'est pas un abonnement au sens conventionnel. C\'est un retainer — un arrangement privé entre vous et une équipe dédiée qui comprend que votre temps est votre ressource la plus précieuse.',
-    body2:    'Avec Limore 360, vous ne concourez pas pour la disponibilité. Vous n\'êtes pas soumis à des tarifs variables. Vous n\'expliquez pas vos préférences à chaque fois.',
+    body1: 'Limore 360 n\'est pas un abonnement au sens conventionnel. C\'est un retainer — un arrangement privé entre vous et une équipe dédiée qui comprend que votre temps est votre ressource la plus précieuse.',
+    body2: 'Avec Limore 360, vous ne concourez pas pour la disponibilité. Vous n\'êtes pas soumis à des tarifs variables. Vous n\'expliquez pas vos préférences à chaque fois.',
     items: [
-      { icon: 'clock',  title: 'Heures prépayées',     text: 'Achetez un bloc d\'heures à tarif fixe. Utilisez-les dans n\'importe quelle ville de notre réseau.' },
+      { icon: 'clock', title: 'Heures prépayées', text: 'Achetez un bloc d\'heures à tarif fixe. Utilisez-les dans n\'importe quelle ville de notre réseau.' },
       { icon: 'shield', title: 'Tarification bloquée', text: 'Votre tarif à l\'heure est convenu à l\'achat et ne change pas, quelle que soit la demande.' },
-      { icon: 'user',   title: 'Chauffeurs attitrés',  text: 'Nous assignons des chauffeurs préférés à votre compte qui connaissent vos préférences par défaut.' },
-      { icon: 'globe',  title: 'Utilisation mondiale', text: 'Vos heures sont valables dans chaque ville où Limore opère. Un abonnement, un tarif, tous les marchés.' },
+      { icon: 'user', title: 'Chauffeurs attitrés', text: 'Nous assignons des chauffeurs préférés à votre compte qui connaissent vos préférences par défaut.' },
+      { icon: 'globe', title: 'Utilisation mondiale', text: 'Vos heures sont valables dans chaque ville où Limore opère. Un abonnement, un tarif, tous les marchés.' },
     ],
   },
 }
@@ -66,56 +65,62 @@ const t = {
 const icons = {
   clock: (
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-      <circle cx="11" cy="11" r="9.5" stroke="#C8102E" strokeWidth="1.1"/>
-      <path d="M11 6v5.5l3.5 2" stroke="#C8102E" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round"/>
+      <circle cx="11" cy="11" r="9.5" stroke="#C8102E" strokeWidth="1.1" />
+      <path d="M11 6v5.5l3.5 2" stroke="#C8102E" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   ),
   shield: (
     <svg width="20" height="23" viewBox="0 0 20 23" fill="none" aria-hidden="true">
-      <path d="M10 1.5L1.5 5.5v6c0 5.5 4 9.5 8.5 10 4.5-.5 8.5-4.5 8.5-10v-6L10 1.5z" stroke="#C8102E" strokeWidth="1.1" strokeLinejoin="round"/>
-      <path d="M6.5 11.5l2.5 2.5 4.5-5" stroke="#C8102E" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M10 1.5L1.5 5.5v6c0 5.5 4 9.5 8.5 10 4.5-.5 8.5-4.5 8.5-10v-6L10 1.5z" stroke="#C8102E" strokeWidth="1.1" strokeLinejoin="round" />
+      <path d="M6.5 11.5l2.5 2.5 4.5-5" stroke="#C8102E" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   ),
   user: (
     <svg width="20" height="23" viewBox="0 0 20 23" fill="none" aria-hidden="true">
-      <circle cx="10" cy="7" r="4.5" stroke="#C8102E" strokeWidth="1.1"/>
-      <path d="M1.5 21.5c0-4.4 3.8-8 8.5-8s8.5 3.6 8.5 8" stroke="#C8102E" strokeWidth="1.1" strokeLinecap="round"/>
+      <circle cx="10" cy="7" r="4.5" stroke="#C8102E" strokeWidth="1.1" />
+      <path d="M1.5 21.5c0-4.4 3.8-8 8.5-8s8.5 3.6 8.5 8" stroke="#C8102E" strokeWidth="1.1" strokeLinecap="round" />
     </svg>
   ),
   globe: (
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-      <circle cx="11" cy="11" r="9.5" stroke="#C8102E" strokeWidth="1.1"/>
-      <path d="M11 1.5c0 0-4 4-4 9.5s4 9.5 4 9.5M11 1.5c0 0 4 4 4 9.5s-4 9.5-4 9.5M1.5 11h19" stroke="#C8102E" strokeWidth="1.1"/>
+      <circle cx="11" cy="11" r="9.5" stroke="#C8102E" strokeWidth="1.1" />
+      <path d="M11 1.5c0 0-4 4-4 9.5s4 9.5 4 9.5M11 1.5c0 0 4 4 4 9.5s-4 9.5-4 9.5M1.5 11h19" stroke="#C8102E" strokeWidth="1.1" />
     </svg>
   ),
 }
 
 export default function Limore360What({ locale = 'en' }) {
-  const c        = t[locale] || t.en
-  const isRTL    = locale === 'ar'
-  const secRef   = useRef(null)
-  const topRef   = useRef(null)
-  const imgRef   = useRef(null)
+  const c = t[locale] || t.en
+  const isRTL = locale === 'ar'
+  const secRef = useRef(null)
+  const topRef = useRef(null)
+  const imgRef = useRef(null)
   const cardRefs = useRef([])
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(imgRef.current,
         { opacity: 0, scale: 1.04 },
-        { opacity: 1, scale: 1, duration: 1.3, ease: 'power3.out',
-          scrollTrigger: { trigger: imgRef.current, start: 'top 85%' } }
+        {
+          opacity: 1, scale: 1, duration: 1.3, ease: 'power3.out',
+          scrollTrigger: { trigger: imgRef.current, start: 'top 85%' }
+        }
       )
       gsap.fromTo(topRef.current,
         { opacity: 0, y: 28 },
-        { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out',
-          scrollTrigger: { trigger: topRef.current, start: 'top 82%' } }
+        {
+          opacity: 1, y: 0, duration: 0.9, ease: 'power3.out',
+          scrollTrigger: { trigger: topRef.current, start: 'top 82%' }
+        }
       )
       cardRefs.current.forEach((el, i) => {
         if (!el) return
         gsap.fromTo(el,
           { opacity: 0, y: 32 },
-          { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', delay: i * 0.1,
-            scrollTrigger: { trigger: el, start: 'top 88%' } }
+          {
+            opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', delay: i * 0.1,
+            scrollTrigger: { trigger: el, start: 'top 88%' }
+          }
         )
       })
     }, secRef)
@@ -142,19 +147,19 @@ export default function Limore360What({ locale = 'en' }) {
           opacity: 0,
         }}
       >
-      <img
-  src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1800&q=85"
-  alt="Limore chauffeur vehicle interior — refined private travel"
-  loading="lazy"
-  style={{
-    position: 'absolute',
-    inset: 0,
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-    objectPosition: 'center 35%',
-  }}
-/>
+        <img
+          src="/images/limore13.jpg"
+          alt="Limore chauffeur vehicle interior — refined private travel"
+          loading="lazy"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center 35%',
+          }}
+        />
         {/* Dark fade top & bottom so it connects to white sections */}
         <div style={{
           position: 'absolute', inset: 0,
@@ -182,7 +187,7 @@ export default function Limore360What({ locale = 'en' }) {
             fontSize: '9px', letterSpacing: '0.2em',
             fontFamily: 'Inter, sans-serif',
             fontWeight: 500, textTransform: 'uppercase', color: '#C8102E',
-          }}>Limore 360 — Private Membership</span>
+          }}>Limore 360 - Private Membership</span>
         </div>
       </div>
 

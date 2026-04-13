@@ -185,18 +185,24 @@ export default function Limore360Plans({ locale = 'en' }) {
         ref={imgRef}
         style={{
           width: '100%',
-          height: 'clamp(180px, 28vw, 400px)',
+          height: 'clamp(200px, 32vw, 460px)',
           position: 'relative',
           overflow: 'hidden',
           opacity: 0,
         }}
       >
         <img
-          src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=1800&q=85"
+          src="/images/limore5.jpg"
           alt="Limore 360 — membership plans, executive fleet"
-          fill
-          style={{ objectFit: 'cover', objectPosition: 'center 40%' }}
-          loading="lazy"
+
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center 35%',
+          }}          loading="lazy"
           sizes="100vw"
         />
         {/* Fade into light section bg */}

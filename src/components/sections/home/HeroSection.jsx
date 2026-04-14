@@ -165,6 +165,9 @@ export default function HeroSection({ locale = 'en' }) {
         muted
         loop
         playsInline
+        preload="auto"  
+        disablePictureInPicture
+        disableRemotePlayback
         aria-hidden="true"
         style={{
           position: 'absolute',

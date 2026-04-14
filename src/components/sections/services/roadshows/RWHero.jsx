@@ -42,7 +42,7 @@ const t = {
     line1: 'Chaque Détail.',
     line2: 'Chaque Ville.',
     line3: 'Dans les Temps.',
-    sub: 'Des lancements produit dans une seule ville aux roadshows financiers multi-pays d\'un mois, Limore gère le transport terrestre au niveau qu\'exige votre événement.',
+    sub: "Des lancements produit dans une seule ville aux roadshows financiers multi-pays d'un mois, Limore gère le transport terrestre au niveau qu'exige votre événement.",
     cta: 'Planifier votre Événement',
     ctaSecondary: 'Voir la Flotte',
     tag1: 'Roadshows Financiers',
@@ -57,210 +57,168 @@ export default function RWHero({ locale = 'en' }) {
   const isRTL   = locale === 'ar'
   const lp      = (href) => `/${locale}${href}`
 
-  const sectionRef  = useRef(null)
-  const imgRef      = useRef(null)
-  const overlayRef  = useRef(null)
-  const breadRef    = useRef(null)
-  const eyebrowRef  = useRef(null)
-  const linesRef    = useRef([])
-  const tagsRef     = useRef(null)
-  const subRef      = useRef(null)
-  const ctaRef      = useRef(null)
-  const scrollRef   = useRef(null)
+  const sectionRef = useRef(null)
+  const imgRef     = useRef(null)
+  const breadRef   = useRef(null)
+  const eyebrowRef = useRef(null)
+  const linesRef   = useRef([])
+  const tagsRef    = useRef(null)
+  const subRef     = useRef(null)
+  const ctaRef     = useRef(null)
+  const scrollRef  = useRef(null)
+  const metaRef    = useRef(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(imgRef.current,
-        { scale: 1.1, filter: 'brightness(0.4)' },
-        { scale: 1, filter: 'brightness(0.65)', duration: 2.4, ease: 'power2.out' }
+      // Background image entrance
+      gsap.fromTo(
+        imgRef.current,
+        { scale: 1.08, filter: 'brightness(0.3)' },
+        { scale: 1, filter: 'brightness(0.6)', duration: 2.6, ease: 'power2.out' }
       )
 
-      const tl = gsap.timeline({ delay: 0.1 })
+      const tl = gsap.timeline({ delay: 0.2 })
 
-      tl.fromTo(breadRef.current,
-        { opacity: 0, y: -8 },
-        { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }
+      tl.fromTo(
+        breadRef.current,
+        { opacity: 0, y: -10 },
+        { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }
       )
-      .fromTo(eyebrowRef.current,
+      .fromTo(
+        eyebrowRef.current,
         { opacity: 0, letterSpacing: '0.5em' },
-        { opacity: 1, letterSpacing: '0.22em', duration: 0.9, ease: 'power3.out' },
+        { opacity: 1, letterSpacing: '0.22em', duration: 0.8, ease: 'power3.out' },
         '-=0.2'
       )
 
       linesRef.current.forEach((el, i) => {
-        tl.fromTo(el,
-          { yPercent: 110, opacity: 0 },
-          { yPercent: 0, opacity: 1, duration: 1, ease: 'power4.out' },
-          i === 0 ? '-=0.3' : '-=0.75'
+        if (!el) return
+        tl.fromTo(
+          el,
+          { yPercent: 105, opacity: 0 },
+          { yPercent: 0, opacity: 1, duration: 0.95, ease: 'power4.out' },
+          i === 0 ? '-=0.3' : '-=0.72'
         )
       })
 
-      tl.fromTo(tagsRef.current,
-        { opacity: 0, y: 12 },
-        { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' },
-        '-=0.4'
+      tl.fromTo(
+        tagsRef.current,
+        { opacity: 0, y: 10 },
+        { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' },
+        '-=0.35'
       )
-      .fromTo(subRef.current,
-        { opacity: 0, y: 14 },
-        { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' },
-        '-=0.45'
-      )
-      .fromTo(ctaRef.current,
+      .fromTo(
+        subRef.current,
         { opacity: 0, y: 12 },
         { opacity: 1, y: 0, duration: 0.65, ease: 'power3.out' },
         '-=0.4'
       )
-      .fromTo(scrollRef.current,
+      .fromTo(
+        ctaRef.current,
+        { opacity: 0, y: 10 },
+        { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' },
+        '-=0.35'
+      )
+      .fromTo(
+        metaRef.current,
         { opacity: 0 },
         { opacity: 1, duration: 0.5 },
-        '-=0.1'
+        '-=0.2'
+      )
+      .fromTo(
+        scrollRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.5 },
+        '-=0.3'
       )
 
-      // Looping scroll indicator
-      gsap.to(scrollRef.current?.querySelector('.rw-scroll-dot'), {
-        y: 8, repeat: -1, yoyo: true, duration: 1.1, ease: 'power1.inOut',
+      // Looping scroll dot
+      gsap.to('.rwh-scroll-dot', {
+        y: 22,
+        repeat: -1,
+        yoyo: true,
+        duration: 1.2,
+        ease: 'power1.inOut',
       })
     }, sectionRef)
-    return () => ctx.revert()
-  }, [])
 
-  const tags = [content.tag1, content.tag2, content.tag3, content.tag4]
+    return () => ctx.revert()
+  }, [locale])
+
+  const tags  = [content.tag1, content.tag2, content.tag3, content.tag4]
   const lines = [content.line1, content.line2, content.line3]
 
   return (
     <section
       ref={sectionRef}
-      style={{
-        position: 'relative',
-        width: '100%',
-        minHeight: '100vh',
-        overflow: 'hidden',
-        backgroundColor: '#050505',
-        display: 'flex',
-        flexDirection: 'column',
-        direction: isRTL ? 'rtl' : 'ltr',
-      }}
+      className="rwh-section"
+      style={{ direction: isRTL ? 'rtl' : 'ltr' }}
       aria-label={content.label}
     >
-      {/* Background image */}
-      <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+      {/* ── Background ── */}
+      <div className="rwh-bg">
         <img
           ref={imgRef}
           src="/images/event2.jpg"
-          alt="Luxury event and roadshow ground transport — Limore"
+          alt=""
+          aria-hidden="true"
           width={1920}
           height={1080}
           fetchPriority="high"
-          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', display: 'block' }}
+          className="rwh-bg-img"
         />
       </div>
 
-      {/* Overlays */}
-      <div style={{
-        position: 'absolute', inset: 0, zIndex: 1,
-        background: 'linear-gradient(160deg, rgba(5,5,5,0.92) 0%, rgba(5,5,5,0.6) 50%, rgba(5,5,5,0.15) 100%)',
-      }} />
-      <div style={{
-        position: 'absolute', bottom: 0, left: 0, right: 0,
-        height: '50%', zIndex: 2,
-        background: 'linear-gradient(to top, #050505 0%, transparent 100%)',
-        pointerEvents: 'none',
-      }} />
+      {/* ── Gradient overlays ── */}
+      <div className="rwh-overlay-top"    aria-hidden="true" />
+      <div className="rwh-overlay-bottom" aria-hidden="true" />
+      <div className="rwh-overlay-side"   aria-hidden="true" />
 
-      {/* Horizontal rule */}
-      <div style={{
-        position: 'absolute', top: '88px', left: 0, right: 0,
-        height: '1px', backgroundColor: 'rgba(248,247,244,0.06)', zIndex: 3,
-      }} />
+      {/* ── Decorative rules ── */}
+      <div className="rwh-h-rule" aria-hidden="true" />
+      <div className={`rwh-v-rule ${isRTL ? 'rwh-v-rule-rtl' : ''}`} aria-hidden="true" />
 
-      {/* Vertical rule (decorative, desktop) */}
-      <div
-        className="rw-v-rule"
-        style={{
-          position: 'absolute',
-          top: '88px',
-          bottom: 0,
-          right: isRTL ? 'auto' : 'clamp(48px, 8vw, 120px)',
-          left: isRTL ? 'clamp(48px, 8vw, 120px)' : 'auto',
-          width: '1px',
-          backgroundColor: 'rgba(248,247,244,0.05)',
-          zIndex: 3,
-        }}
-      />
-
-      {/* Content */}
-      <div style={{
-        position: 'relative', zIndex: 5,
-        flex: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'flex-end',
-        padding: 'clamp(100px, 12vw, 160px) clamp(24px, 6vw, 96px) clamp(60px, 8vh, 96px)',
-      }}>
+      {/* ── Main content ── */}
+      <div className="rwh-content">
 
         {/* Breadcrumb */}
-        <div
+        <nav
           ref={breadRef}
-          style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '32px', opacity: 0 }}
+          className="rwh-breadcrumb"
+          aria-label="Breadcrumb"
+          style={{ opacity: 0 }}
         >
-          {[{ label: 'Limore', href: '/' }, { label: content.category, href: '/services' }].map((c, i) => (
-            <span key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Link
-                href={lp(c.href)}
-                style={{
-                  fontSize: '10px', fontFamily: 'Inter, sans-serif',
-                  fontWeight: 400, letterSpacing: '0.16em',
-                  textTransform: 'uppercase', color: 'rgba(248,247,244,0.22)',
-                  textDecoration: 'none', transition: 'color 0.2s',
-                }}
-                onMouseEnter={e => e.currentTarget.style.color = 'rgba(248,247,244,0.55)'}
-                onMouseLeave={e => e.currentTarget.style.color = 'rgba(248,247,244,0.22)'}
-              >
+          {[
+            { label: 'Limore', href: '/' },
+            { label: content.category, href: '/services' },
+          ].map((c, i) => (
+            <span key={i} className="rwh-breadcrumb-item">
+              <Link href={lp(c.href)} className="rwh-breadcrumb-link">
                 {c.label}
               </Link>
-              <span style={{ color: 'rgba(248,247,244,0.15)', fontSize: '10px' }}>›</span>
+              <span className="rwh-breadcrumb-sep" aria-hidden="true">›</span>
             </span>
           ))}
-          <span style={{
-            fontSize: '10px', fontFamily: 'Inter, sans-serif',
-            fontWeight: 500, letterSpacing: '0.16em',
-            textTransform: 'uppercase', color: '#C41E1E',
-          }}>
-            {content.label}
-          </span>
-        </div>
+          <span className="rwh-breadcrumb-current">{content.label}</span>
+        </nav>
 
         {/* Eyebrow */}
         <p
           ref={eyebrowRef}
-          style={{
-            fontSize: '10px', fontFamily: 'Inter, sans-serif',
-            fontWeight: 400, letterSpacing: '0.22em',
-            textTransform: 'uppercase',
-            color: 'rgba(248,247,244,0.32)',
-            marginBottom: '20px', opacity: 0,
-          }}
+          className="rwh-eyebrow"
+          style={{ opacity: 0 }}
         >
           {content.eyebrow}
         </p>
 
-        {/* Headline — stacked lines with overflow hidden reveals */}
-        <div style={{ marginBottom: 'clamp(24px, 3vh, 36px)' }}>
+        {/* Headline */}
+        <div className="rwh-headline-wrap">
           {lines.map((line, i) => (
-            <div key={i} style={{ overflow: 'hidden' }}>
+            <div key={i} className="rwh-line-clip">
               <h1
                 ref={(el) => (linesRef.current[i] = el)}
-                style={{
-                  margin: 0,
-                  fontSize: 'clamp(3.2rem, 9vw, 10rem)',
-                  fontFamily: 'Cormorant Garamond, Georgia, serif',
-                  fontWeight: i === 2 ? 300 : 500,
-                  fontStyle: i === 2 ? 'italic' : 'normal',
-                  color: i === 2 ? 'rgba(248,247,244,0.55)' : '#F8F7F4',
-                  lineHeight: 0.95,
-                  letterSpacing: '-0.02em',
-                  opacity: 0,
-                }}
+                className={`rwh-line rwh-line-${i}`}
+                style={{ opacity: 0 }}
               >
                 {line}
               </h1>
@@ -268,141 +226,451 @@ export default function RWHero({ locale = 'en' }) {
           ))}
         </div>
 
-        {/* Service type tags */}
+        {/* Tags */}
         <div
           ref={tagsRef}
-          style={{
-            display: 'flex', flexWrap: 'wrap', gap: '8px',
-            marginBottom: 'clamp(20px, 3vh, 32px)',
-            opacity: 0,
-          }}
+          className="rwh-tags"
+          style={{ opacity: 0 }}
         >
           {tags.map((tag, i) => (
-            <span
-              key={i}
-              style={{
-                fontSize: '10px', fontFamily: 'Inter, sans-serif',
-                fontWeight: 400, letterSpacing: '0.16em',
-                textTransform: 'uppercase',
-                color: i === 0 ? '#C41E1E' : 'rgba(248,247,244,0.25)',
-                border: `1px solid ${i === 0 ? 'rgba(196,30,30,0.4)' : 'rgba(248,247,244,0.08)'}`,
-                padding: '5px 12px',
-              }}
-            >
+            <span key={i} className={`rwh-tag ${i === 0 ? 'rwh-tag-accent' : ''}`}>
               {tag}
             </span>
           ))}
         </div>
 
-        {/* Sub + CTA row */}
-        <div style={{
-          display: 'flex', alignItems: 'flex-end', flexWrap: 'wrap',
-          gap: 'clamp(24px, 4vw, 56px)',
-        }}>
+        {/* Bottom row: sub + CTA */}
+        <div className="rwh-bottom">
           <p
             ref={subRef}
-            style={{
-              fontSize: 'clamp(0.82rem, 1.3vw, 0.96rem)',
-              fontFamily: 'Inter, sans-serif',
-              fontWeight: 300,
-              color: 'rgba(248,247,244,0.4)',
-              lineHeight: 1.9,
-              maxWidth: '400px',
-              opacity: 0,
-            }}
+            className="rwh-sub"
+            style={{ opacity: 0 }}
           >
             {content.sub}
           </p>
 
           <div
             ref={ctaRef}
-            style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', opacity: 0, flexShrink: 0 }}
+            className="rwh-cta-group"
+            style={{ opacity: 0 }}
           >
-            <Link
-              href={lp('/contact')}
-              className="rw-btn-primary"
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: '10px',
-                padding: '13px 30px',
-                backgroundColor: '#C41E1E', color: '#fff',
-                fontSize: '10px', fontFamily: 'Inter, sans-serif',
-                fontWeight: 500, letterSpacing: '0.2em',
-                textTransform: 'uppercase', textDecoration: 'none',
-                transition: 'background-color 0.3s ease, transform 0.2s ease',
-                whiteSpace: 'nowrap',
-              }}
-            >
+            <Link href={lp('/contact')} className="rwh-btn-primary">
               {content.cta}
               <svg width="13" height="9" viewBox="0 0 13 9" fill="none" aria-hidden="true">
                 <path d="M1 4.5h11M7.5 1l4 3.5-4 3.5" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round"/>
               </svg>
             </Link>
-            <Link
-              href={lp('/fleet')}
-              className="rw-btn-ghost"
-              style={{
-                display: 'inline-flex', alignItems: 'center',
-                padding: '12px 26px',
-                backgroundColor: 'transparent',
-                color: 'rgba(248,247,244,0.55)',
-                fontSize: '10px', fontFamily: 'Inter, sans-serif',
-                fontWeight: 500, letterSpacing: '0.2em',
-                textTransform: 'uppercase', textDecoration: 'none',
-                border: '1px solid rgba(248,247,244,0.12)',
-                transition: 'all 0.3s ease',
-                whiteSpace: 'nowrap',
-              }}
-            >
+            <Link href={lp('/fleet')} className="rwh-btn-ghost">
               {content.ctaSecondary}
             </Link>
           </div>
         </div>
+
+        {/* Meta: count indicator */}
+        <div
+          ref={metaRef}
+          className="rwh-meta"
+          style={{ opacity: 0 }}
+          aria-hidden="true"
+        >
+          <span className="rwh-meta-num">04</span>
+          <span className="rwh-meta-label">Event categories managed</span>
+        </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* ── Scroll indicator ── */}
       <div
         ref={scrollRef}
-        style={{
-          position: 'absolute',
-          bottom: 'clamp(24px, 4vh, 40px)',
-          right: isRTL ? 'auto' : 'clamp(24px, 6vw, 96px)',
-          left: isRTL ? 'clamp(24px, 6vw, 96px)' : 'auto',
-          zIndex: 5,
-          display: 'flex', flexDirection: 'column',
-          alignItems: 'center', gap: '8px',
-          opacity: 0,
-        }}
+        className={`rwh-scroll ${isRTL ? 'rwh-scroll-rtl' : ''}`}
+        style={{ opacity: 0 }}
         aria-hidden="true"
       >
-        <div style={{
-          width: '1px', height: '40px',
-          backgroundColor: 'rgba(248,247,244,0.1)',
-          position: 'relative', overflow: 'hidden',
-        }}>
-          <div
-            className="rw-scroll-dot"
-            style={{
-              position: 'absolute', top: 0,
-              width: '1px', height: '12px',
-              backgroundColor: '#C41E1E',
-            }}
-          />
+        <div className="rwh-scroll-track">
+          <div className="rwh-scroll-dot" />
         </div>
-        <span style={{
-          fontSize: '9px', fontFamily: 'Inter, sans-serif',
-          fontWeight: 400, letterSpacing: '0.2em',
-          textTransform: 'uppercase', color: 'rgba(248,247,244,0.18)',
-          writingMode: 'vertical-rl',
-        }}>
-          Scroll
-        </span>
+        <span className="rwh-scroll-label">Scroll</span>
       </div>
 
       <style>{`
-        .rw-btn-primary:hover { background-color: #A01515 !important; transform: translateY(-1px); }
-        .rw-btn-ghost:hover { border-color: rgba(248,247,244,0.4) !important; color: #F8F7F4 !important; }
-        .rw-v-rule { display: none; }
-        @media (min-width: 1280px) { .rw-v-rule { display: block; } }
+        /* ── Section ── */
+        .rwh-section {
+          position: relative;
+          width: 100%;
+          min-height: 100svh;
+          overflow: hidden;
+          background: #050505;
+          display: flex;
+          flex-direction: column;
+          box-sizing: border-box;
+        }
+
+        /* ── Background ── */
+        .rwh-bg {
+          position: absolute;
+          inset: 0;
+          z-index: 0;
+        }
+        .rwh-bg-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center 40%;
+          display: block;
+        }
+
+        /* ── Overlays ── */
+        .rwh-overlay-top {
+          position: absolute;
+          inset: 0;
+          z-index: 1;
+          background: linear-gradient(
+            170deg,
+            rgba(5,5,5,0.95) 0%,
+            rgba(5,5,5,0.72) 40%,
+            rgba(5,5,5,0.2) 100%
+          );
+        }
+        .rwh-overlay-bottom {
+          position: absolute;
+          bottom: 0; left: 0; right: 0;
+          height: 55%;
+          z-index: 2;
+          background: linear-gradient(to top, #050505 0%, transparent 100%);
+          pointer-events: none;
+        }
+        .rwh-overlay-side {
+          position: absolute;
+          inset: 0;
+          z-index: 1;
+          background: linear-gradient(
+            to right,
+            rgba(5,5,5,0.7) 0%,
+            transparent 60%
+          );
+          pointer-events: none;
+        }
+
+        /* ── Decorative rules ── */
+        .rwh-h-rule {
+          position: absolute;
+          top: 80px; left: 0; right: 0;
+          height: 1px;
+          background: rgba(248,247,244,0.05);
+          z-index: 3;
+        }
+        .rwh-v-rule {
+          display: none;
+        }
+        @media (min-width: 1280px) {
+          .rwh-v-rule {
+            display: block;
+            position: absolute;
+            top: 80px; bottom: 0;
+            right: clamp(48px, 7vw, 120px);
+            width: 1px;
+            background: rgba(248,247,244,0.04);
+            z-index: 3;
+          }
+          .rwh-v-rule-rtl {
+            right: auto;
+            left: clamp(48px, 7vw, 120px);
+          }
+        }
+
+        /* ── Content wrapper ── */
+        .rwh-content {
+          position: relative;
+          z-index: 5;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          padding: clamp(96px, 12vw, 148px)
+                   clamp(24px, 6vw, 96px)
+                   clamp(56px, 8vh, 88px);
+          box-sizing: border-box;
+          width: 100%;
+          max-width: 100%;
+        }
+
+        /* ── Breadcrumb ── */
+        .rwh-breadcrumb {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 4px 6px;
+          margin-bottom: 28px;
+        }
+        .rwh-breadcrumb-item {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+        .rwh-breadcrumb-link {
+          font-size: 10px;
+          font-family: 'Inter', sans-serif;
+          font-weight: 400;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          color: rgba(248,247,244,0.22);
+          text-decoration: none;
+          transition: color 0.2s ease;
+        }
+        .rwh-breadcrumb-link:hover {
+          color: rgba(248,247,244,0.55);
+        }
+        .rwh-breadcrumb-sep {
+          color: rgba(248,247,244,0.14);
+          font-size: 10px;
+        }
+        .rwh-breadcrumb-current {
+          font-size: 10px;
+          font-family: 'Inter', sans-serif;
+          font-weight: 500;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          color: #C41E1E;
+        }
+
+        /* ── Eyebrow ── */
+        .rwh-eyebrow {
+          font-size: 10px;
+          font-family: 'Inter', sans-serif;
+          font-weight: 400;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: rgba(248,247,244,0.3);
+          margin: 0 0 18px;
+        }
+
+        /* ── Headline ── */
+        .rwh-headline-wrap {
+          margin-bottom: clamp(22px, 3vh, 34px);
+        }
+        .rwh-line-clip {
+          overflow: hidden;
+          line-height: 1;
+        }
+        .rwh-line {
+          margin: 0;
+          font-family: 'Cormorant Garamond', Georgia, serif;
+          /* Key fix: clamp min is 2rem not 3.2rem — prevents overflow on 375px */
+          font-size: clamp(2rem, 8.5vw, 10rem);
+          line-height: 0.95;
+          letter-spacing: -0.02em;
+          color: #F8F7F4;
+          font-weight: 500;
+          font-style: normal;
+        }
+        .rwh-line-2 {
+          font-weight: 300;
+          font-style: italic;
+          color: rgba(248,247,244,0.52);
+        }
+
+        /* ── Tags ── */
+        .rwh-tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          margin-bottom: clamp(20px, 3vh, 30px);
+        }
+        .rwh-tag {
+          font-size: 9px;
+          font-family: 'Inter', sans-serif;
+          font-weight: 400;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: rgba(248,247,244,0.25);
+          border: 1px solid rgba(248,247,244,0.08);
+          padding: 5px 11px;
+          white-space: nowrap;
+        }
+        .rwh-tag-accent {
+          color: #C41E1E;
+          border-color: rgba(196,30,30,0.38);
+        }
+
+        /* ── Bottom row ── */
+        .rwh-bottom {
+          display: flex;
+          align-items: flex-start;
+          flex-wrap: wrap;
+          gap: 24px 48px;
+        }
+        .rwh-sub {
+          font-size: clamp(0.78rem, 1.2vw, 0.92rem);
+          font-family: 'Inter', sans-serif;
+          font-weight: 300;
+          color: rgba(248,247,244,0.42);
+          line-height: 1.95;
+          max-width: 380px;
+          margin: 0;
+          flex: 1 1 260px;
+        }
+
+        /* ── CTA group ── */
+        .rwh-cta-group {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+          flex: 0 1 auto;
+          align-self: flex-end;
+        }
+        .rwh-btn-primary {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          padding: 13px 28px;
+          background: #C41E1E;
+          color: #fff;
+          font-size: 10px;
+          font-family: 'Inter', sans-serif;
+          font-weight: 500;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          text-decoration: none;
+          white-space: nowrap;
+          transition: background 0.25s ease, transform 0.2s ease;
+          box-sizing: border-box;
+        }
+        .rwh-btn-primary:hover {
+          background: #A01515;
+          transform: translateY(-1px);
+        }
+        .rwh-btn-ghost {
+          display: inline-flex;
+          align-items: center;
+          padding: 12px 24px;
+          background: transparent;
+          color: rgba(248,247,244,0.5);
+          font-size: 10px;
+          font-family: 'Inter', sans-serif;
+          font-weight: 500;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          text-decoration: none;
+          border: 1px solid rgba(248,247,244,0.12);
+          white-space: nowrap;
+          transition: border-color 0.25s ease, color 0.25s ease;
+          box-sizing: border-box;
+        }
+        .rwh-btn-ghost:hover {
+          border-color: rgba(248,247,244,0.38);
+          color: #F8F7F4;
+        }
+
+        /* ── Meta count ── */
+        .rwh-meta {
+          display: flex;
+          align-items: baseline;
+          gap: 10px;
+          margin-top: 36px;
+          padding-top: 20px;
+          border-top: 1px solid rgba(248,247,244,0.06);
+        }
+        .rwh-meta-num {
+          font-size: clamp(1.6rem, 3vw, 2.4rem);
+          font-family: 'Cormorant Garamond', Georgia, serif;
+          font-weight: 300;
+          color: rgba(248,247,244,0.14);
+          line-height: 1;
+        }
+        .rwh-meta-label {
+          font-size: 10px;
+          font-family: 'Inter', sans-serif;
+          font-weight: 400;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: rgba(248,247,244,0.2);
+        }
+
+        /* ── Scroll indicator ── */
+        .rwh-scroll {
+          position: absolute;
+          bottom: clamp(24px, 4vh, 40px);
+          right: clamp(20px, 5vw, 72px);
+          z-index: 5;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+        }
+        .rwh-scroll-rtl {
+          right: auto;
+          left: clamp(20px, 5vw, 72px);
+        }
+        .rwh-scroll-track {
+          width: 1px;
+          height: 48px;
+          background: rgba(248,247,244,0.08);
+          position: relative;
+          overflow: hidden;
+        }
+        .rwh-scroll-dot {
+          position: absolute;
+          top: 0;
+          width: 1px;
+          height: 14px;
+          background: #C41E1E;
+        }
+        .rwh-scroll-label {
+          font-size: 9px;
+          font-family: 'Inter', sans-serif;
+          font-weight: 400;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: rgba(248,247,244,0.16);
+          writing-mode: vertical-rl;
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 767px) {
+          .rwh-content {
+            /* Extra bottom padding so scroll indicator doesn't overlap */
+            padding-bottom: clamp(72px, 10vh, 96px);
+          }
+          .rwh-bottom {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+          }
+          .rwh-cta-group {
+            width: 100%;
+            flex-direction: column;
+            gap: 8px;
+          }
+          .rwh-btn-primary,
+          .rwh-btn-ghost {
+            width: 100%;
+            justify-content: center;
+            white-space: normal;
+            text-align: center;
+          }
+          .rwh-sub {
+            max-width: 100%;
+          }
+          .rwh-meta {
+            margin-top: 28px;
+          }
+          .rwh-scroll {
+            /* Hide on mobile — not needed, takes up space */
+            display: none;
+          }
+          .rwh-tags {
+            gap: 6px;
+          }
+        }
+
+        /* ── Small phones (≤390px) ── */
+        @media (max-width: 390px) {
+          .rwh-line {
+            font-size: clamp(1.7rem, 9vw, 2.8rem);
+          }
+          .rwh-breadcrumb-current {
+            font-size: 9px;
+          }
+        }
       `}</style>
     </section>
   )

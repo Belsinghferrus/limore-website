@@ -22,9 +22,9 @@ const icons = {
 }
 
 const categoryLabel = {
-  en: { executive: 'Executive', premium: 'Premium', suv: 'Elite SUV', ultra: 'Ultra Luxury', van: 'Family & Van', group: 'Group', electric: 'Electric' },
+  en: { executive: 'Executive', premium: 'Premium', suv: 'Elite SUV', ultra: 'Ultra Luxury', van: 'Family & SUV', group: 'Group', electric: 'Electric' },
   ar: { executive: 'تنفيذي', premium: 'بريميوم', suv: 'SUV النخبة', ultra: 'فائق الفخامة', van: 'عائلي وفان', group: 'مجموعة', electric: 'كهربائي' },
-  fr: { executive: 'Exécutif', premium: 'Premium', suv: 'SUV Élite', ultra: 'Ultra Luxe', van: 'Famille & Van', group: 'Groupe', electric: 'Électrique' },
+  fr: { executive: 'Exécutif', premium: 'Premium', suv: 'SUV Élite', ultra: 'Ultra Luxe', van: 'Famille & SUV', group: 'Groupe', electric: 'Électrique' },
 }
 
 const uiText = {
@@ -149,7 +149,7 @@ function VehicleCard({ vehicle, locale, onRequest, index }) {
         </div>
 
         {/* Features */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginBottom: '20px', flex: 1 }}>
+        {/* <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginBottom: '20px', flex: 1 }}>
           {(vehicle.features[locale] || vehicle.features.en).slice(0, 4).map((f, i) => (
             <span key={i} style={{
               fontSize: '10px', fontFamily: 'Inter, sans-serif',
@@ -172,7 +172,7 @@ function VehicleCard({ vehicle, locale, onRequest, index }) {
               +{(vehicle.features[locale] || vehicle.features.en).length - 4}
             </span>
           )}
-        </div>
+        </div> */}
 
         {/* CTA */}
         <button

@@ -14,7 +14,7 @@ const t = {
     sub: 'Every vehicle in the Limore fleet is selected, maintained, and presented to a single standard. No exceptions.',
     stat1val: '15+', stat1label: 'Vehicles',
     stat2val: '7',   stat2label: 'Categories',
-    stat3val: '8',   stat3label: 'Cities',
+    stat3val: '60+',   stat3label: 'Cities',
   },
   ar: {
     breadcrumb: 'الأسطول',
@@ -25,7 +25,7 @@ const t = {
     sub: 'كل مركبة في أسطول ليمور مختارة ومُصانة ومُقدَّمة وفق معيار واحد. بلا استثناء.',
     stat1val: '+15', stat1label: 'مركبة',
     stat2val: '7',   stat2label: 'فئات',
-    stat3val: '8',   stat3label: 'مدن',
+    stat3val: '60+',   stat3label: 'مدن',
   },
   fr: {
     breadcrumb: 'Flotte',
@@ -36,7 +36,7 @@ const t = {
     sub: 'Chaque véhicule de la flotte Limore est sélectionné, entretenu et présenté selon un seul standard. Sans exception.',
     stat1val: '15+', stat1label: 'Véhicules',
     stat2val: '7',   stat2label: 'Catégories',
-    stat3val: '8',   stat3label: 'Villes',
+    stat3val: '60+',   stat3label: 'Villes',
   },
 }
 

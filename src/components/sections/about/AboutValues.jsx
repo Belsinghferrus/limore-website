@@ -31,13 +31,9 @@ const t = {
         body: 'A confirmed booking is a guarantee. Our backup infrastructure exists for one reason — so we never have to use it, but are always ready.',
         detail: 'Zero tolerance for failure.',
       },
+    
       {
-        number: '05', title: 'Refinement',
-        body: 'The vehicles, the uniforms, the communication — everything is curated to reflect the calibre of the clients we serve.',
-        detail: 'Details define excellence.',
-      },
-      {
-        number: '06', title: 'Responsiveness',
+        number: '05', title: 'Responsiveness',
         body: 'No ticket systems. No queues. When a client needs us, they reach a person within seconds — at any hour, in any city.',
         detail: 'Always reachable.',
       },

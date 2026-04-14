@@ -6,9 +6,9 @@ import { gsap } from 'gsap'
 const t = {
   en: {
     label: 'About Limore',
-    line1: 'Not Just a',
-    line2: 'Chauffeur Service.',
-    line3: 'A Standard.',
+    line1: 'The Journey',
+    line2: 'Matters.',
+    line3: 'Every part of it.',
     sub: 'Precision mobility trusted by the world\'s most demanding clients, corporations, and luxury brands.',
     scroll: 'Scroll',
   },
@@ -98,7 +98,17 @@ export default function AboutHero({ locale = 'en' }) {
         justifyContent: 'flex-end',
       }}
     >
-      <video
+        <div style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden' }}>
+        <img
+          
+          src="/images/limore12.jpg"
+          alt="Limore 360 - luxury chauffeur membership night drive"
+          width={1920} height={1080}
+          fetchPriority="high"
+          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%' }}
+        />
+      </div>
+      {/* <video
         ref={videoRef}
         autoPlay muted loop playsInline
         aria-hidden="true"
@@ -108,8 +118,8 @@ export default function AboutHero({ locale = 'en' }) {
           objectFit: 'cover', opacity: 0, zIndex: 0,
         }}
       >
-        <source src="https://thelimore.com/wp-content/uploads/2024/02/main_vd-min.mp4" type="video/mp4" />
-      </video>
+        <source src="/images/limore12.jpg" type="video/mp4" />
+      </video> */}
 
       <div style={{
         position: 'absolute', inset: 0, zIndex: 1,

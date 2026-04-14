@@ -43,6 +43,7 @@ import Footer from '@/components/layout/Footer'
 import FloatingWhatsApp from '@/components/ui/FloatingWhatsApp'
 import CookieBanner from '@/components/ui/CookieBanner'
 import BookingNudge from '@/components/ui/BookingNudge'
+import Script from 'next/script'
 
 // ─── Fonts via next/font (no layout shift, no extra CDN request) ───────────────
 const inter = Inter({
@@ -142,6 +143,12 @@ export default async function LocaleLayout({ children, params }) {
       suppressHydrationWarning
     >
       <head>
+
+      <Script
+  src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`}
+  strategy="beforeInteractive"
+/>
+
         {/* Preconnect for Cormorant Garamond — loaded via CDN in globals.css */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

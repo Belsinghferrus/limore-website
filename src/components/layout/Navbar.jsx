@@ -249,6 +249,7 @@ export default function Navbar({ locale = 'en' }) {
                 ))}
               </div>
 
+              <div style={{ gap: '10px' }}></div>
               {/* Book Now — desktop */}
               <Link
                 href={localePath('/contact')}
@@ -479,36 +480,14 @@ function LimoreLogo() {
 
 
     <NextImage
-    src="/images/limore-logo.png"
-    alt="Limore"
-    width={120}
-    height={32}
-    priority
-    style={{ objectFit: 'contain' }}
-  />
+      src="/images/limore-logo.png"
+      alt="Limore"
+      width={120}
+      height={32}
+      priority
+      style={{ objectFit: 'contain' }}
+    />
 
 
-    // <svg
-    //   width="120"
-    //   height="32"
-    //   viewBox="0 0 120 32"
-    //   fill="none"
-    //   xmlns="http://www.w3.org/2000/svg"
-    //   aria-label="Limore"
-    //   role="img"
-    // >
-    //   <rect x="0" y="8" width="2.5" height="16" fill="#C41E1E" />
-    //   <text
-    //     x="11"
-    //     y="23"
-    //     fontFamily="Cormorant Garamond, Georgia, serif"
-    //     fontSize="22"
-    //     fontWeight="500"
-    //     letterSpacing="4"
-    //     fill="#F8F7F4"
-    //   >
-    //     LIMORE
-    //   </text>
-    // </svg>
   )
 }

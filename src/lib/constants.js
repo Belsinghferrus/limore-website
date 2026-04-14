@@ -4,10 +4,11 @@ export const SITE_URL = 'https://thelimore.com'
 export const NAV_LINKS = [
   { label: 'Services', href: '/services' },
   { label: 'Fleet', href: '/fleet' },
-  { label: 'Global Coverage', href: '/global-coverage' },
   { label: 'Corporate', href: '/corporate-solutions' },
   { label: 'Limore 360', href: '/limore-360' },
-  { label: 'Blog', href: '/blog' },
+
+  { label: 'Global Coverage', href: '/global-coverage' },
+  // { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
 ]
 

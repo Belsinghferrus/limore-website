@@ -203,3 +203,198 @@ img, picture, video, canvas, svg {
     scroll-behavior: auto !important;
   }
 }
+
+
+
+/* ─── react-datepicker — Limore WHITE theme ─────────────────────────────────── */
+.limore-dp-date-input,
+.limore-dp-time-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  font-size: clamp(0.82rem, 1.1vw, 0.9rem);
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+  color: #0A0A0A;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E4E0;
+  border-radius: 0;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  cursor: pointer;
+}
+.limore-dp-date-input:focus,
+.limore-dp-time-input:focus {
+  border-color: #C41E1E;
+  background-color: rgba(196,30,30,0.04);
+}
+.limore-dp-date-input::placeholder,
+.limore-dp-time-input::placeholder {
+  color: rgba(10,10,10,0.35);
+}
+
+/* Popup */
+.limore-dp-popper .react-datepicker {
+  background: #FFFFFF;
+  border: 1px solid #E5E4E0;
+  border-top: 2px solid #C41E1E;
+  border-radius: 0;
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+}
+.limore-dp-popper .react-datepicker__triangle { display: none; }
+
+/* Header */
+.limore-dp-popper .react-datepicker__header {
+  background: #F8F7F4;
+  border-bottom: 1px solid #E5E4E0;
+  border-radius: 0;
+  padding: 12px 0 8px;
+}
+.limore-dp-popper .react-datepicker__current-month {
+  color: #0A0A0A;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Nav */
+.limore-dp-popper .react-datepicker__navigation-icon::before {
+  border-color: rgba(10,10,10,0.3);
+}
+.limore-dp-popper .react-datepicker__navigation:hover
+.react-datepicker__navigation-icon::before {
+  border-color: #C41E1E;
+}
+
+/* Day names */
+.limore-dp-popper .react-datepicker__day-name {
+  color: rgba(10,10,10,0.3);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  width: 2rem;
+}
+
+/* Days */
+.limore-dp-popper .react-datepicker__day {
+  color: #0A0A0A;
+  font-size: 11px;
+  font-weight: 300;
+  border-radius: 0;
+  width: 2rem;
+  line-height: 2rem;
+  transition: background 0.15s ease;
+}
+.limore-dp-popper .react-datepicker__day:hover {
+  background: rgba(196,30,30,0.08);
+  border-radius: 0;
+}
+.limore-dp-popper .react-datepicker__day--selected,
+.limore-dp-popper .react-datepicker__day--keyboard-selected {
+  background: #C41E1E;
+  color: #FFFFFF;
+  font-weight: 500;
+  border-radius: 0;
+}
+.limore-dp-popper .react-datepicker__day--today {
+  border: 1px solid rgba(196,30,30,0.35);
+  background: transparent;
+  border-radius: 0;
+}
+.limore-dp-popper .react-datepicker__day--disabled {
+  color: rgba(10,10,10,0.2);
+  cursor: not-allowed;
+}
+.limore-dp-popper .react-datepicker__day--disabled:hover {
+  background: transparent;
+}
+
+/* Time only picker */
+.limore-dp-popper .react-datepicker__time-container {
+  border-left: 1px solid #E5E4E0;
+  width: 100px;
+}
+.limore-dp-popper .react-datepicker__time,
+.limore-dp-popper .react-datepicker__time-box {
+  background: #FFFFFF;
+  border-radius: 0;
+  width: 100% !important;
+}
+.limore-dp-popper .react-datepicker__time-list-item {
+  color: rgba(10,10,10,0.6);
+  font-size: 11px;
+  font-weight: 300;
+  font-family: 'Inter', sans-serif;
+  height: auto !important;
+  padding: 9px 16px !important;
+  transition: all 0.15s;
+}
+.limore-dp-popper .react-datepicker__time-list-item:hover {
+  background: rgba(196,30,30,0.07) !important;
+  color: #0A0A0A;
+}
+.limore-dp-popper .react-datepicker__time-list-item--selected {
+  background: #C41E1E !important;
+  color: #FFFFFF !important;
+  font-weight: 500 !important;
+}
+.limore-dp-popper .react-datepicker__header--time {
+  background: #F8F7F4;
+  border-bottom: 1px solid #E5E4E0;
+  padding: 10px;
+}
+.limore-dp-popper .react-datepicker-time__header {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(10,10,10,0.45);
+}
+
+/* Google Places autocomplete dropdown */
+.limore-places-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #FFFFFF;
+  border: 1px solid #E5E4E0;
+  border-top: 2px solid #C41E1E;
+  z-index: 9999;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+  max-height: 240px;
+  overflow-y: auto;
+}
+.limore-places-option {
+  padding: 11px 14px;
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  color: #0A0A0A;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(229,228,224,0.6);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  transition: background 0.15s;
+}
+.limore-places-option:hover,
+.limore-places-option--focused {
+  background: rgba(196,30,30,0.05);
+}
+.limore-places-option:last-child { border-bottom: none; }
+.limore-places-option__main {
+  font-weight: 400;
+  color: #0A0A0A;
+  font-size: 11px;
+}
+.limore-places-option__secondary {
+  font-size: 10px;
+  color: rgba(10,10,10,0.45);
+  margin-top: 1px;
+}

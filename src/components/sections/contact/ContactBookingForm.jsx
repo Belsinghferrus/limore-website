@@ -4,110 +4,107 @@ import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useSearchParams } from 'next/navigation'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
+import PlacesInput from '@/components/ui/PlacesInput'
 
 gsap.registerPlugin(ScrollTrigger)
 
-// ─── Brand tokens — WHITE surface, matches global.css ─────────────────────────
-const RED        = '#C41E1E'
-const RED_HOVER  = '#A51818'
-const BG         = '#FFFFFF'
-const SURFACE    = '#F8F7F4'
-const SURFACE_3  = '#F0EFEC'
-const BORDER     = '#E5E4E0'
-const TEXT       = '#0A0A0A'
-const MUTED      = '#0A0A0A'
-const FAINT      = '#0A0A0A'
-const FONT_D     = "'Cormorant Garamond', Georgia, serif"
-const FONT_B     = "'Inter', 'Helvetica Neue', sans-serif"
+// ─── Brand tokens ──────────────────────────────────────────────────────────────
+const RED       = '#C41E1E'
+const RED_HOVER = '#A51818'
+const BG        = '#FFFFFF'
+const SURFACE   = '#F8F7F4'
+const BORDER    = '#E5E4E0'
+const TEXT      = '#0A0A0A'
+const MUTED     = '#4A4A4A'
+const FAINT     = '#767676'
+const FONT_D    = "'Cormorant Garamond', Georgia, serif"
+const FONT_B    = "'Inter', 'Helvetica Neue', sans-serif"
 
-// ─── Replace with your deployed Apps Script Web App URL ───────────────────────
 const APPS_SCRIPT_URL = process.env.NEXT_PUBLIC_APPS_SCRIPT_URL
-
-// ← REMOVED: const searchParams = useSearchParams() was here — hooks cannot be called at module level
 
 // ─── Vehicle fleet ─────────────────────────────────────────────────────────────
 const VEHICLES = {
   en: [
-    { value: '',                      label: 'Select Vehicle' },
-    { value: 'bmw-5-series',          label: 'BMW 5 Series',          group: 'Executive' },
-    { value: 'audi-a6',               label: 'Audi A6',               group: 'Executive' },
-    { value: 'mercedes-s-class',      label: 'Mercedes S-Class',      group: 'Luxury Sedan' },
-    { value: 'bmw-7-series',          label: 'BMW 7 Series',          group: 'Luxury Sedan' },
-    { value: 'audi-a8',               label: 'Audi A8',               group: 'Luxury Sedan' },
-    { value: 'range-rover-vogue',     label: 'Range Rover Vogue',     group: 'Luxury SUV' },
-    { value: 'mercedes-g-class',      label: 'Mercedes G-Class',      group: 'Luxury SUV' },
-    { value: 'rolls-royce',           label: 'Rolls-Royce',           group: 'Ultra Luxury' },
-    { value: 'mercedes-maybach',      label: 'Mercedes-Maybach',      group: 'Ultra Luxury' },
-    { value: 'mercedes-v-class',      label: 'Mercedes V-Class',      group: 'People Carrier' },
-    { value: 'gmc-yukon',             label: 'GMC Yukon',             group: 'People Carrier' },
-    { value: 'cadillac-escalade',     label: 'Cadillac Escalade',     group: 'People Carrier' },
-    { value: 'mercedes-sprinter',     label: 'Mercedes Sprinter',     group: 'Van & Coach' },
-    { value: 'luxury-coaches',        label: 'Luxury Coaches',        group: 'Van & Coach' },
-    { value: 'mercedes-eqs',          label: 'Mercedes EQS',          group: 'Electric Fleet' },
-    { value: 'bmw-i7',                label: 'BMW i7',                group: 'Electric Fleet' },
-    { value: 'tesla-model-s',         label: 'Tesla Model S',         group: 'Electric Fleet' },
+    { value: '', label: 'Select Vehicle' },
+    { value: 'bmw-5-series',        label: 'BMW 5 Series',        group: 'Executive' },
+    { value: 'audi-a6',             label: 'Audi A6',             group: 'Executive' },
+    { value: 'mercedes-s-class',    label: 'Mercedes S-Class',    group: 'Luxury Sedan' },
+    { value: 'bmw-7-series',        label: 'BMW 7 Series',        group: 'Luxury Sedan' },
+    { value: 'audi-a8',             label: 'Audi A8',             group: 'Luxury Sedan' },
+    { value: 'range-rover-vogue',   label: 'Range Rover Vogue',   group: 'Luxury SUV' },
+    { value: 'mercedes-g-class',    label: 'Mercedes G-Class',    group: 'Luxury SUV' },
+    { value: 'rolls-royce',         label: 'Rolls-Royce',         group: 'Ultra Luxury' },
+    { value: 'mercedes-maybach',    label: 'Mercedes-Maybach',    group: 'Ultra Luxury' },
+    { value: 'mercedes-v-class',    label: 'Mercedes V-Class',    group: 'People Carrier' },
+    { value: 'gmc-yukon',           label: 'GMC Yukon',           group: 'People Carrier' },
+    { value: 'cadillac-escalade',   label: 'Cadillac Escalade',   group: 'People Carrier' },
+    { value: 'mercedes-sprinter',   label: 'Mercedes Sprinter',   group: 'Van & Coach' },
+    { value: 'luxury-coaches',      label: 'Luxury Coaches',      group: 'Van & Coach' },
+    { value: 'mercedes-eqs',        label: 'Mercedes EQS',        group: 'Electric Fleet' },
+    { value: 'bmw-i7',              label: 'BMW i7',              group: 'Electric Fleet' },
+    { value: 'tesla-model-s',       label: 'Tesla Model S',       group: 'Electric Fleet' },
   ],
   ar: [
-    { value: '',                      label: 'اختر المركبة' },
-    { value: 'bmw-5-series',          label: 'BMW الفئة 5',           group: 'تنفيذية' },
-    { value: 'audi-a6',               label: 'Audi A6',               group: 'تنفيذية' },
-    { value: 'mercedes-s-class',      label: 'مرسيدس الفئة S',        group: 'سيدان فاخرة' },
-    { value: 'bmw-7-series',          label: 'BMW الفئة 7',           group: 'سيدان فاخرة' },
-    { value: 'audi-a8',               label: 'Audi A8',               group: 'سيدان فاخرة' },
-    { value: 'range-rover-vogue',     label: 'رينج روفر فوج',         group: 'SUV فاخرة' },
-    { value: 'mercedes-g-class',      label: 'مرسيدس الفئة G',        group: 'SUV فاخرة' },
-    { value: 'rolls-royce',           label: 'رولز رويس',             group: 'فاخرة للغاية' },
-    { value: 'mercedes-maybach',      label: 'مرسيدس مايباخ',         group: 'فاخرة للغاية' },
-    { value: 'mercedes-v-class',      label: 'مرسيدس الفئة V',        group: 'ناقل الأشخاص' },
-    { value: 'gmc-yukon',             label: 'GMC يوكون',             group: 'ناقل الأشخاص' },
-    { value: 'cadillac-escalade',     label: 'كاديلاك إسكاليد',       group: 'ناقل الأشخاص' },
-    { value: 'mercedes-sprinter',     label: 'مرسيدس سبرينتر',        group: 'الحافلات' },
-    { value: 'luxury-coaches',        label: 'حافلات فاخرة',          group: 'الحافلات' },
-    { value: 'mercedes-eqs',          label: 'مرسيدس EQS',            group: 'أسطول كهربائي' },
-    { value: 'bmw-i7',                label: 'BMW i7',                group: 'أسطول كهربائي' },
-    { value: 'tesla-model-s',         label: 'Tesla Model S',         group: 'أسطول كهربائي' },
+    { value: '', label: 'اختر المركبة' },
+    { value: 'bmw-5-series',        label: 'BMW الفئة 5',         group: 'تنفيذية' },
+    { value: 'audi-a6',             label: 'Audi A6',             group: 'تنفيذية' },
+    { value: 'mercedes-s-class',    label: 'مرسيدس الفئة S',     group: 'سيدان فاخرة' },
+    { value: 'bmw-7-series',        label: 'BMW الفئة 7',         group: 'سيدان فاخرة' },
+    { value: 'audi-a8',             label: 'Audi A8',             group: 'سيدان فاخرة' },
+    { value: 'range-rover-vogue',   label: 'رينج روفر فوج',      group: 'SUV فاخرة' },
+    { value: 'mercedes-g-class',    label: 'مرسيدس الفئة G',     group: 'SUV فاخرة' },
+    { value: 'rolls-royce',         label: 'رولز رويس',           group: 'فاخرة للغاية' },
+    { value: 'mercedes-maybach',    label: 'مرسيدس مايباخ',      group: 'فاخرة للغاية' },
+    { value: 'mercedes-v-class',    label: 'مرسيدس الفئة V',     group: 'ناقل الأشخاص' },
+    { value: 'gmc-yukon',           label: 'GMC يوكون',           group: 'ناقل الأشخاص' },
+    { value: 'cadillac-escalade',   label: 'كاديلاك إسكاليد',    group: 'ناقل الأشخاص' },
+    { value: 'mercedes-sprinter',   label: 'مرسيدس سبرينتر',     group: 'الحافلات' },
+    { value: 'luxury-coaches',      label: 'حافلات فاخرة',       group: 'الحافلات' },
+    { value: 'mercedes-eqs',        label: 'مرسيدس EQS',         group: 'أسطول كهربائي' },
+    { value: 'bmw-i7',              label: 'BMW i7',              group: 'أسطول كهربائي' },
+    { value: 'tesla-model-s',       label: 'Tesla Model S',       group: 'أسطول كهربائي' },
   ],
   fr: [
-    { value: '',                      label: 'Sélectionner le Véhicule' },
-    { value: 'bmw-5-series',          label: 'BMW Série 5',           group: 'Exécutive' },
-    { value: 'audi-a6',               label: 'Audi A6',               group: 'Exécutive' },
-    { value: 'mercedes-s-class',      label: 'Mercedes Classe S',     group: 'Berline Luxe' },
-    { value: 'bmw-7-series',          label: 'BMW Série 7',           group: 'Berline Luxe' },
-    { value: 'audi-a8',               label: 'Audi A8',               group: 'Berline Luxe' },
-    { value: 'range-rover-vogue',     label: 'Range Rover Vogue',     group: 'SUV Luxe' },
-    { value: 'mercedes-g-class',      label: 'Mercedes Classe G',     group: 'SUV Luxe' },
-    { value: 'rolls-royce',           label: 'Rolls-Royce',           group: 'Ultra Luxe' },
-    { value: 'mercedes-maybach',      label: 'Mercedes-Maybach',      group: 'Ultra Luxe' },
-    { value: 'mercedes-v-class',      label: 'Mercedes Classe V',     group: 'Monospace' },
-    { value: 'gmc-yukon',             label: 'GMC Yukon',             group: 'Monospace' },
-    { value: 'cadillac-escalade',     label: 'Cadillac Escalade',     group: 'Monospace' },
-    { value: 'mercedes-sprinter',     label: 'Mercedes Sprinter',     group: 'Van & Coach' },
-    { value: 'luxury-coaches',        label: 'Autocars de Luxe',      group: 'Van & Coach' },
-    { value: 'mercedes-eqs',          label: 'Mercedes EQS',          group: 'Flotte Électrique' },
-    { value: 'bmw-i7',                label: 'BMW i7',                group: 'Flotte Électrique' },
-    { value: 'tesla-model-s',         label: 'Tesla Model S',         group: 'Flotte Électrique' },
+    { value: '', label: 'Sélectionner le Véhicule' },
+    { value: 'bmw-5-series',        label: 'BMW Série 5',         group: 'Exécutive' },
+    { value: 'audi-a6',             label: 'Audi A6',             group: 'Exécutive' },
+    { value: 'mercedes-s-class',    label: 'Mercedes Classe S',   group: 'Berline Luxe' },
+    { value: 'bmw-7-series',        label: 'BMW Série 7',         group: 'Berline Luxe' },
+    { value: 'audi-a8',             label: 'Audi A8',             group: 'Berline Luxe' },
+    { value: 'range-rover-vogue',   label: 'Range Rover Vogue',   group: 'SUV Luxe' },
+    { value: 'mercedes-g-class',    label: 'Mercedes Classe G',   group: 'SUV Luxe' },
+    { value: 'rolls-royce',         label: 'Rolls-Royce',         group: 'Ultra Luxe' },
+    { value: 'mercedes-maybach',    label: 'Mercedes-Maybach',    group: 'Ultra Luxe' },
+    { value: 'mercedes-v-class',    label: 'Mercedes Classe V',   group: 'Monospace' },
+    { value: 'gmc-yukon',           label: 'GMC Yukon',           group: 'Monospace' },
+    { value: 'cadillac-escalade',   label: 'Cadillac Escalade',   group: 'Monospace' },
+    { value: 'mercedes-sprinter',   label: 'Mercedes Sprinter',   group: 'Van & Coach' },
+    { value: 'luxury-coaches',      label: 'Autocars de Luxe',    group: 'Van & Coach' },
+    { value: 'mercedes-eqs',        label: 'Mercedes EQS',        group: 'Flotte Électrique' },
+    { value: 'bmw-i7',              label: 'BMW i7',              group: 'Flotte Électrique' },
+    { value: 'tesla-model-s',       label: 'Tesla Model S',       group: 'Flotte Électrique' },
   ],
 }
 
 // ─── Translations ──────────────────────────────────────────────────────────────
 const copy = {
   en: {
-    dir:            'ltr',
-    eyebrow:        'Booking Enquiry',
-    headlineTop:    'Reserve Your',
+    dir: 'ltr',
+    eyebrow: 'Booking Enquiry',
+    headlineTop: 'Reserve Your',
     headlineBottom: 'Experience.',
-    sub:            'Complete the form below and your dedicated Limore advisor will confirm availability within two business hours.',
-    required:       '* Required fields',
-    note:           'All bookings are handled with complete discretion.',
-    submit:         'Submit Booking',
-    submitting:     'Sending…',
-    success:        'Your booking request has been received.',
-    successSub:     'A confirmation has been sent to your email. A Limore advisor will be in touch within 2 hours.',
-    errorMsg:       'Something went wrong. Please try again or contact us directly.',
-    sections: {
-      journey: 'Journey Details',
-      client:  'Your Information',
-    },
+    sub: 'Complete the form below and your dedicated Limore advisor will confirm availability within two business hours.',
+    required: '* Required fields',
+    note: 'All bookings are handled with complete discretion.',
+    submit: 'Submit Booking',
+    submitting: 'Sending…',
+    success: 'Your booking request has been received.',
+    successSub: 'A confirmation has been sent to your email. A Limore advisor will be in touch within 2 hours.',
+    errorMsg: 'Something went wrong. Please try again or contact us directly.',
+    validationMsg: 'Please fill in all required fields before submitting.',
+    sections: { journey: 'Journey Details', client: 'Your Information' },
     fields: {
       pickupDate:     'Pick Up Date',
       pickupTime:     'Pick Up Time',
@@ -132,22 +129,20 @@ const copy = {
     ],
   },
   ar: {
-    dir:            'rtl',
-    eyebrow:        'استفسار حجز',
-    headlineTop:    'احجز',
+    dir: 'rtl',
+    eyebrow: 'استفسار حجز',
+    headlineTop: 'احجز',
     headlineBottom: 'تجربتك.',
-    sub:            'أكمل النموذج أدناه وسيتواصل معك مستشار ليمور المخصص لتأكيد التوفر خلال ساعتي عمل.',
-    required:       '* الحقول المطلوبة',
-    note:           'جميع الحجوزات تُعالج بسرية تامة.',
-    submit:         'إرسال الحجز',
-    submitting:     'جارٍ الإرسال…',
-    success:        'تم استلام طلب الحجز الخاص بك.',
-    successSub:     'تم إرسال تأكيد إلى بريدك الإلكتروني. سيتواصل معك مستشار ليمور خلال ساعتين.',
-    errorMsg:       'حدث خطأ ما. يرجى المحاولة مرة أخرى أو التواصل معنا مباشرةً.',
-    sections: {
-      journey: 'تفاصيل الرحلة',
-      client:  'معلوماتك',
-    },
+    sub: 'أكمل النموذج أدناه وسيتواصل معك مستشار ليمور المخصص لتأكيد التوفر خلال ساعتي عمل.',
+    required: '* الحقول المطلوبة',
+    note: 'جميع الحجوزات تُعالج بسرية تامة.',
+    submit: 'إرسال الحجز',
+    submitting: 'جارٍ الإرسال…',
+    success: 'تم استلام طلب الحجز الخاص بك.',
+    successSub: 'تم إرسال تأكيد إلى بريدك الإلكتروني. سيتواصل معك مستشار ليمور خلال ساعتين.',
+    errorMsg: 'حدث خطأ ما. يرجى المحاولة مرة أخرى أو التواصل معنا مباشرةً.',
+    validationMsg: 'يرجى ملء جميع الحقول المطلوبة قبل الإرسال.',
+    sections: { journey: 'تفاصيل الرحلة', client: 'معلوماتك' },
     fields: {
       pickupDate:     'تاريخ الاستلام',
       pickupTime:     'وقت الاستلام',
@@ -172,22 +167,20 @@ const copy = {
     ],
   },
   fr: {
-    dir:            'ltr',
-    eyebrow:        'Demande de Réservation',
-    headlineTop:    'Réservez Votre',
+    dir: 'ltr',
+    eyebrow: 'Demande de Réservation',
+    headlineTop: 'Réservez Votre',
     headlineBottom: 'Expérience.',
-    sub:            'Complétez le formulaire ci-dessous et votre conseiller Limore dédié confirmera la disponibilité dans les deux heures ouvrables.',
-    required:       '* Champs obligatoires',
-    note:           'Toutes les réservations sont traitées avec une entière discrétion.',
-    submit:         'Soumettre la Réservation',
-    submitting:     'Envoi en cours…',
-    success:        'Votre demande de réservation a été reçue.',
-    successSub:     'Une confirmation a été envoyée à votre email. Un conseiller Limore vous contactera dans les 2 heures.',
-    errorMsg:       "Une erreur s'est produite. Veuillez réessayer ou nous contacter directement.",
-    sections: {
-      journey: 'Détails du Trajet',
-      client:  'Vos Informations',
-    },
+    sub: 'Complétez le formulaire ci-dessous et votre conseiller Limore dédié confirmera la disponibilité dans les deux heures ouvrables.',
+    required: '* Champs obligatoires',
+    note: 'Toutes les réservations sont traitées avec une entière discrétion.',
+    submit: 'Soumettre la Réservation',
+    submitting: 'Envoi en cours…',
+    success: 'Votre demande de réservation a été reçue.',
+    successSub: 'Une confirmation a été envoyée à votre email. Un conseiller Limore vous contactera dans les 2 heures.',
+    errorMsg: "Une erreur s'est produite. Veuillez réessayer ou nous contacter directement.",
+    validationMsg: 'Veuillez remplir tous les champs obligatoires avant de soumettre.',
+    sections: { journey: 'Détails du Trajet', client: 'Vos Informations' },
     fields: {
       pickupDate:     'Date de Prise en Charge',
       pickupTime:     'Heure de Prise en Charge',
@@ -213,16 +206,16 @@ const copy = {
   },
 }
 
-// ─── Shared field styles — WHITE theme ─────────────────────────────────────────
+// ─── Shared input base style ───────────────────────────────────────────────────
 const inputBase = (focused, dir) => ({
   width:            '100%',
   boxSizing:        'border-box',
-  padding:          '12px 14px',
-  fontSize:         'clamp(0.82rem,1.1vw,0.9rem)',
+  padding:          '13px 14px',
+  fontSize:         '14px',
   fontFamily:       FONT_B,
-  fontWeight:       300,
+  fontWeight:       400,
   color:            TEXT,
-  backgroundColor:  focused ? 'rgba(196,30,30,0.04)' : '#FFFFFF',
+  backgroundColor:  focused ? 'rgba(196,30,30,0.03)' : '#FFFFFF',
   border:           `1px solid ${focused ? RED : BORDER}`,
   borderRadius:     0,
   outline:          'none',
@@ -230,32 +223,42 @@ const inputBase = (focused, dir) => ({
   WebkitAppearance: 'none',
   transition:       'border-color 0.2s ease, background-color 0.2s ease',
   direction:        dir,
+  lineHeight:       1.5,
 })
 
 const labelStyle = {
-  fontSize:      '9px',
+  fontSize:      '10px',
   fontFamily:    FONT_B,
-  fontWeight:    500,
-  letterSpacing: '0.2em',
+  fontWeight:    600,
+  letterSpacing: '0.18em',
   textTransform: 'uppercase',
-  color:         FAINT,
+  color:         MUTED,
+  display:       'block',
 }
 
-// ─── Field components ──────────────────────────────────────────────────────────
-function Field({ label, children }) {
+const reqStar = { color: RED, marginLeft: '3px' }
+
+// ─── Field wrapper ─────────────────────────────────────────────────────────────
+function Field({ label, required, children }) {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '7px' }}>
-      <label style={labelStyle}>{label}</label>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      {label && (
+        <label style={labelStyle}>
+          {label}
+          {required && <span style={reqStar}>*</span>}
+        </label>
+      )}
       {children}
     </div>
   )
 }
 
+// ─── Input ────────────────────────────────────────────────────────────────────
 function Input({ label, type = 'text', value, onChange, required, dir,
   autoComplete = 'off', placeholder = '' }) {
   const [focused, setFocused] = useState(false)
   return (
-    <Field label={label}>
+    <Field label={label} required={required}>
       <input
         type={type}
         value={value}
@@ -271,6 +274,7 @@ function Input({ label, type = 'text', value, onChange, required, dir,
   )
 }
 
+// ─── Select ───────────────────────────────────────────────────────────────────
 function Select({ label, value, onChange, options, required, dir, grouped = false }) {
   const [focused, setFocused] = useState(false)
   const groups = grouped
@@ -278,7 +282,7 @@ function Select({ label, value, onChange, options, required, dir, grouped = fals
     : null
 
   return (
-    <Field label={label}>
+    <Field label={label} required={required}>
       <div style={{ position: 'relative' }}>
         <select
           value={value}
@@ -291,11 +295,12 @@ function Select({ label, value, onChange, options, required, dir, grouped = fals
             cursor:       'pointer',
             paddingRight: dir === 'rtl' ? '14px' : '36px',
             paddingLeft:  dir === 'rtl' ? '36px' : '14px',
+            color:        value ? TEXT : FAINT,
           }}
         >
           {grouped ? (
             <>
-              <option value="" style={{ backgroundColor: '#FFF', color: TEXT }}>
+              <option value="" style={{ backgroundColor: '#FFF', color: FAINT }}>
                 {options[0].label}
               </option>
               {groups.map(grp => (
@@ -313,7 +318,7 @@ function Select({ label, value, onChange, options, required, dir, grouped = fals
           ) : (
             options.map(o => (
               <option key={o.value} value={o.value}
-                style={{ backgroundColor: '#FFF', color: TEXT }}>
+                style={{ backgroundColor: '#FFF', color: o.value ? TEXT : FAINT }}>
                 {o.label}
               </option>
             ))
@@ -329,17 +334,18 @@ function Select({ label, value, onChange, options, required, dir, grouped = fals
             left:          dir === 'rtl' ? '12px' : 'auto',
             transform:     'translateY(-50%)',
             pointerEvents: 'none',
-            color:         FAINT,
+            color:         MUTED,
           }}
         >
-          <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.2"
-            strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.4"
+            strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>
     </Field>
   )
 }
 
+// ─── Textarea ─────────────────────────────────────────────────────────────────
 function Textarea({ label, value, onChange, dir, rows = 4 }) {
   const [focused, setFocused] = useState(false)
   return (
@@ -350,25 +356,121 @@ function Textarea({ label, value, onChange, dir, rows = 4 }) {
         rows={rows}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
-        style={{
-          ...inputBase(focused, dir),
-          resize:     'none',
-          lineHeight: 1.8,
-        }}
+        style={{ ...inputBase(focused, dir), resize: 'none', lineHeight: 1.8 }}
       />
     </Field>
   )
 }
 
+// ─── DateField — wraps react-datepicker to match inputBase exactly ─────────────
+function DateField({ label, required, selected, onChange, showTimeSelectOnly = false, dir }) {
+  const [focused, setFocused] = useState(false)
+
+
+
+  const sharedProps = {
+    selected,
+    onChange,
+    onCalendarOpen:  () => setFocused(true),
+    onCalendarClose: () => setFocused(false),
+    showPopperArrow: false,
+    popperClassName: 'limore-dp-popper',
+    // Mobile: render in portal overlay instead of inline popper
+    withPortal: typeof window !== 'undefined' && window.innerWidth < 640,
+  }
+
+  const inputStyle = {
+    ...inputBase(focused, dir),
+    cursor:      'pointer',
+    paddingLeft: '40px',
+  }
+
+  if (showTimeSelectOnly) {
+    return (
+      <Field label={label} required={required}>
+        <div style={{ position: 'relative' }}>
+          {/* Clock icon */}
+          <span style={{
+            position:      'absolute',
+            left:          dir === 'rtl' ? 'auto' : '13px',
+            right:         dir === 'rtl' ? '13px'  : 'auto',
+            top:           '50%',
+            transform:     'translateY(-50%)',
+            pointerEvents: 'none',
+            color:         focused ? RED : FAINT,
+            display:       'flex',
+            transition:    'color 0.2s',
+          }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5"/>
+              <path d="M12 6v6l4 2" stroke="currentColor" strokeWidth="1.5"
+                strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </span>
+          <DatePicker
+            {...sharedProps}
+            showTimeSelect
+            showTimeSelectOnly
+            timeIntervals={15}
+            timeCaption=""
+            dateFormat="h:mm aa"
+            placeholderText="Select time"
+            className="limore-dp-input"
+            wrapperClassName="limore-dp-wrapper"
+            customInput={<input style={inputStyle} readOnly />}
+          />
+        </div>
+      </Field>
+    )
+  }
+
+  return (
+    <Field label={label} required={required}>
+      <div style={{ position: 'relative' }}>
+        {/* Calendar icon */}
+        <span style={{
+          position:      'absolute',
+          left:          dir === 'rtl' ? 'auto' : '13px',
+          right:         dir === 'rtl' ? '13px'  : 'auto',
+          top:           '50%',
+          transform:     'translateY(-50%)',
+          pointerEvents: 'none',
+          color:         focused ? RED : FAINT,
+          display:       'flex',
+          transition:    'color 0.2s',
+          zIndex:        1,
+        }}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="1.5"/>
+            <path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" strokeWidth="1.5"
+              strokeLinecap="round"/>
+          </svg>
+        </span>
+        <DatePicker
+          {...sharedProps}
+          dateFormat="dd MMM yyyy"
+          placeholderText="Select date"
+          minDate={new Date()}
+          calendarStartDay={1}
+          className="limore-dp-input"
+          wrapperClassName="limore-dp-wrapper"
+          customInput={<input style={inputStyle} readOnly />}
+        />
+      </div>
+    </Field>
+  )
+}
+
+// ─── Form section ─────────────────────────────────────────────────────────────
 function FormSection({ title, children }) {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
         <div style={{ width: '18px', height: '1px', backgroundColor: RED, flexShrink: 0 }} />
         <span style={{
           fontSize:      '9px',
           fontFamily:    FONT_B,
-          fontWeight:    500,
+          fontWeight:    600,
           letterSpacing: '0.22em',
           textTransform: 'uppercase',
           color:         RED,
@@ -380,7 +482,7 @@ function FormSection({ title, children }) {
       <div style={{
         display:             'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))',
-        gap:                 '14px',
+        gap:                 '16px',
       }}>
         {children}
       </div>
@@ -390,12 +492,11 @@ function FormSection({ title, children }) {
 
 function toFormData(obj) {
   return Object.entries(obj)
-    .map(([k, v]) =>
-      encodeURIComponent(k) + '=' + encodeURIComponent(v ?? '')
-    )
+    .map(([k, v]) => encodeURIComponent(k) + '=' + encodeURIComponent(v ?? ''))
     .join('&')
 }
 
+// ─── Success state ────────────────────────────────────────────────────────────
 function SuccessState({ message, sub }) {
   const ref = useRef(null)
   useEffect(() => {
@@ -413,7 +514,7 @@ function SuccessState({ message, sub }) {
       textAlign:       'center',
       minHeight:       '320px',
       padding:         'clamp(48px,8vw,80px) clamp(24px,4vw,48px)',
-      border:          `1px solid rgba(196,30,30,0.2)`,
+      border:          '1px solid rgba(196,30,30,0.2)',
       backgroundColor: 'rgba(196,30,30,0.03)',
       gap:             '20px',
       opacity:         0,
@@ -428,9 +529,8 @@ function SuccessState({ message, sub }) {
         justifyContent: 'center',
       }}>
         <svg width="22" height="16" viewBox="0 0 22 16" fill="none" aria-hidden="true">
-          <path d="M1.5 8l6 6L20.5 1.5"
-            stroke={RED} strokeWidth="1.4"
-            strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M1.5 8l6 6L20.5 1.5" stroke={RED} strokeWidth="1.4"
+            strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>
       <div>
@@ -447,11 +547,11 @@ function SuccessState({ message, sub }) {
           {message}
         </p>
         <p style={{
-          fontSize:      '11px',
+          fontSize:      '12px',
           fontFamily:    FONT_B,
-          fontWeight:    300,
+          fontWeight:    400,
           color:         MUTED,
-          letterSpacing: '0.06em',
+          letterSpacing: '0.04em',
           margin:        0,
           maxWidth:      '400px',
         }}>
@@ -466,7 +566,7 @@ function SuccessState({ message, sub }) {
 export default function ContactBookingForm({ locale = 'en' }) {
   const c            = copy[locale] || copy.en
   const dir          = c.dir
-  const searchParams = useSearchParams()   // ← MOVED HERE: inside the component, not module level
+  const searchParams = useSearchParams()
 
   const sectionRef = useRef(null)
   const headRef    = useRef(null)
@@ -486,12 +586,14 @@ export default function ContactBookingForm({ locale = 'en' }) {
     specialRequest: '',
   })
 
-  const [submitStatus, setSubmitStatus] = useState('idle')
+  const [submitStatus,   setSubmitStatus]   = useState('idle')
+  const [validationErr,  setValidationErr]  = useState('')
 
   const set = field => val => setForm(prev => ({ ...prev, [field]: val }))
 
   const flightVisible = ['Arrival', 'Departure'].includes(form.bookingType)
 
+  // ── GSAP scroll animations ──
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(headRef.current.querySelectorAll('.cbf-animate'),
@@ -512,15 +614,14 @@ export default function ContactBookingForm({ locale = 'en' }) {
     return () => ctx.revert()
   }, [])
 
+  // ── Pre-fill vehicle from URL ──
   useEffect(() => {
     const vehicleFromUrl = searchParams.get('vehicle')
     if (!vehicleFromUrl) return
-
     const vehicles = VEHICLES[locale] || VEHICLES.en
     const match    = vehicles.find(v => v.value === vehicleFromUrl)
     if (match) {
       setForm(prev => ({ ...prev, vehicleName: match.value }))
-
       setTimeout(() => {
         const el = document.getElementById('booking-form')
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -528,34 +629,65 @@ export default function ContactBookingForm({ locale = 'en' }) {
     }
   }, [searchParams, locale])
 
+  // ── Custom validation — prevent premature submit ──
+  const validate = () => {
+    const required = [
+      { key: 'pickupDate',     label: c.fields.pickupDate },
+      { key: 'pickupTime',     label: c.fields.pickupTime },
+      { key: 'bookingType',    label: c.fields.bookingType },
+      { key: 'pickupLocation', label: c.fields.pickupLocation },
+      { key: 'dropoff',        label: c.fields.dropoff },
+      { key: 'guestName',      label: c.fields.guestName },
+      { key: 'contact',        label: c.fields.contact },
+      { key: 'phone',          label: c.fields.phone },
+    ]
+    if (flightVisible) required.push({ key: 'flightNo', label: c.fields.flightNo })
+
+    for (const { key, label } of required) {
+      if (!form[key] || !form[key].toString().trim()) {
+        return `${label} is required.`
+      }
+    }
+
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRe.test(form.contact)) return 'Please enter a valid email address.'
+
+    return null
+  }
+
   const handleSubmit = async e => {
     e.preventDefault()
+    setValidationErr('')
+
+    const err = validate()
+    if (err) { setValidationErr(err); return }
+
     setSubmitStatus('submitting')
 
     const payload = {
-      guestName:        form.guestName,
-      companyName:      form.companyName,
-      contact:          form.contact,
-      phone:            form.phone,
-      pickupDate:       form.pickupDate,
-      pickupTime:       form.pickupTime,
-      bookingType:      form.bookingType,
-      flightNo:         form.flightNo,
-      pickupLocation:   form.pickupLocation,
-      dropoff:          form.dropoff,
-      vehicleName:      form.vehicleName,
-      specialRequest:   form.specialRequest,
-      locale:           locale,
-      clientPrice:      '',
-      extraCharges:     '',
-      amenitiesCharges: '',
-      outsourcePrice:   '',
-      bookingCountry:   '',
-      chauffeurDetails: '',
-      status:           'New',
-      clientType:       '',
-      salesPerson:      '',
-      paymentStatus:    '',
+      guestName:       form.guestName,
+      companyName:     form.companyName,
+      contact:         form.contact,
+      phone:           form.phone,
+      pickupDate:      form.pickupDate,
+      pickupTime:      form.pickupTime,
+      bookingType:     form.bookingType,
+      flightNo:        form.flightNo,
+      pickupLocation:  form.pickupLocation,
+      dropoff:         form.dropoff,
+      vehicleName:     form.vehicleName,
+      specialRequest:  form.specialRequest,
+      locale,
+      clientPrice:     '',
+      extraCharges:    '',
+      amenitiesCharges:'',
+      outsourcePrice:  '',
+      bookingCountry:  '',
+      chauffeurDetails:'',
+      status:          'New',
+      clientType:      '',
+      salesPerson:     '',
+      paymentStatus:   '',
     }
 
     try {
@@ -572,6 +704,17 @@ export default function ContactBookingForm({ locale = 'en' }) {
     }
   }
 
+  // ── Time value helpers ──
+  const timeToDate = val => {
+    if (!val) return null
+    const d       = new Date()
+    const [h, m]  = val.split(':')
+    d.setHours(+h, +m, 0, 0)
+    return d
+  }
+  const dateToTime = d =>
+    d ? `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}` : ''
+
   return (
     <section
       ref={sectionRef}
@@ -584,14 +727,14 @@ export default function ContactBookingForm({ locale = 'en' }) {
         overflow:        'hidden',
       }}
     >
-      {/* Top red accent border */}
+      {/* Top red accent */}
       <div style={{
-        position:      'absolute',
-        top:           0,
-        left:          '8%',
-        right:         '8%',
-        height:        '1px',
-        background:    'linear-gradient(to right, transparent, rgba(196,30,30,0.5), transparent)',
+        position:   'absolute',
+        top:        0,
+        left:       '8%',
+        right:      '8%',
+        height:     '1px',
+        background: 'linear-gradient(to right, transparent, rgba(196,30,30,0.5), transparent)',
         pointerEvents: 'none',
       }} />
 
@@ -618,7 +761,7 @@ export default function ContactBookingForm({ locale = 'en' }) {
             <span style={{
               fontSize:      '10px',
               fontFamily:    FONT_B,
-              fontWeight:    500,
+              fontWeight:    600,
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
               color:         RED,
@@ -643,10 +786,10 @@ export default function ContactBookingForm({ locale = 'en' }) {
         </div>
 
         <p className="cbf-animate" style={{
-          fontSize:   'clamp(0.86rem,1.25vw,0.97rem)',
+          fontSize:   'clamp(0.9rem,1.25vw,1rem)',
           fontFamily: FONT_B,
-          fontWeight: 300,
-          lineHeight: 1.95,
+          fontWeight: 400,
+          lineHeight: 1.9,
           color:      MUTED,
           margin:     0,
           maxWidth:   '480px',
@@ -661,12 +804,14 @@ export default function ContactBookingForm({ locale = 'en' }) {
         className="cbf-form-card"
         style={{
           backgroundColor: SURFACE,
-          border:          `1px solid ${BORDER}`,
           borderTop:       `2px solid ${RED}`,
+          borderRight:     `1px solid ${BORDER}`,
+          borderBottom:    `1px solid ${BORDER}`,
+          borderLeft:      `1px solid ${BORDER}`,
           opacity:         0,
         }}
       >
-        {/* Card header */}
+        {/* Card header bar */}
         <div style={{
           padding:         'clamp(14px,2vw,20px) clamp(20px,3vw,32px)',
           borderBottom:    `1px solid ${BORDER}`,
@@ -680,19 +825,19 @@ export default function ContactBookingForm({ locale = 'en' }) {
           <span style={{
             fontSize:      '10px',
             fontFamily:    FONT_B,
-            fontWeight:    500,
+            fontWeight:    600,
             letterSpacing: '0.2em',
             textTransform: 'uppercase',
-            color:         MUTED,
+            color:         TEXT,
           }}>
             Limore — {c.eyebrow}
           </span>
           <span style={{
-            fontSize:      '9px',
+            fontSize:      '10px',
             fontFamily:    FONT_B,
-            fontWeight:    300,
-            letterSpacing: '0.1em',
-            color:         FAINT,
+            fontWeight:    400,
+            letterSpacing: '0.08em',
+            color:         MUTED,
           }}>
             {c.required}
           </span>
@@ -711,32 +856,41 @@ export default function ContactBookingForm({ locale = 'en' }) {
               padding:         'clamp(24px,3.5vw,40px) clamp(20px,3vw,36px)',
               display:         'flex',
               flexDirection:   'column',
-              gap:             '32px',
+              gap:             '36px',
               backgroundColor: '#FFFFFF',
             }}
           >
-            {/* ── Section 1: Journey Details ── */}
+            {/* ── Journey Details ── */}
             <FormSection title={c.sections.journey}>
-              <Input
+
+              {/* Date picker */}
+              <DateField
                 label={c.fields.pickupDate}
-                type="date"
-                value={form.pickupDate}
-                onChange={set('pickupDate')}
-                required dir={dir}
+                required
+                dir={dir}
+                selected={form.pickupDate ? new Date(form.pickupDate) : null}
+                onChange={date =>
+                  set('pickupDate')(date ? date.toISOString().split('T')[0] : '')
+                }
               />
-              <Input
+
+              {/* Time picker */}
+              <DateField
                 label={c.fields.pickupTime}
-                type="time"
-                value={form.pickupTime}
-                onChange={set('pickupTime')}
-                required dir={dir}
+                required
+                dir={dir}
+                selected={timeToDate(form.pickupTime)}
+                onChange={date => set('pickupTime')(dateToTime(date))}
+                showTimeSelectOnly
               />
+
               <Select
                 label={c.fields.bookingType}
                 value={form.bookingType}
                 onChange={set('bookingType')}
                 options={c.bookingTypes}
-                required dir={dir}
+                required
+                dir={dir}
               />
 
               {flightVisible && (
@@ -751,18 +905,21 @@ export default function ContactBookingForm({ locale = 'en' }) {
                 </div>
               )}
 
-              <Input
+              <PlacesInput
                 label={c.fields.pickupLocation}
                 value={form.pickupLocation}
                 onChange={set('pickupLocation')}
-                required dir={dir}
+                required
+                dir={dir}
               />
-              <Input
+              <PlacesInput
                 label={c.fields.dropoff}
                 value={form.dropoff}
                 onChange={set('dropoff')}
-                required dir={dir}
+                required
+                dir={dir}
               />
+
               <Select
                 label={c.fields.vehicleName}
                 value={form.vehicleName}
@@ -775,7 +932,7 @@ export default function ContactBookingForm({ locale = 'en' }) {
 
             <div style={{ height: '1px', backgroundColor: BORDER }} />
 
-            {/* ── Section 2: Client Information ── */}
+            {/* ── Your Information ── */}
             <FormSection title={c.sections.client}>
               <Input
                 label={c.fields.guestName}
@@ -805,11 +962,10 @@ export default function ContactBookingForm({ locale = 'en' }) {
                 type="tel"
                 value={form.phone}
                 onChange={set('phone')}
-                dir={dir}
+                required dir={dir}
                 autoComplete="tel"
                 placeholder="+971 56 345 4698"
               />
-
               <div style={{ gridColumn: '1 / -1' }}>
                 <Textarea
                   label={c.fields.specialRequest}
@@ -823,28 +979,51 @@ export default function ContactBookingForm({ locale = 'en' }) {
 
             <div style={{ height: '1px', backgroundColor: BORDER }} />
 
-            {/* ── Error message ── */}
-            {submitStatus === 'error' && (
+            {/* ── Validation error ── */}
+            {validationErr && (
               <div style={{
-                padding:         '12px 16px',
+                padding:         '13px 16px',
                 backgroundColor: 'rgba(196,30,30,0.05)',
-                border:          `1px solid rgba(196,30,30,0.2)`,
+                border:          '1px solid rgba(196,30,30,0.25)',
                 display:         'flex',
                 alignItems:      'center',
                 gap:             '10px',
               }}>
-                <svg width="14" height="14" viewBox="0 0 14 14"
-                  fill="none" aria-hidden="true">
-                  <circle cx="7" cy="7" r="6"
-                    stroke={RED} strokeWidth="1"/>
-                  <path d="M7 4v3.5M7 10h.01"
-                    stroke={RED} strokeWidth="1.1"
-                    strokeLinecap="round"/>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <circle cx="7" cy="7" r="6" stroke={RED} strokeWidth="1" />
+                  <path d="M7 4v3.5M7 10h.01" stroke={RED} strokeWidth="1.1"
+                    strokeLinecap="round" />
                 </svg>
                 <span style={{
-                  fontSize:   '12px',
+                  fontSize:   '13px',
                   fontFamily: FONT_B,
-                  fontWeight: 300,
+                  fontWeight: 400,
+                  color:      RED,
+                }}>
+                  {validationErr}
+                </span>
+              </div>
+            )}
+
+            {/* ── Submit error ── */}
+            {submitStatus === 'error' && (
+              <div style={{
+                padding:         '13px 16px',
+                backgroundColor: 'rgba(196,30,30,0.05)',
+                border:          '1px solid rgba(196,30,30,0.25)',
+                display:         'flex',
+                alignItems:      'center',
+                gap:             '10px',
+              }}>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <circle cx="7" cy="7" r="6" stroke={RED} strokeWidth="1" />
+                  <path d="M7 4v3.5M7 10h.01" stroke={RED} strokeWidth="1.1"
+                    strokeLinecap="round" />
+                </svg>
+                <span style={{
+                  fontSize:   '13px',
+                  fontFamily: FONT_B,
+                  fontWeight: 400,
                   color:      RED,
                 }}>
                   {c.errorMsg}
@@ -861,17 +1040,16 @@ export default function ContactBookingForm({ locale = 'en' }) {
               gap:            '14px',
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <svg width="11" height="13" viewBox="0 0 11 13"
-                  fill="none" aria-hidden="true">
+                <svg width="11" height="13" viewBox="0 0 11 13" fill="none" aria-hidden="true">
                   <path d="M5.5 1L1 3.5v3c0 3 2 5 4.5 5.5C8 11.5 10 9.5 10 6.5v-3L5.5 1z"
-                    stroke={FAINT} strokeWidth="0.9"/>
+                    stroke={FAINT} strokeWidth="0.9" />
                 </svg>
                 <span style={{
-                  fontSize:      '9px',
+                  fontSize:      '11px',
                   fontFamily:    FONT_B,
-                  fontWeight:    300,
-                  letterSpacing: '0.1em',
-                  color:         FAINT,
+                  fontWeight:    400,
+                  letterSpacing: '0.06em',
+                  color:         MUTED,
                 }}>
                   {c.note}
                 </span>
@@ -886,30 +1064,25 @@ export default function ContactBookingForm({ locale = 'en' }) {
                   alignItems:      'center',
                   gap:             '10px',
                   padding:         '15px 28px',
-                  backgroundColor: submitStatus === 'submitting'
-                    ? FAINT : RED,
+                  backgroundColor: submitStatus === 'submitting' ? '#999' : RED,
                   color:           '#FFFFFF',
-                  fontSize:        '10px',
+                  fontSize:        '11px',
                   fontFamily:      FONT_B,
-                  fontWeight:      500,
-                  letterSpacing:   '0.2em',
+                  fontWeight:      600,
+                  letterSpacing:   '0.18em',
                   textTransform:   'uppercase',
                   border:          'none',
-                  cursor:          submitStatus === 'submitting'
-                    ? 'not-allowed' : 'pointer',
+                  cursor:          submitStatus === 'submitting' ? 'not-allowed' : 'pointer',
                   transition:      'background-color 0.25s ease',
                   flexShrink:      0,
                 }}
               >
-                <span>
-                  {submitStatus === 'submitting' ? c.submitting : c.submit}
-                </span>
+                <span>{submitStatus === 'submitting' ? c.submitting : c.submit}</span>
                 {submitStatus !== 'submitting' && (
-                  <svg width="12" height="8" viewBox="0 0 12 8"
-                    fill="none" aria-hidden="true">
+                  <svg width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
                     <path d="M1 4h10M7 1l4 3-4 3"
                       stroke="currentColor" strokeWidth="1.1"
-                      strokeLinecap="round" strokeLinejoin="round"/>
+                      strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 )}
               </button>
@@ -918,15 +1091,187 @@ export default function ContactBookingForm({ locale = 'en' }) {
         )}
       </div>
 
+      {/* ── Styles: datepicker + submit hover ── */}
       <style>{`
+        /* Wrapper fills the grid cell */
+        .limore-dp-wrapper {
+          width: 100%;
+          display: block;
+        }
+        /* The actual <input> rendered via customInput */
+        .limore-dp-wrapper input {
+          width: 100% !important;
+          box-sizing: border-box !important;
+          font-size: 14px !important;
+          font-family: ${FONT_B} !important;
+          font-weight: 400 !important;
+          color: ${TEXT} !important;
+          cursor: pointer !important;
+        }
+        .limore-dp-wrapper input::placeholder {
+          color: ${FAINT} !important;
+          font-weight: 400 !important;
+        }
+
+        /* ── Calendar popup ── */
+        .limore-dp-popper {
+          z-index: 9999 !important;
+        }
+        .limore-dp-popper .react-datepicker {
+          background:  #FFFFFF !important;
+          border:      1px solid ${BORDER} !important;
+          border-top:  2px solid ${RED} !important;
+          border-radius: 0 !important;
+          font-family: ${FONT_B} !important;
+          box-shadow:  0 16px 48px rgba(0,0,0,0.12) !important;
+          overflow:    hidden !important;
+        }
+        .limore-dp-popper .react-datepicker__triangle { display: none !important; }
+
+        /* Header */
+        .limore-dp-popper .react-datepicker__header {
+          background:    #F8F7F4 !important;
+          border-bottom: 1px solid ${BORDER} !important;
+          border-radius: 0 !important;
+          padding:       14px 0 10px !important;
+        }
+        .limore-dp-popper .react-datepicker__current-month {
+          color:          ${TEXT} !important;
+          font-size:      11px !important;
+          font-weight:    600 !important;
+          letter-spacing: 0.18em !important;
+          text-transform: uppercase !important;
+          font-family:    ${FONT_B} !important;
+        }
+
+        /* Nav arrows */
+        .limore-dp-popper .react-datepicker__navigation-icon::before {
+          border-color: ${MUTED} !important;
+        }
+        .limore-dp-popper .react-datepicker__navigation:hover
+        .react-datepicker__navigation-icon::before {
+          border-color: ${RED} !important;
+        }
+
+        /* Day names */
+        .limore-dp-popper .react-datepicker__day-name {
+          color:          ${MUTED} !important;
+          font-size:      9px !important;
+          font-weight:    600 !important;
+          letter-spacing: 0.1em !important;
+          text-transform: uppercase !important;
+          font-family:    ${FONT_B} !important;
+          width:          2.2rem !important;
+          margin:         0.1rem !important;
+        }
+
+        /* Days */
+        .limore-dp-popper .react-datepicker__day {
+          color:       ${TEXT} !important;
+          font-size:   12px !important;
+          font-weight: 400 !important;
+          font-family: ${FONT_B} !important;
+          border-radius: 0 !important;
+          width:       2.2rem !important;
+          line-height: 2.2rem !important;
+          margin:      0.1rem !important;
+          transition:  background 0.15s !important;
+        }
+        .limore-dp-popper .react-datepicker__day:hover {
+          background:    rgba(196,30,30,0.08) !important;
+          border-radius: 0 !important;
+        }
+        .limore-dp-popper .react-datepicker__day--selected,
+        .limore-dp-popper .react-datepicker__day--keyboard-selected {
+          background:    ${RED} !important;
+          color:         #FFFFFF !important;
+          font-weight:   600 !important;
+          border-radius: 0 !important;
+        }
+        .limore-dp-popper .react-datepicker__day--today {
+          border:        1px solid rgba(196,30,30,0.4) !important;
+          background:    transparent !important;
+          border-radius: 0 !important;
+        }
+        .limore-dp-popper .react-datepicker__day--disabled {
+          color:  rgba(10,10,10,0.25) !important;
+          cursor: not-allowed !important;
+        }
+        .limore-dp-popper .react-datepicker__day--disabled:hover {
+          background: transparent !important;
+        }
+
+        /* Time list */
+        .limore-dp-popper .react-datepicker__time-container {
+          border-left: 1px solid ${BORDER} !important;
+          width:       110px !important;
+        }
+        .limore-dp-popper .react-datepicker__time,
+        .limore-dp-popper .react-datepicker__time-box {
+          background:    #FFFFFF !important;
+          border-radius: 0 !important;
+          width:         100% !important;
+        }
+        .limore-dp-popper .react-datepicker__time-list-item {
+          color:       ${MUTED} !important;
+          font-size:   12px !important;
+          font-weight: 400 !important;
+          font-family: ${FONT_B} !important;
+          height:      auto !important;
+          padding:     10px 16px !important;
+          transition:  all 0.15s !important;
+        }
+        .limore-dp-popper .react-datepicker__time-list-item:hover {
+          background: rgba(196,30,30,0.07) !important;
+          color:      ${TEXT} !important;
+        }
+        .limore-dp-popper .react-datepicker__time-list-item--selected {
+          background:  ${RED} !important;
+          color:       #FFFFFF !important;
+          font-weight: 600 !important;
+        }
+        .limore-dp-popper .react-datepicker__header--time {
+          background:    #F8F7F4 !important;
+          border-bottom: 1px solid ${BORDER} !important;
+          padding:       12px !important;
+        }
+        .limore-dp-popper .react-datepicker-time__header {
+          font-size:      10px !important;
+          font-weight:    600 !important;
+          letter-spacing: 0.14em !important;
+          text-transform: uppercase !important;
+          color:          ${MUTED} !important;
+          font-family:    ${FONT_B} !important;
+        }
+
+        /* Mobile: full-width popper */
+        @media (max-width: 480px) {
+          .limore-dp-popper .react-datepicker {
+            width: 95vw !important;
+          }
+          .limore-dp-popper .react-datepicker__month-container {
+            width: 100% !important;
+          }
+          .limore-dp-popper .react-datepicker__day,
+          .limore-dp-popper .react-datepicker__day-name {
+            width: calc((95vw - 32px) / 7) !important;
+            line-height: calc((95vw - 32px) / 7) !important;
+            margin: 0 !important;
+            font-size: 11px !important;
+          }
+        }
+
+        /* Submit hover */
         .cbf-submit:hover:not(:disabled) {
           background-color: ${RED_HOVER} !important;
         }
+
+        /* Hide native date/time pickers (not used but just in case) */
         input[type="date"]::-webkit-calendar-picker-indicator,
         input[type="time"]::-webkit-calendar-picker-indicator {
-          filter: opacity(0.4);
-          cursor: pointer;
+          display: none;
         }
+
         select option, optgroup {
           background-color: #FFFFFF;
           color: ${TEXT};

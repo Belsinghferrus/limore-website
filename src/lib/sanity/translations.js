@@ -3,7 +3,7 @@
 const blogTranslations = {
     en: {
       eyebrow:           'Perspectives & Insights',
-      pageTitle:         'Limore Travel',
+      pageTitle:         'Limore Traveler',
       pageTitleItalic:   'Magazine',
       noArticles:        'No articles yet.',
       readArticle:       'Read Article',

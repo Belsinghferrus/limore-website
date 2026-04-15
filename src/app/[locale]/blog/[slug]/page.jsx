@@ -13,6 +13,7 @@ import { getBlogTranslations } from '@/lib/sanity/translations'
 import BlogEyebrow from '@/components/sections/blog/BlogEyebrow'
 import BlogRelatedCard from '@/components/sections/blog/BlogRelatedCard'
 import PortableTextRenderer from '@/components/sections/blog/PortableTextRenderer'
+import BlogShareButton from '@/components/sections/blog/BlogShareButton'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -32,15 +33,15 @@ function formatDate(dateStr, locale) {
 export default function BlogPostPage() {
   const params = useParams()
   const locale = params?.locale || 'en'
-  const slug   = params?.slug
-  const isRtl  = locale === 'ar'
-  const T      = getBlogTranslations(locale)
+  const slug = params?.slug
+  const isRtl = locale === 'ar'
+  const T = getBlogTranslations(locale)
 
-  const [post,    setPost]    = useState(null)
+  const [post, setPost] = useState(null)
   const [related, setRelated] = useState([])
   const [loading, setLoading] = useState(true)
 
-  const heroRef    = useRef(null)
+  const heroRef = useRef(null)
   const contentRef = useRef(null)
 
   useEffect(() => {
@@ -119,8 +120,8 @@ export default function BlogPostPage() {
     )
   }
 
-  const imgUrl      = post?.coverImage?.asset?.url || null
-  const blurUrl     = post?.coverImage?.asset?.metadata?.lqip || null
+  const imgUrl = post?.coverImage?.asset?.url || null
+  const blurUrl = post?.coverImage?.asset?.metadata?.lqip || null
   const bodyContent = post.body?.[locale] || post.body?.en
 
   return (
@@ -208,12 +209,16 @@ export default function BlogPostPage() {
                   }}>
                     {item}
                   </span>
+
                   {i < arr.length - 1 && (
                     <span style={{ width: '1px', height: '12px', backgroundColor: 'rgba(255,255,255,0.1)' }} />
                   )}
                 </span>
+
+
               ))}
             </div>
+
           </div>
 
           {/* Cover image */}
@@ -247,6 +252,19 @@ export default function BlogPostPage() {
           }}
         >
           <PortableTextRenderer value={bodyContent} />
+        </div>
+        <div
+          style={{
+            display: 'flex', justifyContent: 'center', paddingBottom: 'clamp(40px, 6vw, 64px)',
+          }}
+        >
+          <BlogShareButton
+            post={post}
+            locale={locale}
+            t={T}
+            imgUrl={imgUrl}
+          />
+
         </div>
 
         {/* Divider */}

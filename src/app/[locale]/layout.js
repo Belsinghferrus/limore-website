@@ -111,7 +111,7 @@ export default async function LocaleLayout({ children, params }) {
 
 
       {/* <Script
-  src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`}
+  src={`https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_MAPS_API_KEY}&libraries=places`}
   strategy="beforeInteractive"
 /> */}
 
@@ -121,7 +121,7 @@ export default async function LocaleLayout({ children, params }) {
       {/* <Script
   id="google-maps"
   strategy="beforeInteractive"
-  src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&v=weekly&loading=async`}
+  src={`https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_MAPS_API_KEY}&v=weekly&loading=async`}
 /> */}
 
         {/* Preconnect for Cormorant Garamond — loaded via CDN in globals.css */}

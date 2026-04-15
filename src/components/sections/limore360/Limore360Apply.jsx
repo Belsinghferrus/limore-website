@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 // ─── Apps Script endpoint ──────────────────────────────────────────────────────
-const APPS_SCRIPT_URL = process.env.NEXT_PUBLIC_LIMORE360_APPLY_URL
+const APPS_SCRIPT_URL = process.env.LIMORE360_APPLY_URL
 
 function toFormEncoded(obj) {
   return Object.entries(obj)

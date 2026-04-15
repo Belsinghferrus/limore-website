@@ -22,7 +22,7 @@ const FAINT     = '#767676'
 const FONT_D    = "'Cormorant Garamond', Georgia, serif"
 const FONT_B    = "'Inter', 'Helvetica Neue', sans-serif"
 
-const APPS_SCRIPT_URL = process.env.NEXT_PUBLIC_APPS_SCRIPT_URL
+const APPS_SCRIPT_URL = process.env.APPS_SCRIPT_URL
 
 // ─── Vehicle fleet ─────────────────────────────────────────────────────────────
 const VEHICLES = {

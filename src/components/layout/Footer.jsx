@@ -20,7 +20,12 @@ const LEGAL_LINKS = [
   { label: 'Cookies', href: '/cookies' },
 ]
 
-const SOCIALS = ['Instagram', 'LinkedIn', 'X']
+const SOCIALS = [
+  { label: 'Instagram', href: 'https://www.instagram.com/limorefleets' },
+  { label: 'Facebook', href: 'https://www.facebook.com/share/1AenjKv3V6/' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/limore-fleets/' },
+  { label: 'X', href: 'https://x.com/Limore_Fleets' },
+]
 
 export default function Footer({ locale = 'en' }) {
   const localePath = (href) => '/' + locale + href
@@ -73,11 +78,11 @@ export default function Footer({ locale = 'en' }) {
               }}
             />
 
-            <div style={{ display: 'flex', gap: '20px', marginTop: '20px' }}>
+            {/* <div style={{ display: 'flex', gap: '20px', marginTop: '20px' }}>
               {SOCIALS.map((s) => (
                 <a
                   key={s}
-                  href="#"
+
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -96,8 +101,34 @@ export default function Footer({ locale = 'en' }) {
                   {s}
                 </a>
               ))}
+            </div> */}
+
+            <div style={{ display: 'flex', gap: '20px', marginTop: '20px' }}>
+              {SOCIALS.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    fontSize: '11px',
+                    fontFamily: 'Inter, sans-serif',
+                    fontWeight: 500,
+                    letterSpacing: '0.15em',
+                    textTransform: 'uppercase',
+                    color: 'rgba(255,255,255,0.25)',
+                    textDecoration: 'none',
+                    transition: 'color 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#C41E1E'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.25)'}
+                >
+                  {s.label}
+                </a>
+              ))}
             </div>
           </div>
+
 
           {/* Services */}
           <div>
@@ -321,12 +352,12 @@ function LimoreLogo() {
   return (
 
     <NextImage
-    src="/images/limore-logo.png"
-    alt="Limore"
-    width={120}
-    height={32}
-    priority
-    style={{ objectFit: 'contain' }}
-  />
+      src="/images/limore-logo.png"
+      alt="Limore"
+      width={120}
+      height={32}
+      priority
+      style={{ objectFit: 'contain' }}
+    />
   )
 }

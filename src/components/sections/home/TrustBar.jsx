@@ -1,7 +1,7 @@
 const t = {
     en: {
       stats: [
-        { value: '12+', label: 'Global Cities' },
+        { value: '60+', label: 'Global Cities' },
         { value: '500+', label: 'Corporate Clients' },
         { value: '24/7', label: 'Operations' },
         { value: '100%', label: 'On-Time Guarantee' },
@@ -9,7 +9,7 @@ const t = {
     },
     ar: {
       stats: [
-        { value: '12+', label: 'مدينة عالمية' },
+        { value: '60+', label: 'مدينة عالمية' },
         { value: '500+', label: 'عميل مؤسسي' },
         { value: '24/7', label: 'عمليات مستمرة' },
         { value: '100%', label: 'ضمان الالتزام بالوقت' },
@@ -17,7 +17,7 @@ const t = {
     },
     fr: {
       stats: [
-        { value: '12+', label: 'Villes Mondiales' },
+        { value: '60+', label: 'Villes Mondiales' },
         { value: '500+', label: 'Clients Corporate' },
         { value: '24/7', label: 'Operations' },
         { value: '100%', label: 'Garantie Ponctualite' },

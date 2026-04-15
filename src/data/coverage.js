@@ -171,6 +171,11 @@ export const regions = [
           name: { en: 'Poland', ar: 'بولندا', fr: 'Pologne' },
           cities: [{ en: 'Warsaw', ar: 'وارسو', fr: 'Varsovie' }],
         },
+        {
+          id: 'moldova', flag: '🇲🇩',
+          name: { en: 'Moldova', ar: 'مولدوفا', fr: 'Moldavie' },
+          cities: [{ en: 'Chisinau', ar: 'كيشيناو', fr: 'Chisinau' }],
+        },
       ],
     },
     {
@@ -220,6 +225,11 @@ export const regions = [
           id: 'thailand', flag: '🇹🇭',
           name: { en: 'Thailand', ar: 'تايلاند', fr: 'Thaïlande' },
           cities: [{ en: 'Bangkok', ar: 'بانكوك', fr: 'Bangkok' }],
+        },
+        {
+          id: 'istanbul', flag: '🇹🇷',
+          name: { en: 'Istanbul', ar: 'إسطنبول', fr: 'Istanbul' },
+          cities: [{ en: 'Istanbul', ar: 'إسطنبول', fr: 'Istanbul' }],
         },
       ],
     },

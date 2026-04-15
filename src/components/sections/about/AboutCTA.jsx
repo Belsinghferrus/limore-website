@@ -16,7 +16,7 @@ const t = {
     cta2: 'View Our Services',
     items: [
       { icon: 'phone', text: 'Available 24 hours a day, 7 days a week' },
-      { icon: 'globe', text: 'Operating across 8 global cities' },
+      { icon: 'globe', text: 'Operating across 60+ global cities' },
       { icon: 'shield', text: 'Trusted by Fortune 500 companies' },
     ],
   },
@@ -28,7 +28,7 @@ const t = {
     cta2: 'خدماتنا',
     items: [
       { icon: 'phone', text: 'متاح 24 ساعة، 7 أيام في الأسبوع' },
-      { icon: 'globe', text: 'نعمل في 8 مدن عالمية' },
+      { icon: 'globe', text: 'نعمل في 60+ مدن عالمية' },
       { icon: 'shield', text: 'موثوق به من قبل كبرى الشركات' },
     ],
   },
@@ -40,7 +40,7 @@ const t = {
     cta2: 'Nos Services',
     items: [
       { icon: 'phone', text: 'Disponible 24h/24, 7j/7' },
-      { icon: 'globe', text: 'Opérant dans 8 villes mondiales' },
+      { icon: 'globe', text: 'Opérant dans 60+ villes mondiales' },
       { icon: 'shield', text: 'Approuvé par des entreprises Fortune 500' },
     ],
   },

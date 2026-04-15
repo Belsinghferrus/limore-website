@@ -16,7 +16,7 @@ const t = {
     tags: ['FBO Access', 'Tarmac Coordination', 'Flight Monitoring', 'Zero Wait Time'],
     stat1val: 'Airside',  stat1label: 'Vehicle Staging',
     stat2val: '24/7',     stat2label: 'Flight Tracking',
-    stat3val: '8',        stat3label: 'FBO Cities',
+    stat3val: '60+',        stat3label: 'FBO Cities',
   },
   ar: {
     category: 'الخدمة',
@@ -29,7 +29,7 @@ const t = {
     tags: ['وصول إلى المدرج', 'تنسيق المدرج', 'تتبع الرحلات', 'وقت انتظار صفري'],
     stat1val: 'جوي',     stat1label: 'توقف المركبة',
     stat2val: '24/7',    stat2label: 'تتبع الرحلات',
-    stat3val: '8',       stat3label: 'مدن مجمعات الطيران',
+    stat3val: '60+',       stat3label: 'مدن مجمعات الطيران',
   },
   fr: {
     category: 'Service',
@@ -42,7 +42,7 @@ const t = {
     tags: ['Accès FBO', 'Coordination Tarmac', 'Suivi de Vol', 'Zéro Temps d\'Attente'],
     stat1val: 'Côté Piste', stat1label: 'Positionnement Véhicule',
     stat2val: '24/7',       stat2label: 'Suivi de Vol',
-    stat3val: '8',          stat3label: 'Villes FBO',
+    stat3val: '60+',          stat3label: 'Villes FBO',
   },
 }
 

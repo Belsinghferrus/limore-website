@@ -9,11 +9,11 @@ const t = {
     breadcrumb: 'Services',
     eyebrow: 'What We Do',
     line1: 'Every Journey.',
-    line2: 'One Standard.',
+    line2: 'Is taken care of.',
     sub: 'Four service categories. One operating principle — that no detail of your ground transport is left to chance.',
     cta: 'View All Services',
     stat1val: '4',    stat1label: 'Service Categories',
-    stat2val: '8',    stat2label: 'Global Cities',
+    stat2val: '60+',    stat2label: 'Global Cities',
     stat3val: '24/7', stat3label: 'Operations',
   },
   ar: {
@@ -24,7 +24,7 @@ const t = {
     sub: 'أربع فئات خدمة. مبدأ تشغيلي واحد — ألا يُترك أي تفصيل من تفاصيل نقلك الأرضي للصدفة.',
     cta: 'عرض جميع الخدمات',
     stat1val: '4',    stat1label: 'فئات الخدمة',
-    stat2val: '8',    stat2label: 'مدن عالمية',
+    stat2val: '60+',    stat2label: 'مدن عالمية',
     stat3val: '24/7', stat3label: 'عمليات',
   },
   fr: {
@@ -35,7 +35,7 @@ const t = {
     sub: 'Quatre catégories de service. Un principe opérationnel — qu\'aucun détail de votre transport terrestre ne soit laissé au hasard.',
     cta: 'Voir Tous les Services',
     stat1val: '4',    stat1label: 'Catégories de Service',
-    stat2val: '8',    stat2label: 'Villes Mondiales',
+    stat2val: '60+',    stat2label: 'Villes Mondiales',
     stat3val: '24/7', stat3label: 'Opérations',
   },
 }
@@ -104,7 +104,7 @@ export default function ServicesHero({ locale = 'en' }) {
       style={{
         position: 'relative',
         width: '100%',
-        minHeight: '85vh',
+        minHeight: '100vh',
         overflow: 'hidden',
         backgroundColor: '#050505',
         display: 'flex',
@@ -117,7 +117,7 @@ export default function ServicesHero({ locale = 'en' }) {
       <div style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden' }}>
         <img
           ref={imgRef}
-          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=85"
+          src="/images/limore3.jpg"
           alt="Limore premium chauffeur services overview"
           width={1920}
           height={1080}

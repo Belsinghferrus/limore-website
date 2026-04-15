@@ -20,7 +20,7 @@ const t = {
         href: '/services/airport-transfers',
         cta: 'View Service',
         tags: ['Arrivals', 'Departures', 'Connections'],
-        img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&q=80',
+        img: '/images/limore14.jpg',
         imgAlt: 'Airport transfer luxury chauffeur — Limore',
       },
       {
@@ -31,7 +31,7 @@ const t = {
         href: '/services/corporate-chauffeur',
         cta: 'View Service',
         tags: ['Hourly', 'Daily', 'Multi-City'],
-        img: 'https://images.unsplash.com/photo-1617469767053-d3b523a0b982?w=900&q=80',
+        img: '/images/limore2.jpg',
         imgAlt: 'Corporate chauffeur service — Limore',
       },
       {
@@ -42,7 +42,7 @@ const t = {
         href: '/services/roadshows-events',
         cta: 'View Service',
         tags: ['Roadshows', 'Product Launches', 'VIP Events'],
-        img: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=900&q=80',
+        img: '/images/events.jpg',
         imgAlt: 'Event transport logistics — Limore',
       },
       {
@@ -53,7 +53,7 @@ const t = {
         href: '/services/private-jet-transfers',
         cta: 'View Service',
         tags: ['FBO Access', 'Tarmac', 'Airside'],
-        img: 'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=900&q=80',
+        img: '/images/limore13.jpg',
         imgAlt: 'Private jet tarmac transfer — Limore',
       },
     ],

@@ -15,7 +15,7 @@ const t = {
     cta: 'Enquire Now',
     ctaSecondary: 'All Services',
     stat1val: '24/7',  stat1label: 'Operations Desk',
-    stat2val: '8',     stat2label: 'Global Cities',
+    stat2val: '60+',     stat2label: 'Global Cities',
     stat3val: '100%',  stat3label: 'Confidentiality',
   },
   ar: {
@@ -28,7 +28,7 @@ const t = {
     cta: 'استفسر الآن',
     ctaSecondary: 'جميع الخدمات',
     stat1val: '24/7',  stat1label: 'مكتب العمليات',
-    stat2val: '8',     stat2label: 'مدن عالمية',
+    stat2val: '60+',     stat2label: 'مدن عالمية',
     stat3val: '100%',  stat3label: 'سرية تامة',
   },
   fr: {
@@ -41,7 +41,7 @@ const t = {
     cta: 'Demander un Devis',
     ctaSecondary: 'Tous les Services',
     stat1val: '24/7',  stat1label: 'Bureau des Opérations',
-    stat2val: '8',     stat2label: 'Villes Mondiales',
+    stat2val: '60+',     stat2label: 'Villes Mondiales',
     stat3val: '100%',  stat3label: 'Confidentialité',
   },
 }

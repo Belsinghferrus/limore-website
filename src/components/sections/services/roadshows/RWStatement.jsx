@@ -17,7 +17,7 @@ const t = {
     ],
     aside: [
       { value: '300+', desc: 'Events managed globally' },
-      { value: '8', desc: 'Cities with standing operations' },
+      { value: '60+', desc: 'Cities with standing operations' },
       { value: '15 min', desc: 'Average dispatch response' },
     ],
   },
@@ -31,7 +31,7 @@ const t = {
     ],
     aside: [
       { value: '+300', desc: 'فعاليات مُدارة عالمياً' },
-      { value: '8', desc: 'مدن بعمليات قائمة' },
+      { value: '60+', desc: 'مدن بعمليات قائمة' },
       { value: '15 دقيقة', desc: 'متوسط وقت الاستجابة' },
     ],
   },
@@ -45,7 +45,7 @@ const t = {
     ],
     aside: [
       { value: '300+', desc: 'Événements gérés mondialement' },
-      { value: '8', desc: 'Villes en opération permanente' },
+      { value: '60+', desc: 'Villes en opération permanente' },
       { value: '15 min', desc: 'Temps de réponse dispatch moyen' },
     ],
   },

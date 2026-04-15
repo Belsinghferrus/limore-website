@@ -23,7 +23,7 @@ const t = {
                 number: '02',
                 title: 'Global Standardised\nService',
                 description: 'Whether you are in Dubai, London or New York — you receive the same Limore standard. No compromise across borders, no variation in quality.',
-                stat: '8',
+                stat: '60+',
                 statLabel: 'Cities, One Standard',
             },
             {

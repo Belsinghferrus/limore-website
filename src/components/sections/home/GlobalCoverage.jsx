@@ -364,7 +364,7 @@ export default function GlobalCoverage({ locale = 'en' }) {
             {/* Stat blocks stacked */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {[
-                { value: '8', label: 'Cities Worldwide' },
+                { value: '60+', label: 'Cities Worldwide' },
                 { value: '4', label: 'Regions' },
                 { value: '24/7', label: 'Every City' },
               ].map((s, i) => (

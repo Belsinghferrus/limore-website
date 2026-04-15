@@ -19,8 +19,8 @@ const t = {
         desc: 'Across financial, luxury, and corporate sectors globally',
       },
       {
-        value: 8,
-        display: '8',
+        value: 60,
+        display: '60+',
         suffix: '',
         label: 'Cities Operational',
         desc: 'Dubai, Abu Dhabi, London, Paris, Geneva, Zurich, Frankfurt, Riyadh',
@@ -56,7 +56,7 @@ const t = {
         desc: 'عبر القطاعات المالية والفاخرة والمؤسسية عالمياً',
       },
       {
-        value: 8, display: '8', suffix: '',
+        value: 60, display: '60', suffix: '',
         label: 'مدن تشغيلية',
         desc: 'دبي، أبوظبي، لندن، باريس، جنيف، زيورخ، فرانكفورت، الرياض',
       },
@@ -84,7 +84,7 @@ const t = {
         desc: 'Dans les secteurs financier, luxe et corporate à l\'échelle mondiale',
       },
       {
-        value: 8, display: '8', suffix: '',
+        value: 60, display: '60', suffix: '',
         label: 'Villes Opérationnelles',
         desc: 'Dubaï, Abu Dhabi, Londres, Paris, Genève, Zurich, Francfort, Riyad',
       },

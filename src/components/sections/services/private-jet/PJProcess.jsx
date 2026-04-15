@@ -42,12 +42,7 @@ const t = {
         body: 'From the bottom of the aircraft steps to your seat in the vehicle. No FBO lounge unless you prefer it. No baggage hall. No exposure in a public terminal.',
         icon: 'arrow',
       },
-      {
-        number: '06',
-        title: 'Direct to Your Destination',
-        body: 'Pre-planned route, optimised for time of day and traffic conditions. Any route changes are handled in real time by your dedicated chauffeur.',
-        icon: 'pin',
-      },
+     
     ],
   },
   ar: {
@@ -60,7 +55,6 @@ const t = {
       { number: '03', title: 'المركبة مُوضعة على الجانب الجوي', body: 'مركبتك مُوضعة في الساحة أو في مقدمة مجمع الطيران قبل الهبوط. السائق في موقعه ومُحاط بمعلومات اسمك وحجم مجموعتك.', icon: 'car' },
       { number: '04', title: 'مراقبة الرحلة في الوقت الفعلي', body: 'نتتبع رحلتك مباشرة. أي تغيير في وقت الوصول أو تحويل أو هبوط مبكر يُعالَج تلقائياً.', icon: 'radar' },
       { number: '05', title: 'من الطائرة إلى المركبة في ثوانٍ', body: 'من أسفل درج الطائرة إلى مقعدك في المركبة. لا صالة مجمع طيران ما لم تفضل ذلك. لا قاعة أمتعة. لا تعرض في صالة عامة.', icon: 'arrow' },
-      { number: '06', title: 'مباشرة إلى وجهتك', body: 'مسار مُخطط مسبقاً ومُحسَّن لوقت اليوم وحالة المرور. أي تغييرات في المسار تُعالَج في الوقت الفعلي.', icon: 'pin' },
     ],
   },
   fr: {
@@ -73,7 +67,6 @@ const t = {
       { number: '03', title: 'Véhicule Positionné Côté Piste', body: 'Votre véhicule est positionné sur l\'aire ou dans le forecourt du FBO avant l\'atterrissage. Le chauffeur est en position, briefé sur votre nom et vos bagages.', icon: 'car' },
       { number: '04', title: 'Suivi de Vol en Temps Réel', body: 'Nous suivons votre vol en direct. Tout changement d\'heure d\'arrivée, déroutement ou atterrissage anticipé est géré automatiquement.', icon: 'radar' },
       { number: '05', title: 'De l\'Aéronef au Véhicule en Secondes', body: 'Du bas des marches de l\'aéronef à votre siège dans le véhicule. Pas de salon FBO sauf si vous le préférez. Pas de retrait bagages. Pas d\'exposition.', icon: 'arrow' },
-      { number: '06', title: 'Direction Votre Destination', body: 'Itinéraire pré-planifié, optimisé en fonction de l\'heure et des conditions de circulation. Tout changement d\'itinéraire est géré en temps réel.', icon: 'pin' },
     ],
   },
 }

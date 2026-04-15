@@ -62,239 +62,238 @@ export default function Navbar({ locale = 'en' }) {
         {/* Red top line */}
         <div style={{ height: '2px', backgroundColor: '#C41E1E' }} />
 
-        <div className="container-default">
-          <nav
+
+        <nav
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            height: '70px',
+          }}
+          role="navigation"
+          aria-label="Main navigation"
+        >
+
+          {/* Logo */}
+          <Link href={localePath('/')} aria-label="Limore Home" style={{ display: 'flex', alignItems: 'center', paddingLeft: 'clamp(16px, 3vw, 40px)' }}>
+            <LimoreLogo />
+          </Link>
+
+          {/* Desktop Links */}
+          <ul
             style={{
-              display: 'flex',
+              display: 'none',
               alignItems: 'center',
-              justifyContent: 'space-between',
-              height: '70px',
+              gap: '0',
+              listStyle: 'none',
+              margin: 0,
+              padding: 0,
             }}
-            role="navigation"
-            aria-label="Main navigation"
+            className="lg-nav"
           >
+            {NAV_LINKS.map((link) => {
+              const isActive = pathname.startsWith('/' + locale + link.href)
 
-            {/* Logo */}
-            <Link href={localePath('/')} aria-label="Limore Home" style={{ display: 'flex', alignItems: 'center' }}>
-              <LimoreLogo />
-            </Link>
-
-            {/* Desktop Links */}
-            <ul
-              style={{
-                display: 'none',
-                alignItems: 'center',
-                gap: '0',
-                listStyle: 'none',
-                margin: 0,
-                padding: 0,
-              }}
-              className="lg-nav"
-            >
-              {NAV_LINKS.map((link) => {
-                const isActive = pathname.startsWith('/' + locale + link.href)
-
-                if (link.label === 'Services') {
-                  return (
-                    <li key={link.href} style={{ position: 'relative' }}>
-                      <button
-                        onClick={() => setServicesOpen(!servicesOpen)}
-                        onBlur={() => setTimeout(() => setServicesOpen(false), 200)}
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '6px',
-                          padding: '8px 16px',
-                          background: 'none',
-                          border: 'none',
-                          cursor: 'pointer',
-                          color: 'rgba(255,255,255,0.75)',
-                          fontSize: '12px',
-                          fontFamily: 'Inter, sans-serif',
-                          fontWeight: 500,
-                          letterSpacing: '0.1em',
-                          textTransform: 'uppercase',
-                          transition: 'color 0.2s ease',
-                        }}
-                        onMouseEnter={(e) => e.currentTarget.style.color = '#fff'}
-                        onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.75)'}
-                      >
-                        Services
-                        <ChevronDown
-                          size={12}
-                          color="#C41E1E"
-                          style={{
-                            transform: servicesOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                            transition: 'transform 0.3s ease',
-                          }}
-                        />
-                      </button>
-
-                      {/* Dropdown */}
-                      {servicesOpen && (
-                        <div
-                          style={{
-                            position: 'absolute',
-                            top: '100%',
-                            left: '50%',
-                            transform: 'translateX(-50%)',
-                            width: '240px',
-                            backgroundColor: '#0A0A0A',
-                            border: '1px solid #2A2A2A',
-                            borderTop: '1px solid #C41E1E',
-                            zIndex: 100,
-                          }}
-                        >
-                          {SERVICES.map((service, i) => (
-                            <Link
-                              key={service.href}
-                              href={localePath(service.href)}
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between',
-                                padding: '14px 20px',
-                                color: 'rgba(255,255,255,0.6)',
-                                fontSize: '13px',
-                                fontFamily: 'Inter, sans-serif',
-                                textDecoration: 'none',
-                                borderBottom: i < SERVICES.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none',
-                                transition: 'all 0.2s ease',
-                              }}
-                              onMouseEnter={(e) => {
-                                e.currentTarget.style.color = '#fff'
-                                e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.04)'
-                              }}
-                              onMouseLeave={(e) => {
-                                e.currentTarget.style.color = 'rgba(255,255,255,0.6)'
-                                e.currentTarget.style.backgroundColor = 'transparent'
-                              }}
-                            >
-                              {service.label}
-                              <span style={{ color: '#C41E1E', fontSize: '12px' }}>→</span>
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </li>
-                  )
-                }
-
+              if (link.label === 'Services') {
                 return (
-                  <li key={link.href}>
-                    <Link
-                      href={localePath(link.href)}
+                  <li key={link.href} style={{ position: 'relative' }}>
+                    <button
+                      onClick={() => setServicesOpen(!servicesOpen)}
+                      onBlur={() => setTimeout(() => setServicesOpen(false), 200)}
                       style={{
-                        display: 'block',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px',
                         padding: '8px 16px',
-                        color: isActive ? '#fff' : 'rgba(255,255,255,0.75)',
+                        background: 'none',
+                        border: 'none',
+                        cursor: 'pointer',
+                        color: 'rgba(255,255,255,0.75)',
                         fontSize: '12px',
                         fontFamily: 'Inter, sans-serif',
                         fontWeight: 500,
                         letterSpacing: '0.1em',
                         textTransform: 'uppercase',
-                        textDecoration: 'none',
-                        borderBottom: isActive ? '1px solid #C41E1E' : '1px solid transparent',
-                        transition: 'all 0.2s ease',
+                        transition: 'color 0.2s ease',
                       }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.color = '#fff'
-                        e.currentTarget.style.borderBottomColor = '#C41E1E'
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.color = isActive ? '#fff' : 'rgba(255,255,255,0.75)'
-                        e.currentTarget.style.borderBottomColor = isActive ? '#C41E1E' : 'transparent'
-                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.color = '#fff'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.75)'}
                     >
-                      {link.label}
-                    </Link>
+                      Services
+                      <ChevronDown
+                        size={12}
+                        color="#C41E1E"
+                        style={{
+                          transform: servicesOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                          transition: 'transform 0.3s ease',
+                        }}
+                      />
+                    </button>
+
+                    {/* Dropdown */}
+                    {servicesOpen && (
+                      <div
+                        style={{
+                          position: 'absolute',
+                          top: '100%',
+                          left: '50%',
+                          transform: 'translateX(-50%)',
+                          width: '240px',
+                          backgroundColor: '#0A0A0A',
+                          border: '1px solid #2A2A2A',
+                          borderTop: '1px solid #C41E1E',
+                          zIndex: 100,
+                        }}
+                      >
+                        {SERVICES.map((service, i) => (
+                          <Link
+                            key={service.href}
+                            href={localePath(service.href)}
+                            style={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'space-between',
+                              padding: '14px 20px',
+                              color: 'rgba(255,255,255,0.6)',
+                              fontSize: '13px',
+                              fontFamily: 'Inter, sans-serif',
+                              textDecoration: 'none',
+                              borderBottom: i < SERVICES.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none',
+                              transition: 'all 0.2s ease',
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.color = '#fff'
+                              e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.04)'
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.color = 'rgba(255,255,255,0.6)'
+                              e.currentTarget.style.backgroundColor = 'transparent'
+                            }}
+                          >
+                            {service.label}
+                            <span style={{ color: '#C41E1E', fontSize: '12px' }}>→</span>
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </li>
                 )
-              })}
-            </ul>
+              }
 
-            {/* Right Side */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-
-              {/* Language switcher — desktop */}
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                  paddingRight: '20px',
-                  borderRight: '1px solid rgba(255,255,255,0.1)',
-                }}
-                className="hide-mobile"
-              >
-                {['en', 'ar', 'fr'].map((lang) => (
+              return (
+                <li key={link.href}>
                   <Link
-                    key={lang}
-                    href={pathname.replace('/' + locale, '/' + lang)}
+                    href={localePath(link.href)}
                     style={{
-                      fontSize: '11px',
+                      display: 'block',
+                      padding: '8px 16px',
+                      color: isActive ? '#fff' : 'rgba(255,255,255,0.75)',
+                      fontSize: '12px',
                       fontFamily: 'Inter, sans-serif',
                       fontWeight: 500,
-                      letterSpacing: '0.12em',
+                      letterSpacing: '0.1em',
                       textTransform: 'uppercase',
                       textDecoration: 'none',
-                      color: lang === locale ? '#C41E1E' : 'rgba(255,255,255,0.35)',
-                      transition: 'color 0.2s ease',
+                      borderBottom: isActive ? '1px solid #C41E1E' : '1px solid transparent',
+                      transition: 'all 0.2s ease',
                     }}
-                    onMouseEnter={(e) => { if (lang !== locale) e.currentTarget.style.color = 'rgba(255,255,255,0.8)' }}
-                    onMouseLeave={(e) => { if (lang !== locale) e.currentTarget.style.color = 'rgba(255,255,255,0.35)' }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = '#fff'
+                      e.currentTarget.style.borderBottomColor = '#C41E1E'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.color = isActive ? '#fff' : 'rgba(255,255,255,0.75)'
+                      e.currentTarget.style.borderBottomColor = isActive ? '#C41E1E' : 'transparent'
+                    }}
                   >
-                    {lang.toUpperCase()}
+                    {link.label}
                   </Link>
-                ))}
-              </div>
+                </li>
+              )
+            })}
+          </ul>
 
-              <div style={{ gap: '10px' }}></div>
-              {/* Book Now — desktop */}
-              <Link
-                href={localePath('/contact')}
-                className="hide-mobile"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '10px 22px',
-                  border: '1px solid #C41E1E',
-                  color: '#fff',
-                  fontSize: '11px',
-                  fontFamily: 'Inter, sans-serif',
-                  fontWeight: 500,
-                  letterSpacing: '0.15em',
-                  textTransform: 'uppercase',
-                  textDecoration: 'none',
-                  transition: 'background 0.3s ease',
-                }}
-                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#C41E1E'}
-                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
-              >
-                Book Now
-              </Link>
-
-              {/* Hamburger — mobile */}
-              <button
-                onClick={() => setMobileOpen(!mobileOpen)}
-                className="show-mobile"
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  color: '#fff',
-                  padding: '8px',
-                  display: 'none',
-                }}
-                aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-              >
-                {mobileOpen ? <X size={22} color="#fff" /> : <Menu size={22} color="#fff" />}
-              </button>
+          {/* Right Side */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '20px', paddingRight: 'clamp(16px, 3vw, 40px)' }}>
+            {/* Language switcher — desktop */}
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '12px',
+                paddingRight: '20px',
+                borderRight: '1px solid rgba(255,255,255,0.1)',
+              }}
+              className="hide-mobile"
+            >
+              {['en', 'ar', 'fr'].map((lang) => (
+                <Link
+                  key={lang}
+                  href={pathname.replace('/' + locale, '/' + lang)}
+                  style={{
+                    fontSize: '11px',
+                    fontFamily: 'Inter, sans-serif',
+                    fontWeight: 500,
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    textDecoration: 'none',
+                    color: lang === locale ? '#C41E1E' : 'rgba(255,255,255,0.35)',
+                    transition: 'color 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => { if (lang !== locale) e.currentTarget.style.color = 'rgba(255,255,255,0.8)' }}
+                  onMouseLeave={(e) => { if (lang !== locale) e.currentTarget.style.color = 'rgba(255,255,255,0.35)' }}
+                >
+                  {lang.toUpperCase()}
+                </Link>
+              ))}
             </div>
 
-          </nav>
-        </div>
+            <div style={{ gap: '10px' }}></div>
+            {/* Book Now — desktop */}
+            <Link
+              href={localePath('/contact')}
+              className="hide-mobile"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '10px 22px',
+                border: '1px solid #C41E1E',
+                color: '#fff',
+                fontSize: '11px',
+                fontFamily: 'Inter, sans-serif',
+                fontWeight: 500,
+                letterSpacing: '0.15em',
+                textTransform: 'uppercase',
+                textDecoration: 'none',
+                transition: 'background 0.3s ease',
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#C41E1E'}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+            >
+              Book Now
+            </Link>
+
+            {/* Hamburger — mobile */}
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="show-mobile"
+              style={{
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                color: '#fff',
+                padding: '8px',
+                display: 'none',
+              }}
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            >
+              {mobileOpen ? <X size={22} color="#fff" /> : <Menu size={22} color="#fff" />}
+            </button>
+          </div>
+
+        </nav>
+
       </header>
 
       {/* ── Mobile Menu ── */}

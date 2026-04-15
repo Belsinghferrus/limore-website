@@ -135,7 +135,7 @@ function StripItem({ item, isLast }) {
 
 // tiny hook to keep JSX clean
 function useHover() {
-  const [h, setH] = require('react').useState(false)
+  const [h, setH] =  useState(false)
   return [h, setH]
 }
 

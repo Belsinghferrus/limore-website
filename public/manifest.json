@@ -1,0 +1,44 @@
+{
+    "name": "Limore | Global Luxury Chauffeur Service",
+    "short_name": "Limore",
+    "description": "Premium luxury chauffeur service across Dubai, London, Paris, New York and Singapore.",
+    "start_url": "/en",
+    "scope": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#080808",
+    "theme_color": "#080808",
+    "lang": "en",
+    "categories": ["travel", "lifestyle", "business"],
+
+    "shortcuts": [
+      {
+        "name": "Book a Ride",
+        "short_name": "Book",
+        "description": "Book a luxury chauffeur instantly",
+        "url": "/en/booking",
+        "icons": [
+          {
+            "src": "/favicon.ico",
+            "sizes": "96x96",
+            "type": "image"
+          }
+        ]
+      },
+      {
+        "name": "Contact Us",
+        "short_name": "Contact",
+        "description": "Get in touch with Limore",
+        "url": "/en/contact",
+        "icons": [
+          {
+            "src": "/favicon.ico",
+            "sizes": "96x96",
+            "type": "image"
+          }
+        ]
+      }
+    ],
+    "related_applications": [],
+    "prefer_related_applications": false
+  }

@@ -1,0 +1,19 @@
+# robots.txt — thelimore.com
+
+User-agent: *
+Allow: /
+
+# Block internal / utility routes
+Disallow: /api/
+Disallow: /_next/
+Disallow: /studio/
+Disallow: /admin/
+Disallow: /en/cookies
+Disallow: /ar/cookies
+Disallow: /fr/cookies
+Disallow: /en/privacy
+Disallow: /ar/privacy
+Disallow: /fr/privacy
+
+# Sitemaps
+Sitemap: https://thelimore.com/sitemap.xml

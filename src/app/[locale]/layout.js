@@ -218,7 +218,7 @@ const inter = Inter({
 // ─── Constants ─────────────────────────────────────────────────────────────────
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://thelimore.com'
 const GA_ID    = process.env.NEXT_PUBLIC_GA_ID    || 'G-N2JZKYFXG8'
-const GTM_ID   = process.env.NEXT_PUBLIC_GTM_ID   || ''
+const GTM_ID   = process.env.NEXT_PUBLIC_GTM_ID   || 'GTM-58BK26CW'
 
 const localeMap = {
   en: { lang: 'en', dir: 'ltr' },

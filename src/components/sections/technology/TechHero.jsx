@@ -115,7 +115,7 @@ export default function TechHero({ locale = 'en' }) {
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
         <img
           ref={imgRef}
-          src="/images/tech-hero.jpg"
+          src="/images/limore7.jpg"
           alt=""
           aria-hidden="true"
           width={1920}

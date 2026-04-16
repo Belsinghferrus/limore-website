@@ -120,7 +120,7 @@ export default function PartnerHero({ locale = 'en' }) {
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
         <img
           ref={imgRef}
-          src="/images/partner-hero.jpg"
+          src="/images/limore17.jpg"
           alt=""
           aria-hidden="true"
           width={1920}

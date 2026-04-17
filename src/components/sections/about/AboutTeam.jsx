@@ -12,7 +12,7 @@ const IMG = {
   pamil:     '/images/team/person.png',
   blessy:    '/images/team/person.png',
   lolita:    '/images/team/person.png',
-  belsingh:  '/images/team/ferrus.jpeg',
+  belsingh:  '/images/team/ferrus.JPEG',
   raza:      '/images/team/raza.jpeg',
   honielyn:  '/images/team/person.png',
 }

@@ -175,7 +175,7 @@
 //       </head>
 
 //       <body>
-      
+
 //         <Navbar locale={locale} />
 
 //         <main id="main-content">
@@ -201,24 +201,24 @@ import '@/styles/globals.css'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
 
-import Navbar          from '@/components/layout/Navbar'
-import Footer          from '@/components/layout/Footer'
+import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
 import FloatingWhatsApp from '@/components/ui/FloatingWhatsApp'
-import CookieBanner    from '@/components/ui/CookieBanner'
-import BookingNudge    from '@/components/ui/BookingNudge'
+import CookieBanner from '@/components/ui/CookieBanner'
+import BookingNudge from '@/components/ui/BookingNudge'
 import SkipLink from '@/components/layout/SkipLink'
 
 // ─── Fonts ─────────────────────────────────────────────────────────────────────
 const inter = Inter({
-  subsets:  ['latin'],
-  display:  'swap',
+  subsets: ['latin'],
+  display: 'swap',
   variable: '--font-inter',
 })
 
 // ─── Constants ─────────────────────────────────────────────────────────────────
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://thelimore.com'
-const GA_ID    = process.env.NEXT_PUBLIC_GA_ID    || 'G-N2JZKYFXG8'
-const GTM_ID   = process.env.NEXT_PUBLIC_GTM_ID   || 'GTM-58BK26CW'
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-N2JZKYFXG8'
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || 'GTM-58BK26CW'
 
 const localeMap = {
   en: { lang: 'en', dir: 'ltr' },
@@ -241,15 +241,15 @@ export async function generateMetadata({ params }) {
     fr: 'Service chauffeur luxe premium a Dubai, Londres, Paris, New York et Singapour. Transferts aeroport VIP, voyage affaires et voiture privee avec chauffeur dans le monde.',
   }
 
-  const title       = titles[locale]       || titles.en
+  const title = titles[locale] || titles.en
   const description = descriptions[locale] || descriptions.en
-  const ogImage     = `${BASE_URL}/images/limore1.jpg`
-  const ogLocale    = locale === 'ar' ? 'ar_AE' : locale === 'fr' ? 'fr_FR' : 'en_AE'
+  const ogImage = `${BASE_URL}/images/limore1.jpg`
+  const ogLocale = locale === 'ar' ? 'ar_AE' : locale === 'fr' ? 'fr_FR' : 'en_AE'
 
   return {
     metadataBase: new URL(BASE_URL),
     title: {
-      default:  title,
+      default: title,
       template: '%s | Limore',
     },
     description,
@@ -257,55 +257,55 @@ export async function generateMetadata({ params }) {
     alternates: {
       canonical: `${BASE_URL}/${locale}`,
       languages: {
-        'en':        `${BASE_URL}/en`,
-        'ar':        `${BASE_URL}/ar`,
-        'fr':        `${BASE_URL}/fr`,
+        'en': `${BASE_URL}/en`,
+        'ar': `${BASE_URL}/ar`,
+        'fr': `${BASE_URL}/fr`,
         'x-default': `${BASE_URL}/en`,
       },
     },
     openGraph: {
       title,
       description,
-      url:      `${BASE_URL}/${locale}`,
+      url: `${BASE_URL}/${locale}`,
       siteName: 'Limore',
-      locale:   ogLocale,
-      type:     'website',
+      locale: ogLocale,
+      type: 'website',
       images: [
         {
-          url:    ogImage,
-          width:  1200,
+          url: ogImage,
+          width: 1200,
           height: 630,
-          alt:    'Limore — Luxury Chauffeur Service',
+          alt: 'Limore — Luxury Chauffeur Service',
         },
       ],
     },
     twitter: {
-      card:        'summary_large_image',
-      site:        '@limore',
-      creator:     '@limore',
+      card: 'summary_large_image',
+      site: '@limore',
+      creator: '@limore',
       title,
       description,
-      images:      [ogImage],
+      images: [ogImage],
     },
     robots: {
-      index:     true,
-      follow:    true,
+      index: true,
+      follow: true,
       googleBot: {
-        index:               true,
-        follow:              true,
+        index: true,
+        follow: true,
         'max-video-preview': -1,
         'max-image-preview': 'large',
-        'max-snippet':       -1,
+        'max-snippet': -1,
       },
     },
     icons: {
-      icon:     [
-        { url: '/favicon.ico',       sizes: 'any'       },
-        { url: '/favicon.svg',       type:  'image/svg+xml' },
-        { url: '/favicon-16x16.png', sizes: '16x16'     },
-        { url: '/favicon-32x32.png', sizes: '32x32'     },
+      icon: [
+        { url: '/favicon.ico', sizes: 'any' },
+        { url: '/favicon.svg', type: 'image/svg+xml' },
+        { url: '/favicon-16x16.png', sizes: '16x16' },
+        { url: '/favicon-32x32.png', sizes: '32x32' },
       ],
-      apple:    [
+      apple: [
         { url: '/apple-touch-icon.png', sizes: '180x180' },
       ],
       shortcut: '/favicon.ico',
@@ -320,28 +320,28 @@ export async function generateMetadata({ params }) {
 // ─── Org Schema (sitewide) ─────────────────────────────────────────────────────
 function OrgSchema({ locale }) {
   const schema = {
-    '@context':  'https://schema.org',
-    '@type':     'Organization',
-    name:        'Limore',
-    url:         BASE_URL,
-    logo:        `${BASE_URL}/images/limore-logo.png`,
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Limore',
+    url: BASE_URL,
+    logo: `${BASE_URL}/images/limore-logo.png`,
     description: 'Global luxury chauffeur service operating across Dubai, London, Paris, New York, Singapore and 60+ cities worldwide.',
-    foundingDate:'2023',
+    foundingDate: '2023',
     areaServed: [
-      { '@type': 'City',    name: 'Dubai'     },
-      { '@type': 'City',    name: 'London'    },
-      { '@type': 'City',    name: 'Paris'     },
-      { '@type': 'City',    name: 'New York'  },
-      { '@type': 'City',    name: 'Singapore' },
-      { '@type': 'City',    name: 'Zurich'    },
-      { '@type': 'City',    name: 'Milan'     },
-      { '@type': 'City',    name: 'Abu Dhabi' },
+      { '@type': 'City', name: 'Dubai' },
+      { '@type': 'City', name: 'London' },
+      { '@type': 'City', name: 'Paris' },
+      { '@type': 'City', name: 'New York' },
+      { '@type': 'City', name: 'Singapore' },
+      { '@type': 'City', name: 'Zurich' },
+      { '@type': 'City', name: 'Milan' },
+      { '@type': 'City', name: 'Abu Dhabi' },
     ],
     contactPoint: {
-      '@type':           'ContactPoint',
-      contactType:       'Reservations',
+      '@type': 'ContactPoint',
+      contactType: 'Reservations',
       availableLanguage: ['English', 'Arabic', 'French'],
-      hoursAvailable:    'Mo-Su 00:00-24:00',
+      hoursAvailable: 'Mo-Su 00:00-24:00',
     },
     sameAs: [
       'https://www.instagram.com/limorefleets',
@@ -397,15 +397,15 @@ export default async function LocaleLayout({ children, params }) {
         <link rel="preconnect" href="https://cdn.sanity.io" />
 
         {/* ── Manifest + theme ── */}
-        <link rel="manifest"         href="/manifest.json" />
-        <meta name="theme-color"     content="#080808" />
-        <meta name="color-scheme"    content="dark" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#080808" />
+        <meta name="color-scheme" content="dark" />
         <meta name="format-detection" content="telephone=no" />
 
         {/* ── Belt-and-suspenders hreflang (Next.js also injects these via alternates) ── */}
-        <link rel="alternate" hrefLang="en"        href={`${BASE_URL}/en`} />
-        <link rel="alternate" hrefLang="ar"        href={`${BASE_URL}/ar`} />
-        <link rel="alternate" hrefLang="fr"        href={`${BASE_URL}/fr`} />
+        <link rel="alternate" hrefLang="en" href={`${BASE_URL}/en`} />
+        <link rel="alternate" hrefLang="ar" href={`${BASE_URL}/ar`} />
+        <link rel="alternate" hrefLang="fr" href={`${BASE_URL}/fr`} />
         <link rel="alternate" hrefLang="x-default" href={`${BASE_URL}/en`} />
 
         {/* ── GTM head snippet (consent-gated — fires only after cookie consent) ── */}
@@ -456,6 +456,7 @@ export default async function LocaleLayout({ children, params }) {
             />
           </>
         )}
+      
 
         {/* ── Consent-aware analytics loader (reads cookie banner decision) ── */}
         <Script
@@ -492,9 +493,9 @@ export default async function LocaleLayout({ children, params }) {
       <body>
         {/* GTM noscript fallback */}
         <GtmNoScript />
-        <SkipLink />  
+        <SkipLink />
         {/* Skip to content — accessibility */}
-      
+
 
         <Navbar locale={locale} />
 
@@ -505,8 +506,8 @@ export default async function LocaleLayout({ children, params }) {
         <Footer locale={locale} />
 
         {/* ── Floating UI — z-index stacked intentionally ── */}
-        <BookingNudge     locale={locale} />  {/* z: 9997 */}
-        <CookieBanner     locale={locale} />  {/* z: 9998 */}
+        <BookingNudge locale={locale} />  {/* z: 9997 */}
+        <CookieBanner locale={locale} />  {/* z: 9998 */}
         <FloatingWhatsApp locale={locale} />  {/* z: 9999 */}
       </body>
     </html>

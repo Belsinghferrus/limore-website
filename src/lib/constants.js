@@ -8,8 +8,8 @@ export const NAV_LINKS = [
   { label: 'Limore 360', href: '/limore-360' },
   { label: 'Global Coverage', href: '/global-coverage' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Technology', href: '/technology' },
-  { label: 'Partner with us', href: '/partner-with-us' },
+  // { label: 'Technology', href: '/technology' },
+  // { label: 'Partner with us', href: '/partner-with-us' },
   { label: 'Contact', href: '/contact' },
 ]
 

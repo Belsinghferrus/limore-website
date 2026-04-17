@@ -168,6 +168,17 @@ export default function GlobalCoverage({ locale = 'en' }) {
   const [tooltip, setTooltip] = useState({ visible: false, x: 0, y: 0, city: null })
   const [activeCity, setActiveCity] = useState(null)
 
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.play().catch((error) => {
+        console.error('Video autoplay failed:', error);
+      });
+    }
+  }, []);
+
   const localePath = (href) => '/' + locale + href
 
   /* ── GSAP entrance + line animation ── */
@@ -494,7 +505,7 @@ export default function GlobalCoverage({ locale = 'en' }) {
             muted
             loop
             playsInline                        
-            preload="auto"                     
+            preload="true"                     
             disablePictureInPicture            
             disableRemotePlayback              
             style={{

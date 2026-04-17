@@ -6,6 +6,7 @@ import CCFeatures    from '@/components/sections/services/corporate-chauffeur/CC
 import CCProcess     from '@/components/sections/services/corporate-chauffeur/CCProcess'
 import CCIndustries  from '@/components/sections/services/corporate-chauffeur/CCIndustries'
 import CCCTA         from '@/components/sections/services/corporate-chauffeur/CCCTA'
+import { buildMeta } from '@/lib/seo'
 
 const OG_IMAGE = 'https://thelimore.com/images/limore5.jpg'
 

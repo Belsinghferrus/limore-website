@@ -7,11 +7,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const IMG = {
-  shrishin: 'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/51cdff83538b2f5ad3c477670cfc87b1002559b2.jpg',
-  aamira:   'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/0e5c55e469fa0d67a3d7bb2c608806b382a5af3a.jpg',
-  pamil:    'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/62a9c7aebf2b799d844003bab5628209c78cf879.jpg',
-  blessy:   'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/cb095c1e513f3a170b142f2067ef18decb20131f.jpg',
-  lolita:   'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/78cadc431524b1b1a070c828a6f2e997763868df.jpg',
+  shrishin: '/images/team/person.png',
+  aamira:   '/images/team/person.png',
+  pamil:    '/images/team/person.png',
+  blessy:   '/images/team/person.png',
+  lolita:   '/images/team/person.png',
   belsingh: 'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3ae2c23c67a82c6ce4baacedd8d10ca63ae5e404.jpg',
   raza:     '/images/team/raza.jpeg',
 }

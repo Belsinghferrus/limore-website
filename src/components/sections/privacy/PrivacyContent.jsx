@@ -146,7 +146,7 @@ const t = {
           'For any questions, concerns or data subject requests regarding this Privacy Policy please contact:',
         ],
         contact: [
-          'Email: privacy@limore.com',
+          'Email: office@thelimore.com',
           'Response time: within 30 business days',
         ],
       },
@@ -167,8 +167,8 @@ const t = {
       },
       { title: '3. كيف نستخدم معلوماتك', body: ['نستخدم بياناتك الشخصية لـ:'], list: ['معالجة حجوزاتك ومدفوعاتك', 'إرسال تأكيدات الحجز وتفاصيل السائق', 'الرد على استفساراتك وتقديم الدعم', 'تحسين منصتنا وخدماتنا', 'الامتثال للالتزامات القانونية'] },
       { title: '4. مشاركة معلوماتك', body: ['لا نبيع بياناتك الشخصية. نشاركها فقط عند الضرورة:'], list: ['مع شركاء المشغلين المحليين لإتمام حجزك', 'مع معالجي الدفع', 'مع مزودي خدمات الاتصالات', 'مع السلطات القانونية عند الاقتضاء'] },
-      { title: '5. حقوقك', body: ['اعتمادا على موقعك قد تملك الحقوق التالية:'], list: ['الحق في الوصول', 'الحق في التصحيح', 'الحق في الحذف', 'الحق في تقييد المعالجة', 'الحق في الاعتراض'], bodyAfter: ['للممارسة أي من هذه الحقوق تواصل معنا عبر privacy@limore.com'] },
-      { title: '6. التواصل', body: ['لأي استفسارات تتعلق بهذه السياسة:'], contact: ['البريد الإلكتروني: privacy@limore.com', 'وقت الاستجابة: 30 يوم عمل'] },
+      { title: '5. حقوقك', body: ['اعتمادا على موقعك قد تملك الحقوق التالية:'], list: ['الحق في الوصول', 'الحق في التصحيح', 'الحق في الحذف', 'الحق في تقييد المعالجة', 'الحق في الاعتراض'], bodyAfter: ['للممارسة أي من هذه الحقوق تواصل معنا عبر office@thelimore.com'] },
+      { title: '6. التواصل', body: ['لأي استفسارات تتعلق بهذه السياسة:'], contact: ['البريد الإلكتروني: office@thelimore.com', 'وقت الاستجابة: 30 يوم عمل'] },
     ],
   },
 
@@ -186,8 +186,8 @@ const t = {
       },
       { title: '3. Utilisation de Vos Informations', body: ['Nous utilisons vos donnees pour :'], list: ['Traiter vos reservations et paiements', 'Envoyer des confirmations et mises a jour', 'Repondre a vos demandes et assurer le support', 'Ameliorer notre plateforme et nos services', 'Respecter nos obligations legales'] },
       { title: '4. Partage de Vos Informations', body: ['Nous ne vendons pas vos donnees. Nous les partageons uniquement si necessaire :'], list: ['Avec des operateurs locaux pour executer votre reservation', 'Avec des processeurs de paiement', 'Avec des fournisseurs de services de communication', 'Avec les autorites legales si requis'] },
-      { title: '5. Vos Droits', body: ['Selon votre localisation vous pouvez avoir les droits suivants :'], list: ['Droit d\'acces', 'Droit de rectification', 'Droit a l\'effacement', 'Droit a la limitation du traitement', 'Droit d\'opposition'], bodyAfter: ['Pour exercer ces droits contactez-nous a privacy@limore.com'] },
-      { title: '6. Contact', body: ['Pour toute question relative a cette politique :'], contact: ['Email : privacy@limore.com', 'Delai de reponse : 30 jours ouvrables'] },
+      { title: '5. Vos Droits', body: ['Selon votre localisation vous pouvez avoir les droits suivants :'], list: ['Droit d\'acces', 'Droit de rectification', 'Droit a l\'effacement', 'Droit a la limitation du traitement', 'Droit d\'opposition'], bodyAfter: ['Pour exercer ces droits contactez-nous a office@thelimore.com'] },
+      { title: '6. Contact', body: ['Pour toute question relative a cette politique :'], contact: ['Email : office@thelimore.com', 'Delai de reponse : 30 jours ouvrables'] },
     ],
   },
 }

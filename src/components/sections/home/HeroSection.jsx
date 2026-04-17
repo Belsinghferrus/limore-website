@@ -58,11 +58,29 @@ export default function HeroSection({ locale = 'en' }) {
   const cityTickerRef = useRef(null)
 
   const localePath = (href) => '/' + locale + href
+  // const videoRef = useRef(null);
+
+  // useEffect(() => {
+  //   const video = videoRef.current;
+  //   if (video) {
+  //     video.play().catch((error) => {
+  //       console.error('Video autoplay failed:', error);
+  //     });
+  //   }
+  // }, []);
+
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ delay: 0.2 })
 
+      const video = videoRef.current;
+      if (video) {
+        video.play().catch((error) => {
+          console.error('Video autoplay failed:', error);
+        });
+      }
+      
       /* Video fades in slowly — video IS the atmosphere */
       gsap.fromTo(videoRef.current,
         { opacity: 0 },

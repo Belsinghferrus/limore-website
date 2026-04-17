@@ -7,13 +7,14 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const IMG = {
-  shrishin: '/images/team/person.png',
-  aamira:   '/images/team/person.png',
-  pamil:    '/images/team/person.png',
-  blessy:   '/images/team/person.png',
-  lolita:   '/images/team/person.png',
-  belsingh: 'https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3ae2c23c67a82c6ce4baacedd8d10ca63ae5e404.jpg',
-  raza:     '/images/team/raza.jpeg',
+  shrishin:  '/images/team/person.png',
+  aamira:    '/images/team/person.png',
+  pamil:     '/images/team/person.png',
+  blessy:    '/images/team/person.png',
+  lolita:    '/images/team/person.png',
+  belsingh:  '/images/team/ferrus.jpeg',
+  raza:      '/images/team/raza.jpeg',
+  honielyn:  '/images/team/person.png',
 }
 
 const MEMBERS = [
@@ -27,9 +28,9 @@ const MEMBERS = [
       fr: 'VP — Ventes Mondiales & Alliances',
     },
     desc: {
-      en: 'Shrishin leads Limore\'s commercial expansion across key markets, building the strategic relationships and institutional partnerships that anchor the brand in every city we operate in.',
-      ar: 'يقود شريشين التوسع التجاري لليمور في الأسواق الرئيسية، ويبني العلاقات الاستراتيجية والشراكات المؤسسية التي تُرسّخ العلامة التجارية في كل مدينة نعمل فيها.',
-      fr: 'Shrishin dirige l\'expansion commerciale de Limore sur les marchés clés, construisant les relations stratégiques et les partenariats institutionnels qui ancrent la marque dans chaque ville où nous opérons.',
+      en: 'Shrishin is the person who opens doors. He builds the relationships with companies, institutions, and partners that bring Limore into new cities and new markets — and keeps those relationships strong long after the first handshake.',
+      ar: 'شريشين هو الشخص الذي يفتح الأبواب. يبني العلاقات مع الشركات والمؤسسات والشركاء التي تجلب ليمور إلى مدن وأسواق جديدة، وتبقى هذه العلاقات متينة بعد المصافحة الأولى بفترة طويلة.',
+      fr: 'Shrishin est la personne qui ouvre les portes. Il construit les relations avec les entreprises, les institutions et les partenaires qui amènent Limore dans de nouvelles villes et de nouveaux marchés — et maintient ces relations solides bien après la première poignée de main.',
     },
   },
   {
@@ -42,9 +43,9 @@ const MEMBERS = [
       fr: 'Opérations & Prestation de Services',
     },
     desc: {
-      en: 'Aamira is the operational backbone of Limore — responsible for the systems, processes, and people that ensure every booking executes without fault, from first confirmation to final drop-off.',
-      ar: 'عامرة هي العمود الفقري التشغيلي لليمور، وهي مسؤولة عن الأنظمة والعمليات والأشخاص الذين يضمنون تنفيذ كل حجز دون أخطاء، من التأكيد الأول حتى التوصيل الأخير.',
-      fr: 'Aamira est la colonne vertébrale opérationnelle de Limore — responsable des systèmes, des processus et des personnes qui garantissent que chaque réservation s\'exécute sans faille, de la première confirmation au dernier dépôt.',
+      en: 'Aamira is the reason every booking actually works. She runs the systems and the people behind the scenes — so that from the moment a client confirms to the moment they arrive, everything just happens the way it should.',
+      ar: 'عامرة هي السبب في نجاح كل حجز فعلياً. تدير الأنظمة والفريق خلف الكواليس، بحيث من لحظة تأكيد العميل إلى لحظة وصوله، كل شيء يسير كما ينبغي.',
+      fr: 'Aamira est la raison pour laquelle chaque réservation fonctionne réellement. Elle gère les systèmes et les personnes en coulisses — pour que du moment où un client confirme jusqu\'à son arrivée, tout se passe comme il se doit.',
     },
   },
   {
@@ -57,9 +58,9 @@ const MEMBERS = [
       fr: 'Expérience Client & Comptes Clés',
     },
     desc: {
-      en: 'Pamil manages Limore\'s most demanding client relationships, ensuring that every touchpoint — from pre-trip briefing to post-service follow-up — meets the exacting standard that defines the brand.',
-      ar: 'يدير باميل علاقات عملاء ليمور الأكثر تطلباً، ويضمن أن كل نقطة تواصل — من الإحاطة قبل الرحلة إلى المتابعة بعد الخدمة — تلبي المعيار الدقيق الذي يُعرّف العلامة التجارية.',
-      fr: 'Pamil gère les relations clients les plus exigeantes de Limore, en s\'assurant que chaque point de contact — du briefing pré-voyage au suivi post-service — répond au standard précis qui définit la marque.',
+      en: 'Pamil looks after Limore\'s most important clients personally. She makes sure that every interaction — before the trip, during it, and after — feels considered and effortless. His clients don\'t just stay, they refer.',
+      ar: 'يهتم باميل بأهم عملاء ليمور شخصياً. يحرص على أن كل تفاعل — قبل الرحلة وخلالها وبعدها — يبدو مدروساً وسهلاً. عملاؤه لا يبقون فحسب، بل يُحيلون آخرين.',
+      fr: 'Pamil prend personnellement soin des clients les plus importants de Limore. Il veille à ce que chaque interaction — avant le trajet, pendant et après — soit réfléchie et sans effort. Ses clients ne restent pas seulement, ils recommandent.',
     },
   },
   {
@@ -72,9 +73,9 @@ const MEMBERS = [
       fr: 'Ressources Humaines & Développement',
     },
     desc: {
-      en: 'Blessy shapes the culture that makes consistent service possible — recruiting the rare people who belong in a luxury environment and building the structures that allow them to perform at their best.',
-      ar: 'تشكّل بليسي الثقافة التي تجعل الخدمة المتسقة ممكنة، إذ تستقطب الأشخاص النادرين الذين ينتمون إلى بيئة فاخرة، وتبني الهياكل التي تمكّنهم من الأداء بأفضل ما يمكن.',
-      fr: 'Blessy façonne la culture qui rend possible un service cohérent — recrutant les personnes rares qui appartiennent à un environnement de luxe et construisant les structures qui leur permettent de performer au mieux.',
+      en: 'Blessy finds the right people and makes sure they stay. She understands that the quality of a luxury service comes down to who is delivering it — and she has built a team that genuinely takes pride in the work.',
+      ar: 'تجد بليسي الأشخاص المناسبين وتضمن بقاءهم. تفهم أن جودة الخدمة الفاخرة تعتمد على من يقدمها، وقد بنت فريقاً يفخر حقاً بعمله.',
+      fr: 'Blessy trouve les bonnes personnes et s\'assure qu\'elles restent. Elle comprend que la qualité d\'un service de luxe dépend de ceux qui le délivrent — et elle a constitué une équipe qui est véritablement fière de son travail.',
     },
   },
   {
@@ -87,9 +88,9 @@ const MEMBERS = [
       fr: 'Logistique, Planification & Événements',
     },
     desc: {
-      en: 'Lolita orchestrates the ground transport logistics for Limore\'s most complex assignments — multi-vehicle financial roadshows, gala transfers, and event fleets — where timing and precision leave no room for error.',
-      ar: 'تدير لوليتا لوجستيات النقل البري لأكثر مهمات ليمور تعقيداً — جولات الترويج المالي متعددة المركبات ونقل حفلات الغالا وأساطيل الفعاليات — حيث لا يتسع التوقيت والدقة لأي خطأ.',
-      fr: 'Lolita orchestre la logistique de transport terrestre pour les missions les plus complexes de Limore — roadshows financiers multi-véhicules, transferts de gala et flottes événementielles — où le timing et la précision ne laissent aucune place à l\'erreur.',
+      en: 'Lolita handles the complicated jobs — the ones with ten vehicles, tight schedules, and no margin for error. Whether it\'s a financial roadshow across three cities or transfers for a major gala, she coordinates every moving part so nothing gets missed.',
+      ar: 'تتولى لوليتا المهام المعقدة — تلك التي تتضمن عشر مركبات وجداول زمنية ضيقة وهامش خطأ معدوم. سواء كانت جولة ترويج مالي عبر ثلاث مدن أو نقل لحفل غالا كبير، تنسق كل جزء متحرك حتى لا يفوت شيء.',
+      fr: 'Lolita gère les missions complexes — celles avec dix véhicules, des horaires serrés et aucune marge d\'erreur. Qu\'il s\'agisse d\'un roadshow financier dans trois villes ou de transferts pour un grand gala, elle coordonne chaque élément pour que rien ne soit manqué.',
     },
   },
   {
@@ -102,9 +103,9 @@ const MEMBERS = [
       fr: 'Technologie & Systèmes',
     },
     desc: {
-      en: 'Ferrus architects the digital infrastructure that makes Limore operationally invisible to the client — the booking systems, driver platforms, and real-time logistics tools that keep every journey on time and on brief.',
-      ar: 'يُصمّم بيلسينغ البنية التحتية الرقمية التي تجعل ليمور غير مرئية تشغيلياً للعميل — أنظمة الحجز ومنصات السائقين وأدوات اللوجستيات الفورية التي تُبقي كل رحلة في موعدها وفق التعليمات.',
-      fr: 'Belsingh conçoit l\'infrastructure numérique qui rend Limore opérationnellement invisible pour le client — les systèmes de réservation, les plateformes chauffeurs et les outils logistiques en temps réel qui maintiennent chaque trajet à l\'heure et selon les instructions.',
+      en: 'Ferrus is the reason clients never have to think about the technology. He holds the technical standard to the same level as the service standard.  When a client experiences zero friction, it\'s because he engineered it that way.',
+      ar: 'فيروس هو السبب في أن العملاء لا يحتاجون أبداً إلى التفكير في التكنولوجيا. بنى منصة الحجز وأدوات السائق والأنظمة التي تربطها معاً. يرفع المعيار التقني إلى مستوى معيار الخدمة تماماً. عندما لا يشعر العميل بأي احتكاك، فذلك لأنه صممه على هذا النحو.',
+      fr: 'Ferrus est la raison pour laquelle les clients nont jamais à penser à la technologie. Il a construit la plateforme de réservation, les outils chauffeurs et les systèmes qui les relient. Il maintient lexigence technique au même niveau que lexigence de service. Quand un client ne ressent aucune friction, cest parce quil la conçu ainsi.',
     },
   },
   {
@@ -117,40 +118,55 @@ const MEMBERS = [
       fr: 'Marketing & Communications de Marque',
     },
     desc: {
-      en: 'Raza controls how Limore presents itself to the world — managing the visual language, brand voice, and market positioning that communicate a standard of service before a single journey is taken.',
-      ar: 'يتحكم رضا في كيفية تقديم ليمور لنفسها للعالم، إذ يدير اللغة البصرية وصوت العلامة التجارية والتموضع في السوق التي توصل معيار الخدمة قبل أن تُقطع أي رحلة.',
-      fr: 'Raza contrôle la façon dont Limore se présente au monde — gérant le langage visuel, la voix de marque et le positionnement sur le marché qui communiquent un standard de service avant même qu\'un seul trajet soit effectué.',
+      en: 'Raza shapes how the world sees Limore. Every visual, every word, every campaign goes through him — because before a client ever books, how the brand looks and sounds is what earns their trust.',
+      ar: 'يشكّل رضا كيف يرى العالم ليمور. كل صورة وكل كلمة وكل حملة تمر من خلاله — لأنه قبل أن يحجز العميل، فإن مظهر العلامة التجارية وصوتها هما ما يكسبان ثقته.',
+      fr: 'Raza façonne la façon dont le monde voit Limore. Chaque visuel, chaque mot, chaque campagne passe par lui — car avant qu\'un client réserve, l\'apparence et la voix de la marque sont ce qui mérite sa confiance.',
+    },
+  },
+  {
+    key:      'honielyn',
+    name:     'Honielyn Maquiling',
+    initials: 'HM',
+    role: {
+      en: 'Sales Lead',
+      ar: 'قائد المبيعات',
+      fr: 'Responsable des Ventes',
+    },
+    desc: {
+      en: 'Honielyn is the first person most clients talk to. She understands what they actually need, matches them to the right service, and makes the process of booking with Limore feel natural — not transactional.',
+      ar: 'هونييلين هي أول شخص يتحدث إليه معظم العملاء. تفهم ما يحتاجونه فعلاً، وتطابقهم مع الخدمة المناسبة، وتجعل عملية الحجز مع ليمور تبدو طبيعية — لا تجارية.',
+      fr: 'Honielyn est la première personne à qui la plupart des clients parlent. Elle comprend ce dont ils ont réellement besoin, les oriente vers le bon service, et rend le processus de réservation avec Limore naturel — pas transactionnel.',
     },
   },
 ]
 
-// Row split: first 3, last 4
-const ROW_1 = MEMBERS.slice(0, 3)
-const ROW_2 = MEMBERS.slice(3)
+// Row split: first 4, last 4
+const ROW_1 = MEMBERS.slice(0, 4)
+const ROW_2 = MEMBERS.slice(4)
 
 const t = {
   en: {
-    label:  'Leadership',
-    line1:  'The People',
-    line2:  'Behind the Standard.',
-    sub:    'Seven disciplines. One standard. The individuals responsible for every Limore experience.',
-    count:  '07',
+    label:      'Leadership',
+    line1:      'The People',
+    line2:      'Behind the Standard.',
+    sub:        'Eight disciplines. One standard. The individuals responsible for every Limore experience.',
+    count:      '08',
     countLabel: 'Senior Leaders',
   },
   ar: {
-    label:  'القيادة',
-    line1:  'الأشخاص',
-    line2:  'خلف هذا المعيار.',
-    sub:    'سبعة تخصصات. معيار واحد. الأفراد المسؤولون عن كل تجربة ليمور.',
-    count:  '٠٧',
+    label:      'القيادة',
+    line1:      'الأشخاص',
+    line2:      'خلف هذا المعيار.',
+    sub:        'ثمانية تخصصات. معيار واحد. الأفراد المسؤولون عن كل تجربة ليمور.',
+    count:      '٠٨',
     countLabel: 'قادة كبار',
   },
   fr: {
-    label:  'Direction',
-    line1:  'Les Personnes',
-    line2:  'Derrière le Standard.',
-    sub:    'Sept disciplines. Un seul standard. Les individus responsables de chaque expérience Limore.',
-    count:  '07',
+    label:      'Direction',
+    line1:      'Les Personnes',
+    line2:      'Derrière le Standard.',
+    sub:        'Huit disciplines. Un seul standard. Les individus responsables de chaque expérience Limore.',
+    count:      '08',
     countLabel: 'Dirigeants',
   },
 }
@@ -165,7 +181,6 @@ function MemberCard({ m, locale, index, cardRef }) {
       className="at-card"
       style={{ opacity: 0 }}
     >
-      {/* Photo */}
       <div className="at-photo-outer">
         <div className="at-photo-wrap">
           <img
@@ -176,20 +191,15 @@ function MemberCard({ m, locale, index, cardRef }) {
             loading="lazy"
             className="at-photo"
           />
-          {/* Gradient */}
           <div className="at-photo-grad" aria-hidden="true" />
-          {/* Corner accent top-right */}
           <div className="at-corner-tr" aria-hidden="true" />
-          {/* Index badge */}
           <span className="at-badge" aria-hidden="true">
             {String(index + 1).padStart(2, '0')}
           </span>
         </div>
       </div>
 
-      {/* Info panel */}
       <div className="at-info">
-        {/* Static red accent bar */}
         <div className="at-accent-bar" aria-hidden="true" />
         <div className="at-info-inner">
           <p className="at-name">{m.name}</p>
@@ -272,8 +282,8 @@ export default function AboutTeam({ locale = 'en' }) {
         </div>
       </div>
 
-      {/* Row 1: 3 cards */}
-      <div className="at-grid at-grid-3">
+      {/* Row 1: 4 cards */}
+      <div className="at-grid at-grid-4">
         {ROW_1.map((m, i) => renderCard(m, i))}
       </div>
 
@@ -281,7 +291,7 @@ export default function AboutTeam({ locale = 'en' }) {
 
       {/* Row 2: 4 cards */}
       <div className="at-grid at-grid-4">
-        {ROW_2.map((m, i) => renderCard(m, i + 3))}
+        {ROW_2.map((m, i) => renderCard(m, i + 4))}
       </div>
 
       <div className="at-rule" />
@@ -401,9 +411,6 @@ export default function AboutTeam({ locale = 'en' }) {
           gap: 0;
           background: #E5E4E0;
         }
-        .at-grid-3 {
-          grid-template-columns: repeat(3, 1fr);
-        }
         .at-grid-4 {
           grid-template-columns: repeat(4, 1fr);
         }
@@ -420,7 +427,6 @@ export default function AboutTeam({ locale = 'en' }) {
           position: relative;
           overflow: hidden;
         }
-        .at-grid-3 .at-photo-outer { aspect-ratio: 3 / 4; }
         .at-grid-4 .at-photo-outer { aspect-ratio: 3 / 4.2; }
 
         .at-photo-wrap {
@@ -528,12 +534,10 @@ export default function AboutTeam({ locale = 'en' }) {
         }
 
         @media (max-width: 1023px) {
-          .at-grid-3 { grid-template-columns: repeat(3, 1fr); }
           .at-grid-4 { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 639px) {
-          .at-grid-3 { grid-template-columns: repeat(1, 1fr); }
           .at-grid-4 { grid-template-columns: repeat(1, 1fr); }
 
           .at-header-right {
@@ -542,9 +546,7 @@ export default function AboutTeam({ locale = 'en' }) {
           }
           .at-sub { text-align: left; max-width: 100%; }
 
-          .at-info {
-            padding: 16px 16px 20px;
-          }
+          .at-info { padding: 16px 16px 20px; }
           .at-info-inner { padding-left: 8px; }
           .at-name { font-size: 1rem; }
           .at-role { font-size: 8px; }

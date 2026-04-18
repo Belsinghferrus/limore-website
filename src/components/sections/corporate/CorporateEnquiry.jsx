@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { submitForm } from '@/app/actions/submitForm'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -404,12 +405,13 @@ export default function CorporateEnquiry({ locale = 'en' }) {
     }
 
     try {
-      await fetch(APPS_SCRIPT_URL, {
-        method:  'POST',
-        mode:    'no-cors',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body:    toFormEncoded(payload),
-      })
+      // await fetch(APPS_SCRIPT_URL, {
+      //   method:  'POST',
+      //   mode:    'no-cors',
+      //   headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      //   body:    toFormEncoded(payload),
+      // })
+      await submitForm('corporate', payload)
       setStatus('success')
     } catch (err) {
       console.error('Corporate enquiry submit error:', err)

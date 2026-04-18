@@ -389,12 +389,13 @@ export default function Limore360Apply({ locale = 'en', defaultPlan = '' }) {
     }
 
     try {
-      await fetch(APPS_SCRIPT_URL, {
-        method:  'POST',
-        mode:    'no-cors',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body:    toFormEncoded(payload),
-      })
+      // await fetch(APPS_SCRIPT_URL, {
+      //   method:  'POST',
+      //   mode:    'no-cors',
+      //   headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      //   body:    toFormEncoded(payload),
+      // })
+      await submitForm('limore360', payload)
       setStatus('success')
     } catch (err) {
       console.error('Limore 360 apply error:', err)

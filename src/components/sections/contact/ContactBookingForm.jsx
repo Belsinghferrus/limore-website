@@ -7,6 +7,7 @@ import { useSearchParams } from 'next/navigation'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import PlacesInput from '@/components/ui/PlacesInput'
+import { submitForm } from '@/app/actions/submitForm'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -691,12 +692,13 @@ export default function ContactBookingForm({ locale = 'en' }) {
     }
 
     try {
-      await fetch(APPS_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: toFormData(payload),
-      })
+      await submitForm('booking', payload) 
+      // await fetch(APPS_SCRIPT_URL, {
+      //   method: 'POST',
+      //   mode: 'no-cors',
+      //   headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      //   body: toFormData(payload),
+      // })
       setSubmitStatus('success')
     } catch (err) {
       console.error('Booking submit error:', err)
@@ -889,7 +891,7 @@ export default function ContactBookingForm({ locale = 'en' }) {
                 value={form.bookingType}
                 onChange={set('bookingType')}
                 options={c.bookingTypes}
-                required
+                
                 dir={dir}
               />
 
@@ -905,20 +907,7 @@ export default function ContactBookingForm({ locale = 'en' }) {
                 </div>
               )}
 
-              {/* <PlacesInput
-                label={c.fields.pickupLocation}
-                value={form.pickupLocation}
-                onChange={set('pickupLocation')}
-                required
-                dir={dir}
-              />
-              <PlacesInput
-                label={c.fields.dropoff}
-                value={form.dropoff}
-                onChange={set('dropoff')}
-                required
-                dir={dir}
-              /> */}
+        
 
               <PlacesInput
                 label={c.fields.pickupLocation}

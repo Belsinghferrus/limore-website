@@ -77,7 +77,7 @@ export async function generateMetadata({ params }) {
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: 'Limore — Luxury Chauffeur Service',
+          alt: 'Limore | Global Luxury Chauffeur Service',
         },
       ],
     },

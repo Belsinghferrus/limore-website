@@ -885,9 +885,17 @@ export default function ContactBookingForm({ locale = 'en' }) {
                 required
                 dir={dir}
                 selected={form.pickupDate ? new Date(form.pickupDate) : null}
-                onChange={date =>
-                  set('pickupDate')(date ? date.toISOString().split('T')[0] : '')
-                }
+                // onChange={date =>
+                //   set('pickupDate')(date ? date.toISOString().split('T')[0] : '')
+                // }
+                onChange={date => {
+                  if (!date) return set('pickupDate')('')
+                  // Use local date parts — no UTC conversion
+                  const y = date.getFullYear()
+                  const m = String(date.getMonth() + 1).padStart(2, '0')
+                  const d = String(date.getDate()).padStart(2, '0')
+                  set('pickupDate')(`${y}-${m}-${d}`)
+                }}
               />
 
               <DateField
@@ -1144,7 +1152,9 @@ export default function ContactBookingForm({ locale = 'en' }) {
     box-shadow:    0 16px 48px rgba(0,0,0,0.12) !important;
     overflow:      hidden !important;
   }
-  .limore-dp-popper .react-datepicker__triangle { display: none !important; }
+  .limore-dp-popper .react-datepicker__triangle {
+    display: none !important;
+  }
 
   /* ── Header ── */
   .limore-dp-popper .react-datepicker__header {
@@ -1166,12 +1176,16 @@ export default function ContactBookingForm({ locale = 'en' }) {
   .limore-dp-popper .react-datepicker__navigation-icon::before {
     border-color: rgba(10,10,10,0.35) !important;
   }
-  .limore-dp-popper .react-datepicker__navigation:hover
-  .react-datepicker__navigation-icon::before {
+  .limore-dp-popper .react-datepicker__navigation:hover .react-datepicker__navigation-icon::before {
     border-color: ${RED} !important;
   }
 
-  /* ── Day names ── */
+  /* ── Day names row ── */
+  .limore-dp-popper .react-datepicker__day-names {
+    display:         flex !important;
+    justify-content: center !important;
+    margin-bottom:   4px !important;
+  }
   .limore-dp-popper .react-datepicker__day-name {
     color:          rgba(10,10,10,0.4) !important;
     font-size:      9px !important;
@@ -1180,7 +1194,20 @@ export default function ContactBookingForm({ locale = 'en' }) {
     text-transform: uppercase !important;
     font-family:    ${FONT_B} !important;
     width:          2.2rem !important;
-    margin:         0.1rem !important;
+    margin:         0 !important;
+    padding:        0 !important;
+    text-align:     center !important;
+  }
+
+  /* ── Week rows ── */
+  .limore-dp-popper .react-datepicker__week {
+    display:         flex !important;
+    justify-content: center !important;
+  }
+
+  /* ── Month container ── */
+  .limore-dp-popper .react-datepicker__month {
+    margin: 8px 4px !important;
   }
 
   /* ── Days ── */
@@ -1192,7 +1219,9 @@ export default function ContactBookingForm({ locale = 'en' }) {
     border-radius: 0 !important;
     width:         2.2rem !important;
     line-height:   2.2rem !important;
-    margin:        0.1rem !important;
+    margin:        0 !important;
+    padding:       0 !important;
+    text-align:    center !important;
     transition:    background 0.15s !important;
   }
   .limore-dp-popper .react-datepicker__day:hover:not(.react-datepicker__day--disabled) {
@@ -1201,31 +1230,42 @@ export default function ContactBookingForm({ locale = 'en' }) {
     color:         #1A1A1A !important;
   }
 
-  /* Selected + keyboard-selected — kills the default blue */
+  /* Selected + keyboard-selected ── kills blue */
   .limore-dp-popper .react-datepicker__day--selected,
   .limore-dp-popper .react-datepicker__day--selected:hover,
   .limore-dp-popper .react-datepicker__day--keyboard-selected,
-  .limore-dp-popper .react-datepicker__day--keyboard-selected:hover {
-    background:    ${RED} !important;
-    color:         #FFFFFF !important;
-    font-weight:   600 !important;
-    border-radius: 0 !important;
-    outline:       none !important;
+  .limore-dp-popper .react-datepicker__day--keyboard-selected:hover,
+  .limore-dp-popper .react-datepicker__month .react-datepicker__day--selected,
+  .limore-dp-popper .react-datepicker__month .react-datepicker__day--keyboard-selected {
+    background-color: ${RED} !important;
+    background:       ${RED} !important;
+    color:            #FFFFFF !important;
+    font-weight:      600 !important;
+    border-radius:    0 !important;
+    outline:          none !important;
+    box-shadow:       none !important;
   }
 
   /* Today */
-  .limore-dp-popper .react-datepicker__day--today {
-    border:        1px solid rgba(200,16,46,0.4) !important;
-    background:    transparent !important;
-    border-radius: 0 !important;
-    color:         ${RED} !important;
-    font-weight:   600 !important;
+  .limore-dp-popper .react-datepicker__day--today,
+  .limore-dp-popper .react-datepicker__month .react-datepicker__day--today {
+    background-color: transparent !important;
+    background:       transparent !important;
+    border:           1px solid rgba(200,16,46,0.4) !important;
+    border-radius:    0 !important;
+    color:            ${RED} !important;
+    font-weight:      600 !important;
   }
-  /* Today when also selected */
-  .limore-dp-popper .react-datepicker__day--today.react-datepicker__day--selected {
-    background: ${RED} !important;
-    color:      #FFFFFF !important;
-    border:     none !important;
+
+  /* Today + selected */
+  .limore-dp-popper .react-datepicker__day--today.react-datepicker__day--selected,
+  .limore-dp-popper .react-datepicker__day--today.react-datepicker__day--keyboard-selected,
+  .limore-dp-popper .react-datepicker__month .react-datepicker__day--today.react-datepicker__day--selected {
+    background-color: ${RED} !important;
+    background:       ${RED} !important;
+    color:            #FFFFFF !important;
+    border:           none !important;
+    border-radius:    0 !important;
   }
 
   /* Disabled */
@@ -1261,12 +1301,12 @@ export default function ContactBookingForm({ locale = 'en' }) {
     background: rgba(200,16,46,0.07) !important;
     color:      #1A1A1A !important;
   }
-  /* Selected time — kills default blue */
   .limore-dp-popper .react-datepicker__time-list-item--selected,
   .limore-dp-popper .react-datepicker__time-list-item--selected:hover {
-    background:  ${RED} !important;
-    color:       #FFFFFF !important;
-    font-weight: 600 !important;
+    background-color: ${RED} !important;
+    background:       ${RED} !important;
+    color:            #FFFFFF !important;
+    font-weight:      600 !important;
   }
 
   /* Time header */
@@ -1283,8 +1323,6 @@ export default function ContactBookingForm({ locale = 'en' }) {
     color:          rgba(10,10,10,0.4) !important;
     font-family:    ${FONT_B} !important;
   }
-
-  
 
   /* ── Mobile portal ── */
   .react-datepicker-portal {
@@ -1310,7 +1348,9 @@ export default function ContactBookingForm({ locale = 'en' }) {
     box-shadow:    0 20px 60px rgba(0,0,0,0.8) !important;
     overflow:      hidden !important;
   }
-  .react-datepicker-portal .react-datepicker__triangle { display: none !important; }
+  .react-datepicker-portal .react-datepicker__triangle {
+    display: none !important;
+  }
   .react-datepicker-portal .react-datepicker__header {
     background:    #F8F7F4 !important;
     border-bottom: 1px solid ${BORDER} !important;
@@ -1325,78 +1365,115 @@ export default function ContactBookingForm({ locale = 'en' }) {
     text-transform: uppercase !important;
     font-family:    ${FONT_B} !important;
   }
+  .react-datepicker-portal .react-datepicker__day-names {
+    display:         flex !important;
+    justify-content: center !important;
+    margin-bottom:   4px !important;
+  }
   .react-datepicker-portal .react-datepicker__day-name {
-    color:   rgba(10,10,10,0.4) !important;
+    color:       rgba(10,10,10,0.4) !important;
     font-family: ${FONT_B} !important;
+    width:       2.2rem !important;
+    margin:      0 !important;
+    padding:     0 !important;
+    text-align:  center !important;
+  }
+  .react-datepicker-portal .react-datepicker__week {
+    display:         flex !important;
+    justify-content: center !important;
+  }
+  .react-datepicker-portal .react-datepicker__month {
+    margin: 8px 4px !important;
   }
   .react-datepicker-portal .react-datepicker__day {
     color:         #1A1A1A !important;
     font-family:   ${FONT_B} !important;
     border-radius: 0 !important;
+    width:         2.2rem !important;
+    line-height:   2.2rem !important;
+    margin:        0 !important;
+    padding:       0 !important;
+    text-align:    center !important;
     transition:    background 0.15s !important;
   }
   .react-datepicker-portal .react-datepicker__day:hover:not(.react-datepicker__day--disabled) {
     background:    rgba(200,16,46,0.08) !important;
     border-radius: 0 !important;
   }
-  /* Portal selected + keyboard-selected — kills blue on mobile */
   .react-datepicker-portal .react-datepicker__day--selected,
   .react-datepicker-portal .react-datepicker__day--selected:hover,
   .react-datepicker-portal .react-datepicker__day--keyboard-selected,
-  .react-datepicker-portal .react-datepicker__day--keyboard-selected:hover {
-    background:    ${RED} !important;
-    color:         #FFFFFF !important;
-    font-weight:   600 !important;
-    border-radius: 0 !important;
+  .react-datepicker-portal .react-datepicker__day--keyboard-selected:hover,
+  .react-datepicker-portal .react-datepicker__month .react-datepicker__day--selected,
+  .react-datepicker-portal .react-datepicker__month .react-datepicker__day--keyboard-selected {
+    background-color: ${RED} !important;
+    background:       ${RED} !important;
+    color:            #FFFFFF !important;
+    font-weight:      600 !important;
+    border-radius:    0 !important;
+    outline:          none !important;
+    box-shadow:       none !important;
   }
   .react-datepicker-portal .react-datepicker__day--today {
-    border:        1px solid rgba(200,16,46,0.4) !important;
     background:    transparent !important;
+    border:        1px solid rgba(200,16,46,0.4) !important;
     border-radius: 0 !important;
     color:         ${RED} !important;
+    font-weight:   600 !important;
   }
-  .react-datepicker-portal .react-datepicker__day--today.react-datepicker__day--selected {
-    background: ${RED} !important;
-    color:      #FFFFFF !important;
-    border:     none !important;
+  .react-datepicker-portal .react-datepicker__day--today.react-datepicker__day--selected,
+  .react-datepicker-portal .react-datepicker__day--today.react-datepicker__day--keyboard-selected {
+    background-color: ${RED} !important;
+    background:       ${RED} !important;
+    color:            #FFFFFF !important;
+    border:           none !important;
   }
   .react-datepicker-portal .react-datepicker__day--disabled {
     color:  rgba(10,10,10,0.22) !important;
     cursor: not-allowed !important;
   }
+  .react-datepicker-portal .react-datepicker__day--disabled:hover {
+    background: transparent !important;
+  }
   .react-datepicker-portal .react-datepicker__navigation-icon::before {
     border-color: rgba(10,10,10,0.35) !important;
   }
-  .react-datepicker-portal .react-datepicker__navigation:hover
-  .react-datepicker__navigation-icon::before {
+  .react-datepicker-portal .react-datepicker__navigation:hover .react-datepicker__navigation-icon::before {
     border-color: ${RED} !important;
+  }
+  .react-datepicker-portal .react-datepicker__time-container {
+    border-left: 1px solid ${BORDER} !important;
+  }
+  .react-datepicker-portal .react-datepicker__time-list-item {
+    color:       rgba(10,10,10,0.55) !important;
+    font-size:   12px !important;
+    font-family: ${FONT_B} !important;
+    height:      auto !important;
+    padding:     10px 16px !important;
+    transition:  all 0.15s !important;
   }
   .react-datepicker-portal .react-datepicker__time-list-item--selected,
   .react-datepicker-portal .react-datepicker__time-list-item--selected:hover {
-    background:  ${RED} !important;
-    color:       #FFFFFF !important;
-    font-weight: 600 !important;
+    background-color: ${RED} !important;
+    background:       ${RED} !important;
+    color:            #FFFFFF !important;
+    font-weight:      600 !important;
   }
   .react-datepicker-portal .react-datepicker__time-list-item:hover:not(.react-datepicker__time-list-item--selected) {
     background: rgba(200,16,46,0.07) !important;
     color:      #1A1A1A !important;
   }
 
-  /* ── Mobile popper fallback (non-portal) ── */
-  @media (max-width: 480px) {
-    .limore-dp-popper .react-datepicker {
-      width: 95vw !important;
-    }
-    .limore-dp-popper .react-datepicker__month-container {
-      width: 100% !important;
-    }
-    .limore-dp-popper .react-datepicker__day,
-    .limore-dp-popper .react-datepicker__day-name {
-      width:       calc((95vw - 32px) / 7) !important;
-      line-height: calc((95vw - 32px) / 7) !important;
-      margin:      0 !important;
-      font-size:   11px !important;
-    }
+  /* ── Global nuclear override — last resort for stubborn blue ── */
+  .react-datepicker__day--selected,
+  .react-datepicker__day--keyboard-selected {
+    background-color: ${RED} !important;
+    color: #FFFFFF !important;
+    border-radius: 0 !important;
+  }
+  .react-datepicker__time-list-item--selected {
+    background-color: ${RED} !important;
+    color: #FFFFFF !important;
   }
 
   /* ── Submit button ── */

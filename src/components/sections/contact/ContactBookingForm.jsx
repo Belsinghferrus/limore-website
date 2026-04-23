@@ -885,9 +885,6 @@ export default function ContactBookingForm({ locale = 'en' }) {
                 required
                 dir={dir}
                 selected={form.pickupDate ? new Date(form.pickupDate) : null}
-                // onChange={date =>
-                //   set('pickupDate')(date ? date.toISOString().split('T')[0] : '')
-                // }
                 onChange={date => {
                   if (!date) return set('pickupDate')('')
                   // Use local date parts — no UTC conversion

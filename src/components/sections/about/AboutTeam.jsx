@@ -7,14 +7,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const IMG = {
-  shrishin:  '/images/team/person.png',
-  aamira:    '/images/team/person.png',
-  pamil:     '/images/team/person.png',
-  blessy:    '/images/team/person.png',
-  lolita:    '/images/team/person.png',
+  shrishin:  '/images/team/shrishin.jpeg',
+  aamira:    '/images/team/aamira.jpeg',
+  pamil:     '/images/team/pamil.jpeg',
+  blessy:    '/images/team/blessy.jpeg',
+  lolita:    '/images/team/lolita.jpeg',
   belsingh:  '/images/team/ferrus.JPEG',
   raza:      '/images/team/raza.jpeg',
-  honielyn:  '/images/team/person.png',
+  honielyn:  '/images/team/honielyn.jpeg',
+  william: '/images/team/william.jpeg',
 }
 
 const MEMBERS = [
@@ -138,6 +139,22 @@ const MEMBERS = [
       fr: 'Honielyn est la première personne à qui la plupart des clients parlent. Elle comprend ce dont ils ont réellement besoin, les oriente vers le bon service, et rend le processus de réservation avec Limore naturel — pas transactionnel.',
     },
   },
+  {
+    key:      'william',
+    name:     'William Stenhouse',
+    initials: 'WS',
+    role: {
+      en: 'Head of Regional Sales, Northern Emirates & Africa',
+      ar: 'رئيس المبيعات الإقليمية، الإمارات الشمالية وأفريقيا',
+      fr: 'Responsable des Ventes Régionales, Émirats du Nord & Afrique',
+    },
+    desc: {
+      en: 'William leads Limore\'s growth across the Northern Emirates and African markets. With a sharp understanding of regional dynamics and high-net-worth client expectations, he builds the relationships that turn first-time enquiries into long-term partnerships.',
+      ar: 'يقود ويليام نمو ليمور عبر أسواق الإمارات الشمالية وأفريقيا. بفهمه العميق للديناميكيات الإقليمية وتوقعات العملاء ذوي الثروات العالية، يبني العلاقات التي تحوّل الاستفسارات الأولى إلى شراكات طويلة الأمد.',
+      fr: 'William pilote la croissance de Limore sur les marchés des Émirats du Nord et d\'Afrique. Avec une compréhension aiguë des dynamiques régionales et des attentes des clients fortunés, il construit les relations qui transforment les premières prises de contact en partenariats durables.',
+    },
+  },
+  
 ]
 
 // Row split: first 4, last 4

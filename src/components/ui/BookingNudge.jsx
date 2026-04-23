@@ -573,6 +573,7 @@ export default function BookingNudge({ locale = 'en' }) {
                 {/* Primary */}
                 <Link
                   href={t.ctaHref}
+                  onClick={() => setTimeout(minimise, 300)}
                   onMouseEnter={() => setCtaHover(true)}
                   onMouseLeave={() => setCtaHover(false)}
                   style={{
@@ -608,6 +609,7 @@ export default function BookingNudge({ locale = 'en' }) {
                 {/* Ghost */}
                 <Link
                   href={t.ghostHref}
+                  onClick={() => setTimeout(minimise, 300)}
                   onMouseEnter={() => setGhostHover(true)}
                   onMouseLeave={() => setGhostHover(false)}
                   style={{

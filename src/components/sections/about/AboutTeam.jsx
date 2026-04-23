@@ -15,7 +15,7 @@ const IMG = {
   belsingh:  '/images/team/ferrus.JPEG',
   raza:      '/images/team/raza.jpeg',
   honielyn:  '/images/team/honielyn.jpeg',
-  william: '/images/team/william.jpeg',
+  william: '/images/team/William.jpeg',
 }
 
 const MEMBERS = [

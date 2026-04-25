@@ -39,7 +39,7 @@ const copy = {
         headline:    'Mobility Built\nFor Business.',
         sub:         'Dedicated corporate accounts for financial institutions, luxury brands, and enterprise clients. Managed billing, a personal account manager, and global ground coverage.',
         cta:         'Corporate Enquiry',
-        href:        '/en/corporate',
+        href:        '/en/corporate-solutions',
         accent:      false,
         pillars: ['Dedicated Account Manager', 'Monthly Billing', 'Global Coverage'],
       },
